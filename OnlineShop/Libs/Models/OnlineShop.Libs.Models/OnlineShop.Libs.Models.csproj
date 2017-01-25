@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
     <Compile Include="Color.cs" />
     <Compile Include="Constants\TablesNames.cs" />
     <Compile Include="Constants\Validation.cs" />
