@@ -56,7 +56,7 @@ namespace OnlineShop.Libs.Models.Tests.ContractsTests.INameableTests
 
                 obj.Name = randomString;
 
-                Assert.AreEqual(randomString, obj.Name);
+                Assert.AreEqual(randomString, obj.Name, message: $"{type.Name} get/set do not work properly!");
             }
         }
     }
