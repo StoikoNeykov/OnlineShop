@@ -20,6 +20,7 @@ namespace OnlineShop.Libs.Models
         [RegularExpression(Validation.Regexs.EnBgNumSpaceMinus)]
         public string Name { get; set; }
 
+        [MaxLength(Validation.Color.HexColorMaxLength)]
         public string HexColor { get; set; }
     }
 }

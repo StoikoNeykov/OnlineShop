@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="ColorTests\Color_Should.cs" />
     <Compile Include="ColorTests\Constructor_Should.cs" />
+    <Compile Include="ColorTests\HexCode_Should.cs" />
     <Compile Include="ColorTests\Name_Should.cs" />
     <Compile Include="ContractsTests\IDbModelTests\Id_Should.cs" />
     <Compile Include="ContractsTests\IDbModelTests\IsDeleted_Should.cs" />
