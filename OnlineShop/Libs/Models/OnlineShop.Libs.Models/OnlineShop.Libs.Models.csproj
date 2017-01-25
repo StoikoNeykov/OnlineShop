@@ -52,6 +52,7 @@
     <Compile Include="Color.cs" />
     <Compile Include="Constants\TablesNames.cs" />
     <Compile Include="Contracts\IDbModel.cs" />
+    <Compile Include="Contracts\INameable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

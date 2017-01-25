@@ -7,7 +7,7 @@ using OnlineShop.Libs.Models.Constants;
 namespace OnlineShop.Libs.Models
 {
     [Table(TablesNames.ColorsTableName)]
-    public class Color : IDbModel
+    public class Color : IDbModel, INameable
     {
         [Key]
         public int Id { get; set; }
