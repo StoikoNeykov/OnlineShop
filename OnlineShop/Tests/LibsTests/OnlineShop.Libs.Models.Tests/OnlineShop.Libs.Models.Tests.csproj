@@ -65,6 +65,7 @@
     <Compile Include="ColorTests\Constructor_Should.cs" />
     <Compile Include="ContractsTests\IDbModelTests\Id_Should.cs" />
     <Compile Include="ContractsTests\IDbModelTests\IsDeleted_Should.cs" />
+    <Compile Include="ContractsTests\INameableTests\Name_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
