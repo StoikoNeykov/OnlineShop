@@ -14,6 +14,10 @@ namespace OnlineShop.Libs.Models
 
         public bool IsDeleted { get; set; }
 
+        [Required]
+        [MinLength(Validation.Color.NameMinLenght)]
+        [MaxLength(Validation.Color.NameMaxLenght)]
+        [RegularExpression(Validation.Regexs.EnBgNumSpaceMinus)]
         public string Name { get; set; }
 
         public string HexColor { get; set; }

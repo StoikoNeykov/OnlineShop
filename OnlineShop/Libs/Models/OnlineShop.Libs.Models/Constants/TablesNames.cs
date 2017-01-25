@@ -1,6 +1,6 @@
 ﻿namespace OnlineShop.Libs.Models.Constants
 {
-    public class TablesNames
+    public static class TablesNames
     {
         public const string ColorsTableName = "Colors";
     }
