@@ -9,6 +9,9 @@ namespace OnlineShop.Libs.Models.Tests.ContractsTests.INameableTests
     [TestFixture]
     public class Name_Should
     {
+        /// <summary>
+        /// Fail mean class that implement INameable dont have validation attributes
+        /// </summary>
         [Test]
         public void Have_Validation_Attributes()
         {
@@ -26,11 +29,11 @@ namespace OnlineShop.Libs.Models.Tests.ContractsTests.INameableTests
                                 .GetProperty(propertyName)
                                 .GetCustomAttributes(false)
                                 .Select(x => x.GetType());
-
-                CollectionAssert.Contains(result, typeof(RequiredAttribute));
-                CollectionAssert.Contains(result, typeof(MinLengthAttribute));
-                CollectionAssert.Contains(result, typeof(MaxLengthAttribute));
-                CollectionAssert.Contains(result, typeof(RegularExpressionAttribute));
+             
+                CollectionAssert.Contains(result, typeof(RequiredAttribute), message: $"{type.Name} does not have Required attribute");
+                CollectionAssert.Contains(result, typeof(MinLengthAttribute), message: $"{type.Name} does not have MinLength attribute");
+                CollectionAssert.Contains(result, typeof(MaxLengthAttribute), message: $"{type.Name} does not have MaxLength attribute");
+                CollectionAssert.Contains(result, typeof(RegularExpressionAttribute), message: $"{type.Name} does not have RegularExpression attribute");
             }
         }
 
