@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OnlineShop.Libs.Models;
 using OnlineShop.Libs.Models.Constants;
+using OnlineShop.Libs.Models.Contracts;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
@@ -32,6 +33,17 @@ namespace OnlineShop.Libs.Models.Tests.ColorTests
 
             Assert.AreEqual(TablesNames.ColorsTableName, result);
 
+        }
+
+        [Test]
+        public void Implement_IDbModel()
+        {
+            var result = typeof(Color)
+                            .GetInterfaces()
+                            .Where(x => x == typeof(IDbModel))
+                            .SingleOrDefault();
+
+            Assert.IsNotNull(result);
         }
     }
 }
