@@ -2,10 +2,11 @@
 using OnlineShop.Libs.Models.Contracts;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using OnlineShop.Libs.Models.Constants;
 
 namespace OnlineShop.Libs.Models
 {
-    [Table("Colours")]
+    [Table(TablesNames.ColorsTableName)]
     public class Color : IDbModel
     {
         [Key]
