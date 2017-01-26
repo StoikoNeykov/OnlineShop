@@ -6,7 +6,7 @@ using OnlineShop.Libs.Models.Constants;
 
 namespace OnlineShop.Libs.Models
 {
-    [Table("Countries")]
+    [Table(TablesNames.CountryTableName)]
     public class Country : IDbModel, INameable
     {
         [Key]

@@ -10,17 +10,6 @@ namespace OnlineShop.Libs.Models.Tests.ColorTests
     public class Color_Should
     {
         [Test]
-        public void Have_Table_Attribute()
-        {
-            var result = typeof(Color)
-                            .GetCustomAttributes(false)
-                            .Where(x => x.GetType() == typeof(TableAttribute))
-                            .SingleOrDefault();
-
-            Assert.IsNotNull(result);
-        }
-
-        [Test]
         public void Have_RightValueFor_TableAttribute()
         {
             var result = typeof(Color)

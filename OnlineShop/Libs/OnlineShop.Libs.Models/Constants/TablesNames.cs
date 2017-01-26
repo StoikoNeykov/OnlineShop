@@ -4,5 +4,6 @@
     {
         public const string CategoryTableName = "Categories";
         public const string ColorsTableName = "Colors";
+        public const string CountryTableName = "Countries";
     }
 }

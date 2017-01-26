@@ -10,17 +10,6 @@ namespace OnlineShop.Libs.Models.Tests.CategoryTests
     public class Category_Should
     {
         [Test]
-        public void Have_Table_Attribute()
-        {
-            var result = typeof(Category)
-                            .GetCustomAttributes(false)
-                            .Where(x => x.GetType() == typeof(TableAttribute))
-                            .SingleOrDefault();
-
-            Assert.IsNotNull(result);
-        }
-
-        [Test]
         public void Have_RightValueFor_TableAttribute()
         {
             var result = typeof(Category)
