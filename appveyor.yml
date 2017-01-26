@@ -14,7 +14,7 @@ build:
 
 environment:
   COVERALLS_REPO_TOKEN:
-    secure: bbNRC5lX5JqGXfBffSuqW3qO1siCozBCJ
+    secure: 93m48m39321o320392033d213d12s
 
 after_test: 
       - OnlineShop\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"OnlineShop\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single  OnlineShop\OnlineShop\Tests\LibsTests\OnlineShop.Libs.Models.Tests\bin\Debug\OnlineShop.Libs.Models.Tests.dll" -output:cover.xml
