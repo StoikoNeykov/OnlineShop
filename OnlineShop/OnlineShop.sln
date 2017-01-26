@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Libs.Models.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Libs.Models", "Libs\OnlineShop.Libs.Models\OnlineShop.Libs.Models.csproj", "{E1AC735E-D1E5-4A24-97B5-C8D0493076AF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cover", "Cover", "{EDF49E0B-ED77-4342-80DA-F0738BE3A0D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoverDependency", "Cover\CoverDependency\CoverDependency.csproj", "{CF378660-BD2F-4693-8888-F817ECDB27E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,10 @@ Global
 		{E1AC735E-D1E5-4A24-97B5-C8D0493076AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1AC735E-D1E5-4A24-97B5-C8D0493076AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1AC735E-D1E5-4A24-97B5-C8D0493076AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF378660-BD2F-4693-8888-F817ECDB27E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF378660-BD2F-4693-8888-F817ECDB27E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF378660-BD2F-4693-8888-F817ECDB27E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF378660-BD2F-4693-8888-F817ECDB27E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,5 +45,6 @@ Global
 		{09A90ECA-CBBD-488C-B96B-170FA67DBD7F} = {5E3A9691-B510-408B-84E8-F1A577B594CF}
 		{A0A2DF48-C2C6-447C-BC3F-E4DC88EF5CA5} = {09A90ECA-CBBD-488C-B96B-170FA67DBD7F}
 		{E1AC735E-D1E5-4A24-97B5-C8D0493076AF} = {05DEB5C8-F660-4EF4-A86B-6C8D53425870}
+		{CF378660-BD2F-4693-8888-F817ECDB27E8} = {EDF49E0B-ED77-4342-80DA-F0738BE3A0D9}
 	EndGlobalSection
 EndGlobal
