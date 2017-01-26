@@ -55,6 +55,7 @@
     <Compile Include="Constants\Validation.cs" />
     <Compile Include="Contracts\IDbModel.cs" />
     <Compile Include="Contracts\INameable.cs" />
+    <Compile Include="Country.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

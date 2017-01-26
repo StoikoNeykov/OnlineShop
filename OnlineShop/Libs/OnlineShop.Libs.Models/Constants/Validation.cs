@@ -24,6 +24,12 @@
             public const int HexColorMaxLength = 10;
         }
 
+        public static class Country
+        {
+            public const int NameMinLenght = 2;
+            public const int NameMaxLenght = 30;
 
+            public const int ShortNameMaxLength = 6;
+        }
     }
 }
