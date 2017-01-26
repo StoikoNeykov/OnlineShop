@@ -5,16 +5,16 @@ branches:
 nuget:
   project_feed: true
 before_build:
-- cmd: nuget restore OnlineShop/OnlineShop.sln
+- cmd: nuget restore ./OnlineShop/OnlineShop.sln
 build:
-  project: OnlineShop/OnlineShop.sln
+  project: ./OnlineShop/OnlineShop.sln
   publish_nuget: true
   include_nuget_references: true
   verbosity: minimal
 
-  environment:
+environment:
   COVERALLS_REPO_TOKEN:
     secure: bbNRC5lX5JqGXfBffSuqW3qO1siCozBCJ
 
-  after_test: 
+after_test: 
       - OnlineShop\packages\coveralls.io.1.3.4\tools\coveralls.net.exe --opencover TestResult.xml
