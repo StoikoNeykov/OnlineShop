@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnlineShop.Libs.Models
 {
-    [Table(TablesNames.CategoryTablename)]
+    [Table(TablesNames.CategoryTableName)]
     public class Category : IDbModel, INameable
     {
         [Key]
