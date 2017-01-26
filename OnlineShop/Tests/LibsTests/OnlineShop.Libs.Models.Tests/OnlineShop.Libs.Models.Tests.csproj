@@ -75,6 +75,8 @@
     <Compile Include="ContractsTests\INameableTests\Name_Should.cs" />
     <Compile Include="CountryTests\Construtor_Should.cs" />
     <Compile Include="CountryTests\Country_Should.cs" />
+    <Compile Include="CountryTests\Name_Should.cs" />
+    <Compile Include="CountryTests\ShortName_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
