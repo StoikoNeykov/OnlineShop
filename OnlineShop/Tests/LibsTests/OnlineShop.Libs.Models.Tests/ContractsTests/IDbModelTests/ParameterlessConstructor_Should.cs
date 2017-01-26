@@ -8,7 +8,6 @@ namespace OnlineShop.Libs.Models.Tests.ContractsTests.IDbModelTests
     [TestFixture]
     public class ParameterlessConstructor_Should
     {
-
         [Test]
         public void Exist()
         {

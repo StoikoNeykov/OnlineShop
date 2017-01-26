@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryTests\Category_Should.cs" />
+    <Compile Include="CategoryTests\Constructor_Should.cs" />
     <Compile Include="CategoryTests\Name_Should.cs" />
     <Compile Include="ColorTests\Color_Should.cs" />
     <Compile Include="ColorTests\Constructor_Should.cs" />
