@@ -13,6 +13,4 @@ build:
   verbosity: minimal
 
 after_test: 
-        - OnlineShop\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"OnlineShop\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single OnlineShop\Tests\LibsTests\OnlineShop.Libs.Models.Tests\bin\Debug\OnlineShop.Libs.Models.Tests.dll" -output:cover.xml
-
-        - OnlineShop\packages\coveralls.io.1.3.4\tools\coveralls.net.exe --opencover cover.xml
+        - OnlineShop\packages\coveralls.io.1.3.4\tools\coveralls.net.exe --opencover TestResult.xml
