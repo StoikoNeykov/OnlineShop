@@ -40,8 +40,17 @@ namespace OnlineShop.Libs.Models.Tests.ColorTests
         {
             var result = typeof(Color)
                             .GetInterfaces()
-                            .Where(x => x == typeof(IDbModel))
-                            .SingleOrDefault();
+                            .SingleOrDefault(x => x == typeof(IDbModel));
+
+            Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void Implement_INameable()
+        {
+            var result = typeof(Color)
+                            .GetInterfaces()
+                            .SingleOrDefault(x => x == typeof(INameable));
 
             Assert.IsNotNull(result);
         }
