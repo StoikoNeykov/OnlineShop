@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using OnlineShop.Libs.Models;
 using OnlineShop.Libs.Models.Constants;
 using OnlineShop.Libs.Models.Contracts;
 using System.ComponentModel.DataAnnotations.Schema;
