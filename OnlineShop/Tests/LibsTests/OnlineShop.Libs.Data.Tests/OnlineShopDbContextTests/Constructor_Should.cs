@@ -16,7 +16,7 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
         }
 
         [TestCase("ecwqce")]
-        [TestCase("any")]
+        [TestCase("anything else")]
         [TestCase("not a string")]
         [TestCase("jsdoa,c24crcewjr,clw")]
         [TestCase("<>@$>@#X@)(<_)X!")]

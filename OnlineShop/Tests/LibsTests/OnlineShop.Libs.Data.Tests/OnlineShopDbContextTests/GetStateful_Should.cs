@@ -4,6 +4,7 @@ using OnlineShop.Libs.Data.Factories;
 using OnlineShop.Libs.Models;
 using OnlineShop.Libs.Models.Contracts;
 using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 
 namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
 {
@@ -39,7 +40,7 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
         }
 
         [Test]
-        public void Call_BaseEntryMethod_And_ThrowInvalidOperationException_WhenCalledWith_ObjectOfNotRegisteredType()
+        public void Call_BaseEntryMethod_And_ThrowSqlException_WhenCalledWith_ObjectOfNotRegisteredType()
         {
             var mockedFactory = new Mock<IStatefulFactory>();
 
@@ -48,11 +49,11 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
             var obj = new OnlineShopDbContext("string", mockedFactory.Object);
 
             Assert.That(() => obj.GetStateful(mockedModel),
-                        Throws.InvalidOperationException.With.Message.Contain("not part of the model for the current context"));
+                        Throws.InstanceOf<SqlException>().With.Message.Contain("not part of the model for the current context"));
         }
 
         [Test]
-        public void Call_BaseEntryMethod_And_ThrowInvalidOperationException_WhenCalledWith_ObjectOfNotRegisteredType_2ndTry()
+        public void Call_BaseEntryMethod_And_ThrowSqlException_WhenCalledWith_ObjectOfNotRegisteredType_2ndTry()
         {
             var mockedFactory = new Mock<IStatefulFactory>();
 
@@ -61,7 +62,7 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
             var obj = new OnlineShopDbContext("string", mockedFactory.Object);
 
             Assert.That(() => obj.GetStateful(mockedModel),
-                        Throws.InvalidOperationException.With.Message.Contain("not part of the model for the current context"));
+                        Throws.InstanceOf<SqlException>().With.Message.Contain("not part of the model for the current context"));
         }
 
         private class MockedDbContext : OnlineShopDbContext
