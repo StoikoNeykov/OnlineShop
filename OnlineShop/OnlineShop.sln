@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoverDependency", "Cover\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Libs.Data", "Libs\OnlineShop.Libs.Data\OnlineShop.Libs.Data.csproj", "{136BC4F8-1CC5-44D0-82FE-9DD8BEA8BC58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Libs.Data.Tests", "LibsTests\OnlineShop.Libs.Data.Tests\OnlineShop.Libs.Data.Tests.csproj", "{5D931196-2CC0-42B6-9588-6F9D475B2F19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Libs.Data.Tests", "Tests\LibsTests\OnlineShop.Libs.Data.Tests\OnlineShop.Libs.Data.Tests.csproj", "{5D931196-2CC0-42B6-9588-6F9D475B2F19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
