@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using OnlineShop.Libs.Models;
+using System.Data.Entity;
 using System.Threading.Tasks;
 
 namespace OnlineShop.Libs.Data.Contracts
@@ -12,5 +13,11 @@ namespace OnlineShop.Libs.Data.Contracts
         Task<int> SaveChangesAsync();
 
         int SaveChanges();
+
+        IDbSet<Category> Categories { get; }
+
+        IDbSet<Color> Colors { get; }
+
+        IDbSet<Country> Countries { get; }
     }
 }
