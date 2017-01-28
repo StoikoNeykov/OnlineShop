@@ -11,6 +11,9 @@ build:
   publish_nuget: true
   include_nuget_references: true
   verbosity: minimal
+  
+services:
+  - mssql2016
 
 environment:
   COVERALLS_REPO_TOKEN:
