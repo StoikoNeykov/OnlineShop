@@ -22,10 +22,10 @@ namespace OnlineShop.Libs.Data.Tests.ContractsTests
 
             var result = typeof(IOnlineShopDbContext)
                                 .GetProperties()
-                                .Select(x => x.PropertyType
-                                            .GetGenericArguments()
-                                            .SingleOrDefault());
-            
+                                .Select(x => x.PropertyType)
+                                .Where(x => x.Name.Contains("Set"))
+                                .Select(x => x.GetGenericArguments().SingleOrDefault());
+
             CollectionAssert.AreEquivalent(expected, result);
         }
     }
