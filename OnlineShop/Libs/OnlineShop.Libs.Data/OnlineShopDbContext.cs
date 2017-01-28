@@ -34,7 +34,7 @@ namespace OnlineShop.Libs.Data
 
         public IStateful<TEntity> GetStateful<TEntity>(TEntity entity) where TEntity : class
         {
-            return this.statefulFactory.GetStateful(base.Entry(entity));
+            return this.statefulFactory.GetStateful(this.Entry(entity));
         }
     }
 }
