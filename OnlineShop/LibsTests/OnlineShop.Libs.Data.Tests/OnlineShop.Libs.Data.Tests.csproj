@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="ContractsTests\IOnlineShopDbContext_Should.cs" />
     <Compile Include="OnlineShopDbContextTests\Class_Should.cs" />
+    <Compile Include="OnlineShopDbContextTests\Constructor_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
