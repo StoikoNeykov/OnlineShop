@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 using OnlineShop.Libs.Data;
+using OnlineShop.Libs.Data.Contracts;
 using System.Data.Entity;
+using System.Linq;
 
 namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
 {
@@ -14,6 +16,16 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
                                 .BaseType;
 
             Assert.AreEqual(typeof(DbContext), result);
+        }
+
+        [Test]
+        public void Implement_IOnlineShopDbContext()
+        {
+            var result = typeof(OnlineShopDbContext)
+                            .GetInterfaces()
+                            .SingleOrDefault(x => x == typeof(IOnlineShopDbContext));
+
+            Assert.IsNotNull(result);
         }
     }
 }
