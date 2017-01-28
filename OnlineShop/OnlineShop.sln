@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoverDependency", "Cover\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Libs.Data", "Libs\OnlineShop.Libs.Data\OnlineShop.Libs.Data.csproj", "{136BC4F8-1CC5-44D0-82FE-9DD8BEA8BC58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Libs.Data.Tests", "LibsTests\OnlineShop.Libs.Data.Tests\OnlineShop.Libs.Data.Tests.csproj", "{5D931196-2CC0-42B6-9588-6F9D475B2F19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{136BC4F8-1CC5-44D0-82FE-9DD8BEA8BC58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{136BC4F8-1CC5-44D0-82FE-9DD8BEA8BC58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{136BC4F8-1CC5-44D0-82FE-9DD8BEA8BC58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D931196-2CC0-42B6-9588-6F9D475B2F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D931196-2CC0-42B6-9588-6F9D475B2F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D931196-2CC0-42B6-9588-6F9D475B2F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D931196-2CC0-42B6-9588-6F9D475B2F19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,5 +59,6 @@ Global
 		{E1AC735E-D1E5-4A24-97B5-C8D0493076AF} = {05DEB5C8-F660-4EF4-A86B-6C8D53425870}
 		{CF378660-BD2F-4693-8888-F817ECDB27E8} = {EDF49E0B-ED77-4342-80DA-F0738BE3A0D9}
 		{136BC4F8-1CC5-44D0-82FE-9DD8BEA8BC58} = {05DEB5C8-F660-4EF4-A86B-6C8D53425870}
+		{5D931196-2CC0-42B6-9588-6F9D475B2F19} = {09A90ECA-CBBD-488C-B96B-170FA67DBD7F}
 	EndGlobalSection
 EndGlobal

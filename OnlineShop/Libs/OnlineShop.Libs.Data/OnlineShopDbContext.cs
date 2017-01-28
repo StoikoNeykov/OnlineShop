@@ -27,6 +27,11 @@ namespace OnlineShop.Libs.Data
 
         public virtual IDbSet<Country> Countries { get; set; }
 
+        IDbSet<TEntity> IOnlineShopDbContext.Set<TEntity>()
+        {
+            return base.Set<TEntity>();
+        }
+
         public IStateful<TEntity> GetStateful<TEntity>(TEntity entity) where TEntity : class
         {
             return this.statefulFactory.GetStateful(base.Entry(entity));
