@@ -50,7 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IOnlineShopDbContext.cs" />
+    <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\IStateful.cs" />
+    <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
