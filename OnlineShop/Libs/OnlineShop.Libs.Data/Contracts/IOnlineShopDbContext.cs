@@ -5,7 +5,7 @@ namespace OnlineShop.Libs.Data.Contracts
 {
     public interface IOnlineShopDbContext
     {
-        DbSet<TEntity> Set<TEntity>() where TEntity : class;
+        IDbSet<TEntity> Set<TEntity>() where TEntity : class;
 
         IStateful<TEntity> GetStateful<TEntity>(TEntity entity) where TEntity : class;
 

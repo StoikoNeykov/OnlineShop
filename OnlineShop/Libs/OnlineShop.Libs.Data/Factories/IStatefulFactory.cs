@@ -5,6 +5,6 @@ namespace OnlineShop.Libs.Data.Factories
 {
     public interface IStatefulFactory
     {
-        IStateful<T> GetStateful<T>(DbEntityEntry<T> entity) where T : class;
+        IStateful<T> GetStateful<T>(DbEntityEntry<T> entry) where T : class;
     }
 }

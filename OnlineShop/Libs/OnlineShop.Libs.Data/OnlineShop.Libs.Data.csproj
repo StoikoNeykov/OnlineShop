@@ -53,6 +53,8 @@
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\IStateful.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
+    <Compile Include="Factories\IStatefulFactory.cs" />
+    <Compile Include="OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
