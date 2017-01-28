@@ -46,7 +46,7 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
 
             var mockedModel = new SomeRandomClass();
 
-            var obj = new OnlineShopDbContext("string", mockedFactory.Object);
+            var obj = new OnlineShopDbContext("any", mockedFactory.Object);
 
             Assert.That(() => obj.GetStateful(mockedModel),
                         Throws.InstanceOf<SqlException>().With.Message.Contain("not part of the model for the current context"));
@@ -59,7 +59,7 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
 
             var mockedModel = new Mock<IDbModel>();
 
-            var obj = new OnlineShopDbContext("string", mockedFactory.Object);
+            var obj = new OnlineShopDbContext("any", mockedFactory.Object);
 
             Assert.That(() => obj.GetStateful(mockedModel),
                         Throws.InstanceOf<SqlException>().With.Message.Contain("not part of the model for the current context"));
