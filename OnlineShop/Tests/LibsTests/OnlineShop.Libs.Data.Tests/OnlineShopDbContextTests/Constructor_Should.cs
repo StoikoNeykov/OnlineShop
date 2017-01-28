@@ -1,5 +1,6 @@
 ﻿using Moq;
 using NUnit.Framework;
+using OnlineShop.ConfigurationProviders;
 using OnlineShop.Libs.Data.Factories;
 using System;
 
@@ -8,10 +9,12 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
     [TestFixture]
     public class Constructor_Should
     {
+        private string validConnectionString = new ConnectionStringProvider(new EnvoirmentProvider()).ConnectionString;
+
         [Test]
         public void Throw_ArgumentNullException_WithProperMessage_WhenStatefulFactory_IsNull()
         {
-            Assert.That(() => new OnlineShopDbContext("any", null),
+            Assert.That(() => new OnlineShopDbContext(this.validConnectionString, null),
                                     Throws.ArgumentNullException.With.Message.Contains("StatefulFactory"));
         }
 

@@ -72,6 +72,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Configuration\OnlineShop.ConfigurationProviders\OnlineShop.ConfigurationProviders.csproj">
+      <Project>{6792F177-F385-4815-BB0A-78D9EA860E39}</Project>
+      <Name>OnlineShop.ConfigurationProviders</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Libs\OnlineShop.Libs.Data\OnlineShop.Libs.Data.csproj">
       <Project>{136BC4F8-1CC5-44D0-82FE-9DD8BEA8BC58}</Project>
       <Name>OnlineShop.Libs.Data</Name>
