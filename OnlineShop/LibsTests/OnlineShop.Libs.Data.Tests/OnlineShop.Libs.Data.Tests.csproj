@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContractsTests\IOnlineShopDbContext_Should.cs" />
     <Compile Include="OnlineShopDbContextTests\Class_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -65,6 +66,10 @@
     <ProjectReference Include="..\..\Libs\OnlineShop.Libs.Data\OnlineShop.Libs.Data.csproj">
       <Project>{136BC4F8-1CC5-44D0-82FE-9DD8BEA8BC58}</Project>
       <Name>OnlineShop.Libs.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libs\OnlineShop.Libs.Models\OnlineShop.Libs.Models.csproj">
+      <Project>{E1AC735E-D1E5-4A24-97B5-C8D0493076AF}</Project>
+      <Name>OnlineShop.Libs.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
