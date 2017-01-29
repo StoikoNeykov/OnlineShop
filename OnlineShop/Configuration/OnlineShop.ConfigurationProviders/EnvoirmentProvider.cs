@@ -10,8 +10,6 @@ namespace OnlineShop.ConfigurationProviders
         {
             get
             {
-                var result = ConfigurationManager.AppSettings;
-
                 return ConfigurationManager.AppSettings["Envoirment"];
             }
         }
