@@ -6,7 +6,7 @@ namespace OnlineShop.Libs.Data
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private IOnlineShopDbContext dbContext;
+        private readonly IOnlineShopDbContext dbContext;
 
         public UnitOfWork(IOnlineShopDbContext dbContext)
         {
