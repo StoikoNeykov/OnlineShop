@@ -3,6 +3,7 @@ using NUnit.Framework;
 using OnlineShop.Libs.Models.Contracts;
 using Moq;
 using OnlineShop.Libs.Data.Contracts;
+using OnlineShop.Libs.Data.Tests.Mocks;
 
 namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 {
@@ -34,21 +35,6 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             Assert.That(() => new Repository<DimmyClass>(mockedContext.Object),
                                     Throws.Exception);
-        }
-
-        private class DimmyClass : IDbModel
-        {
-            public int Id
-            {
-                get { return 42; }
-                set { }
-            }
-
-            public bool IsDeleted
-            {
-                get { return true; }
-                set { }
-            }
         }
     }
 }

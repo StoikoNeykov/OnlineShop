@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using OnlineShop.ConfigurationProviders;
 using OnlineShop.Libs.Data.Factories;
+using OnlineShop.Libs.Data.Tests.Mocks;
 using OnlineShop.Libs.Models;
 using OnlineShop.Libs.Models.Contracts;
 using System.Data.Entity.Infrastructure;
@@ -46,7 +47,7 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
         {
             var mockedFactory = new Mock<IStatefulFactory>();
 
-            var mockedModel = new SomeRandomClass();
+            var mockedModel = new DimmyClass();
 
             var obj = new OnlineShopDbContext(this.validConnectionString, mockedFactory.Object);
 
@@ -80,11 +81,6 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
 
                 return mock.Object;
             }
-        }
-
-        private class SomeRandomClass
-        {
-
         }
     }
 }
