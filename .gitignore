@@ -253,4 +253,5 @@ paket-files/
 
 # Cusstom
 
+# change Envoirment do not affect CI and integration tests can be run with diferent connection strings 
 OnlineShop/Tests/LibsTests/OnlineShop.Libs.Data.Tests/App.config
