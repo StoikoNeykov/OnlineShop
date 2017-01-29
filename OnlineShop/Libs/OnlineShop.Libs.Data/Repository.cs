@@ -126,6 +126,11 @@ namespace OnlineShop.Libs.Data
 
         public T GetById(object id)
         {
+            if (id == null)
+            {
+                throw new ArgumentNullException("Id");
+            }
+
             return this.dbSet.Find(id);
         }
 

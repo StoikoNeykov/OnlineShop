@@ -28,5 +28,19 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             mockedSet.Verify();
         }
+
+        [Test]
+        public void Should_ThrowArgumentNullException_WithProperMessage_WhenId_IsNull()
+        {
+            var mockedSet = new Mock<IDbSet<DimmyClass>>();
+
+            var mockedContext = new Mock<IOnlineShopDbContext>();
+            mockedContext.Setup(x => x.Set<DimmyClass>()).Returns(mockedSet.Object);
+
+            var obj = new Repository<DimmyClass>(mockedContext.Object);
+
+            Assert.That(() => obj.GetById(null),
+                                Throws.ArgumentNullException.With.Message.Contains("Id"));
+        }
     }
 }
