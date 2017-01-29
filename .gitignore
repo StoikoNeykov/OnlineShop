@@ -250,3 +250,8 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+# Cusstom
+
+OnlineShop.ConfigurationProviders/app.config
+OnlineShop.Libs.Data.Tests/app.config
