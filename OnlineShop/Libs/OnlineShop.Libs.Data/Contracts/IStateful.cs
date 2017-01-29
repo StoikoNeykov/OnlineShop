@@ -5,6 +5,5 @@ namespace OnlineShop.Libs.Data.Contracts
     public interface IStateful<T>
     {
         EntityState State { get; set; }
-
     }
 }
