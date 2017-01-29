@@ -22,7 +22,14 @@ namespace OnlineShop.Libs.Data
             }
 
             this.dbContext = dbContext;
-            this.dbSet = dbContext.Set<T>();
+            var set = dbContext.Set<T>();
+
+            if (set == null)
+            {
+                throw new ArgumentNullException("DbSet");
+            }
+
+            this.dbSet = set;
         }
 
         public void Add(T entity)
@@ -63,7 +70,7 @@ namespace OnlineShop.Libs.Data
         {
             return this.dbSet
                         .Where(filter)
-                        .Skip(page*pageSize)
+                        .Skip(page * pageSize)
                         .Take(pageSize)
                         .ToList();
         }

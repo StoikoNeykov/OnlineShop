@@ -67,6 +67,7 @@
     <Compile Include="OnlineShopDbContextTests\GetStateful_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryTests\Class_Should.cs" />
+    <Compile Include="RepositoryTests\Constructor_Should.cs" />
     <Compile Include="StatefulTests\Class_Should.cs" />
     <Compile Include="StatefulTests\Constructor_Should.cs" />
     <Compile Include="UnitOfWorkTests\Class_Should.cs" />
