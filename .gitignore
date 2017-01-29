@@ -253,5 +253,4 @@ paket-files/
 
 # Cusstom
 
-OnlineShop.ConfigurationProviders/app.config
-OnlineShop.Libs.Data.Tests/app.config
+OnlineShop/Tests/LibsTests/OnlineShop.Libs.Data.Tests/App.config
