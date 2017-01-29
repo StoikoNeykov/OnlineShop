@@ -70,6 +70,7 @@
     <Compile Include="RepositoryTests\Add_Should.cs" />
     <Compile Include="RepositoryTests\Class_Should.cs" />
     <Compile Include="RepositoryTests\Constructor_Should.cs" />
+    <Compile Include="RepositoryTests\Delete_Should.cs" />
     <Compile Include="RepositoryTests\Update_Should.cs" />
     <Compile Include="StatefulTests\Class_Should.cs" />
     <Compile Include="StatefulTests\Constructor_Should.cs" />
