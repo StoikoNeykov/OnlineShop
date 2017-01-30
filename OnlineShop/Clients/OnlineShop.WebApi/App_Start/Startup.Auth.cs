@@ -8,8 +8,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using OnlineShop.WebApi.Providers;
-using OnlineShop.WebApi.Models;
+using OnlineShop.Common.DefaultAuth;
 
 namespace OnlineShop.WebApi
 {

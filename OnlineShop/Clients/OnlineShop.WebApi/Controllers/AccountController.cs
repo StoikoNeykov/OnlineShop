@@ -14,8 +14,8 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using OnlineShop.WebApi.Models;
-using OnlineShop.WebApi.Providers;
 using OnlineShop.WebApi.Results;
+using OnlineShop.Common.DefaultAuth;
 
 namespace OnlineShop.WebApi.Controllers
 {
