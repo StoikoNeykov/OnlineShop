@@ -89,6 +89,7 @@
     <Compile Include="AccountBindingModels\ChangePasswordBindingModel.cs" />
     <Compile Include="AccountBindingModels\RegisterBindingModel.cs" />
     <Compile Include="AccountBindingModels\RegisterExternalBindingModel.cs" />
+    <Compile Include="AccountBindingModels\RemoveLoginBindingModel.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="ApplicationOAuthProvider.cs" />
     <Compile Include="ApplicationUser.cs" />
