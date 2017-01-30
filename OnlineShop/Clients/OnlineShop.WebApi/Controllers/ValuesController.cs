@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace OnlineShop.WebApi.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ValuesController : ApiController
     {
         // GET api/values
