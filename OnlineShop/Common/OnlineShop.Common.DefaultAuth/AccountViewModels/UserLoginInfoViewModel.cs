@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace OnlineShop.WebApi.Models
+namespace OnlineShop.Common.DefaultAuth.AccountViewModels
 {
-    // Models returned by AccountController actions.
-
-
-
-
-
-
-
     public class UserLoginInfoViewModel
     {
         public string LoginProvider { get; set; }

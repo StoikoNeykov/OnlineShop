@@ -94,6 +94,7 @@
     <Compile Include="AccountViewModels\ExternalLoginViewModel.cs" />
     <Compile Include="AccountViewModels\ManageInfoViewModel.cs" />
     <Compile Include="AccountViewModels\UserInfoViewModel.cs" />
+    <Compile Include="AccountViewModels\UserLoginInfoViewModel.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="ApplicationOAuthProvider.cs" />
     <Compile Include="ApplicationUser.cs" />

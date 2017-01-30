@@ -13,9 +13,10 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using OnlineShop.WebApi.Models;
 using OnlineShop.WebApi.Results;
 using OnlineShop.Common.DefaultAuth;
+using OnlineShop.Common.DefaultAuth.AccountViewModels;
+using OnlineShop.Common.DefaultAuth.AccountBindingModels;
 
 namespace OnlineShop.WebApi.Controllers
 {
