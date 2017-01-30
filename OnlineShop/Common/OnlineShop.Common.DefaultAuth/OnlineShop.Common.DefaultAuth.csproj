@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountBindingModels\AddExternalLoginBindingModel.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="ApplicationOAuthProvider.cs" />
     <Compile Include="ApplicationUser.cs" />
