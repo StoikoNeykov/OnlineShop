@@ -1,21 +1,7 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace OnlineShop.WebApi.Models
+namespace OnlineShop.Common.DefaultAuth.AccountBindingModels
 {
-    // Models used as parameters to AccountController actions.
-
-
-
-
-
-
-
-
-
-
-
     public class SetPasswordBindingModel
     {
         [Required]
