@@ -54,6 +54,7 @@
     <Compile Include="Contracts\IStateful.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="Factories\IStatefulFactory.cs" />
+    <Compile Include="Factories\IUnitOfWorkFactory.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />

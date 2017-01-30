@@ -18,6 +18,11 @@ namespace OnlineShop.Libs.Data
             this.dbContext = dbContext;
         }
 
+        public void Dispose()
+        {
+            // do nothing
+        }
+
         public int SaveChanges()
         {
             return this.dbContext.SaveChanges();

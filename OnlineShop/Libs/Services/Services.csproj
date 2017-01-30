@@ -40,7 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstraction\BaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineShop.Libs.Data\OnlineShop.Libs.Data.csproj">
+      <Project>{136BC4F8-1CC5-44D0-82FE-9DD8BEA8BC58}</Project>
+      <Name>OnlineShop.Libs.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnlineShop.Libs.Models\OnlineShop.Libs.Models.csproj">
+      <Project>{E1AC735E-D1E5-4A24-97B5-C8D0493076AF}</Project>
+      <Name>OnlineShop.Libs.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
