@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace Services.Abstraction
 {
-    public abstract class BaseService<T>
+    public class BaseService<T>
         where T : IDbModel
     {
         private IRepository<T> repo;
@@ -173,6 +173,9 @@ namespace Services.Abstraction
             return this.GetAll((x) => x.IsDeleted);
         }
 
-        protected abstract bool IsValid(T item);
+        protected virtual bool IsValid(T item)
+        {
+            return !(item == null);
+        }
     }
 }
