@@ -248,12 +248,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common\OnlineShop.Common.DefaultAuth\OnlineShop.Common.DefaultAuth.csproj">
-      <Project>{647FD41D-1855-4FE0-ACEF-DACCDFF53ABA}</Project>
-      <Name>OnlineShop.Common.DefaultAuth</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
