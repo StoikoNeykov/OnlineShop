@@ -15,9 +15,5 @@ namespace OnlineShop.Libs.Data.Contracts
         int SaveChanges();
 
         IDbSet<Category> Categories { get; }
-
-        IDbSet<Color> Colors { get; }
-
-        IDbSet<Country> Countries { get; }
     }
 }

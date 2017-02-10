@@ -64,19 +64,11 @@
     <Compile Include="CategoryTests\Category_Should.cs" />
     <Compile Include="CategoryTests\Constructor_Should.cs" />
     <Compile Include="CategoryTests\Name_Should.cs" />
-    <Compile Include="ColorTests\Color_Should.cs" />
-    <Compile Include="ColorTests\Constructor_Should.cs" />
-    <Compile Include="ColorTests\HexCode_Should.cs" />
-    <Compile Include="ColorTests\Name_Should.cs" />
     <Compile Include="ContractsTests\IDbModelTests\Attributes_Should.cs" />
     <Compile Include="ContractsTests\IDbModelTests\Id_Should.cs" />
     <Compile Include="ContractsTests\IDbModelTests\IsDeleted_Should.cs" />
     <Compile Include="ContractsTests\IDbModelTests\ParameterlessConstructor_Should.cs" />
     <Compile Include="ContractsTests\INameableTests\Name_Should.cs" />
-    <Compile Include="CountryTests\Construtor_Should.cs" />
-    <Compile Include="CountryTests\Country_Should.cs" />
-    <Compile Include="CountryTests\Name_Should.cs" />
-    <Compile Include="CountryTests\ShortName_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -18,14 +18,14 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
         public void Call_StatefulFactory_Method_Once()
         {
             var mockedFactory = new Mock<IStatefulFactory>();
-            mockedFactory.Setup(x => x.GetStateful(It.IsAny<DbEntityEntry<Color>>()));
+            mockedFactory.Setup(x => x.GetStateful(It.IsAny<DbEntityEntry<Category>>()));
 
-            var model = new Color();
+            var model = new Category();
 
             var obj = new MockedDbContext(this.validConnectionString, mockedFactory.Object);
             obj.GetStateful(model);
 
-            mockedFactory.Verify(x => x.GetStateful(It.IsAny<DbEntityEntry<Color>>()), Times.Once);
+            mockedFactory.Verify(x => x.GetStateful(It.IsAny<DbEntityEntry<Category>>()), Times.Once);
         }
 
         [Test]

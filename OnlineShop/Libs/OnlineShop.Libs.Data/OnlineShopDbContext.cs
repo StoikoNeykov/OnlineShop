@@ -10,6 +10,13 @@ namespace OnlineShop.Libs.Data
     {
         private readonly IStatefulFactory statefulFactory;
 
+        // needed for add-migration 
+        //public OnlineShopDbContext()
+        //    :base("local")
+        //{
+
+        //}
+
         public OnlineShopDbContext(string connectionString, IStatefulFactory statefulFactory)
             : base(connectionString)
         {
@@ -22,10 +29,6 @@ namespace OnlineShop.Libs.Data
         }
 
         public virtual IDbSet<Category> Categories { get; set; }
-
-        public virtual IDbSet<Color> Colors { get; set; }
-
-        public virtual IDbSet<Country> Countries { get; set; }
 
         IDbSet<TEntity> IOnlineShopDbContext.Set<TEntity>()
         {

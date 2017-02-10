@@ -1,7 +1,6 @@
 ﻿using OnlineShop.Libs.Models.Constants;
 using OnlineShop.Libs.Models.Contracts;
 using System.ComponentModel.DataAnnotations.Schema;
-using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace OnlineShop.Libs.Models
