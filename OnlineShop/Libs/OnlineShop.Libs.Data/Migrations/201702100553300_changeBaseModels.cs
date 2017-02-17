@@ -11,7 +11,7 @@ namespace OnlineShop.Libs.Data.Migrations
                 "dbo.Categories",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Guid(nullable: false, identity: true, defaultValueSql: "NEWID()"),
                         IsDeleted = c.Boolean(nullable: false),
                         Name = c.String(nullable: false, maxLength: 30),
                     })

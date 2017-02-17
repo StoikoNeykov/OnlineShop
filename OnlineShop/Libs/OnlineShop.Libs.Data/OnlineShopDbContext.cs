@@ -8,11 +8,12 @@ namespace OnlineShop.Libs.Data
 {
     public class OnlineShopDbContext : DbContext, IOnlineShopDbContext
     {
+        private static string localConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=OnlineShop;Integrated Security=True;MultipleActiveResultSets=False";
         private readonly IStatefulFactory statefulFactory;
 
-        // needed for add-migration 
+        // // needed for add-migration 
         //public OnlineShopDbContext()
-        //    :base("local")
+        //    : base(localConnectionString)
         //{
 
         //}

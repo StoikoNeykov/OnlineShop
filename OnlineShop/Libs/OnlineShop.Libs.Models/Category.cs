@@ -2,14 +2,21 @@
 using OnlineShop.Libs.Models.Contracts;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace OnlineShop.Libs.Models
 {
     [Table(TablesNames.CategoryTableName)]
-    public class Category : IDbModel, INameable
+    public class Category
     {
+        public Category()
+        {
+            this.Id = Guid.NewGuid();
+        }
+
         [Key]
-        public int Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Id { get; set; }
 
         public bool IsDeleted { get; set; }
 

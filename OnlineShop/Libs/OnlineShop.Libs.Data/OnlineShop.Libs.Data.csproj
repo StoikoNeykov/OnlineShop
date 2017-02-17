@@ -59,6 +59,10 @@
     <Compile Include="Migrations\201702100553300_changeBaseModels.Designer.cs">
       <DependentUpon>201702100553300_changeBaseModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702170818549_IdToGuid.cs" />
+    <Compile Include="Migrations\201702170818549_IdToGuid.Designer.cs">
+      <DependentUpon>201702170818549_IdToGuid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +83,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702100553300_changeBaseModels.resx">
       <DependentUpon>201702100553300_changeBaseModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702170818549_IdToGuid.resx">
+      <DependentUpon>201702170818549_IdToGuid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

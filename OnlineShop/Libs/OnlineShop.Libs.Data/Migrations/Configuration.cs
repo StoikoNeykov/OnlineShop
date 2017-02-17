@@ -9,7 +9,8 @@ namespace OnlineShop.Libs.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            this.AutomaticMigrationsEnabled = false;
+            this.AutomaticMigrationDataLossAllowed = false;
         }
 
         protected override void Seed(OnlineShop.Libs.Data.OnlineShopDbContext context)
