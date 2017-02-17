@@ -21,8 +21,8 @@ namespace OnlineShop.Libs.Models
         public bool IsDeleted { get; set; }
 
         [Required]
-        [MinLength(Validation.Category.NameMinLenght)]
-        [MaxLength(Validation.Category.NameMaxLenght)]
+        [MinLength(Validation.CategoryValidations.NameMinLenght)]
+        [MaxLength(Validation.CategoryValidations.NameMaxLenght)]
         [RegularExpression(Validation.Regexs.EnBgNumSpaceMinus)]
         public string Name { get; set; }
     }

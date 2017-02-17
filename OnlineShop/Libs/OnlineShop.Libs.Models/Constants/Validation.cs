@@ -10,26 +10,20 @@
             public const string EnBgNumSpaceQuotesMinusPlusMore = @"^[a-zA-Zа-яА-Я0-9\-\s\+\!\?""\']+$";
         }
 
-        public static class Category
+        public static class CategoryValidations
         {
             public const int NameMinLenght = 2;
             public const int NameMaxLenght = 30;
         }
 
-        public static class Color
+        public static class ProductValidations
         {
+            public const int ProductIdMinLenght = 2;
+            public const int ProductIdMaxLenght = 50;
             public const int NameMinLenght = 2;
-            public const int NameMaxLenght = 30;
-
-            public const int HexColorMaxLength = 10;
-        }
-
-        public static class Country
-        {
-            public const int NameMinLenght = 2;
-            public const int NameMaxLenght = 30;
-
-            public const int ShortNameMaxLength = 6;
+            public const int NameMaxLenght = 50;
+            public const int FullNameMinLenght = 2;
+            public const int FullNameMaxLenght = 150;
         }
     }
 }

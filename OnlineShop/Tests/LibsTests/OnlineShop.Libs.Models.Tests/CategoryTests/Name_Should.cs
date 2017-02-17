@@ -21,7 +21,7 @@ namespace OnlineShop.Libs.Models.Tests.CategoryTests
                             .SingleOrDefault();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(Validation.Category.NameMinLenght, result.Length);
+            Assert.AreEqual(Validation.CategoryValidations.NameMinLenght, result.Length);
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace OnlineShop.Libs.Models.Tests.CategoryTests
                             .SingleOrDefault();
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(Validation.Category.NameMaxLenght, result.Length);
+            Assert.AreEqual(Validation.CategoryValidations.NameMaxLenght, result.Length);
         }
 
         [Test]
