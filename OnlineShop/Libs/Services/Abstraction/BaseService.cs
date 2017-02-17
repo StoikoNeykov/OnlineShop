@@ -55,7 +55,7 @@ namespace Services.Abstraction
             }
         }
 
-        public virtual T GetById(int id)
+        public virtual T GetById(Guid id)
         {
             return this.repo.GetById(id);
         }

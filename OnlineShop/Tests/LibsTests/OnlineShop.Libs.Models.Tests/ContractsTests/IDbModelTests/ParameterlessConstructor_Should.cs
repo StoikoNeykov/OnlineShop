@@ -26,7 +26,7 @@ namespace OnlineShop.Libs.Models.Tests.ContractsTests.IDbModelTests
         }
 
         [Test]
-        public void NotSet_Id()
+        public void Set_Id()
         {
             var types = AppDomain
                 .CurrentDomain
@@ -38,7 +38,7 @@ namespace OnlineShop.Libs.Models.Tests.ContractsTests.IDbModelTests
             {
                 var obj = (IDbModel)Activator.CreateInstance(type);
 
-                Assert.AreEqual(0, obj.Id);
+                Assert.AreNotEqual(Guid.Empty, obj.Id);
             }
         }
 

@@ -10,11 +10,11 @@ namespace OnlineShop.Libs.Models.Tests.Contracts.IDbModelTests
     [TestFixture]
     class Id_Should
     {
-        [TestCase(0)]
-        [TestCase(-300)]
-        [TestCase(3444214)]
-        public void GetAndSet_Should_Work(int randomNumber)
+        [Test]
+        public void GetAndSet_Should_Work()
         {
+            var randomId = Guid.NewGuid();
+
             var types = AppDomain
                             .CurrentDomain
                             .GetAssemblies()
@@ -25,9 +25,9 @@ namespace OnlineShop.Libs.Models.Tests.Contracts.IDbModelTests
             {
                 var obj = (IDbModel)Activator.CreateInstance(type);
 
-                obj.Id = randomNumber;
+                obj.Id = randomId;
 
-                Assert.AreEqual(randomNumber, obj.Id);
+                Assert.AreEqual(randomId, obj.Id);
             }
         }
 

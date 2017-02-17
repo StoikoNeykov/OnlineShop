@@ -16,12 +16,13 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         [Test]
         public void Return_All()
         {
-            var expected = DimmyClass
-                                .GetDimmyCollection()
+            var collection = DimmyClass.GetDimmyCollection();
+
+            var expected = collection
                                 .Select(x => x.Id)
                                 .ToList();
 
-            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(DimmyClass.GetDimmyCollection());
+            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(collection);
 
             var mockedContext = new Mock<IOnlineShopDbContext>();
             mockedContext.Setup(x => x.Set<DimmyClass>()).Returns(mockedSetObject);
@@ -38,15 +39,16 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         [Test]
         public void Return_Filtered_WhenHave_Filter()
         {
-            Expression<Func<DimmyClass, bool>> filter = x => x.Id > 10;
+            Expression<Func<DimmyClass, bool>> filter = x => x.Id.ToString().Contains("2");
 
-            var expected = DimmyClass
-                                .GetDimmyCollection()
+            var collection = DimmyClass.GetDimmyCollection();
+            
+            var expected = collection
                                 .Where(filter.Compile())
                                 .Select(x => x.Id)
                                 .ToList();
 
-            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(DimmyClass.GetDimmyCollection());
+            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(collection);
 
             var mockedContext = new Mock<IOnlineShopDbContext>();
             mockedContext.Setup(x => x.Set<DimmyClass>()).Returns(mockedSetObject);
@@ -63,19 +65,20 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         [Test]
         public void Return_FilteredAndPaged_WhenHave_FilterAndPaging()
         {
-            Expression<Func<DimmyClass, bool>> filter = x => x.Id > 10;
+            Expression<Func<DimmyClass, bool>> filter = x => x.Id.ToString().Contains("a");
             var pagesize = 3;
             var page = 2;
 
-            var expected = DimmyClass
-                                .GetDimmyCollection()
+            var collection = DimmyClass.GetDimmyCollection();
+
+            var expected = collection
                                 .Where(filter.Compile())
                                 .Skip(pagesize * page)
                                 .Take(pagesize)
                                 .Select(x => x.Id)
                                 .ToList();
 
-            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(DimmyClass.GetDimmyCollection());
+            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(collection);
 
             var mockedContext = new Mock<IOnlineShopDbContext>();
             mockedContext.Setup(x => x.Set<DimmyClass>()).Returns(mockedSetObject);
@@ -92,17 +95,18 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         [Test]
         public void Return_FilteredAndOrdered_WhenHave_FilterAndOrder()
         {
-            Expression<Func<DimmyClass, bool>> filter = x => x.Id > 10;
-            Expression<Func<DimmyClass, int>> orderBy = x => x.Id;
+            Expression<Func<DimmyClass, bool>> filter = x => x.Id.ToString().Contains("h");
+            Expression<Func<DimmyClass, Guid>> orderBy = x => x.Id;
 
-            var expected = DimmyClass
-                                .GetDimmyCollection()
+            var collection = DimmyClass.GetDimmyCollection();
+
+            var expected = collection
                                 .Where(filter.Compile())
                                 .OrderBy(orderBy.Compile())
                                 .Select(x => x.Id)
                                 .ToList();
 
-            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(DimmyClass.GetDimmyCollection());
+            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(collection);
 
             var mockedContext = new Mock<IOnlineShopDbContext>();
             mockedContext.Setup(x => x.Set<DimmyClass>()).Returns(mockedSetObject);
@@ -119,14 +123,15 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         [Test]
         public void Return_FilteredOrderedAndPaged_WhenHave_FilterOrderAndPaging()
         {
-            Expression<Func<DimmyClass, bool>> filter = x => x.Id > 10;
-            Expression<Func<DimmyClass, int>> orderBy = x => x.Id;
+            Expression<Func<DimmyClass, bool>> filter = x => x.Id.ToString().Contains("z");
+            Expression<Func<DimmyClass, Guid>> orderBy = x => x.Id;
 
             var pagesize = 3;
             var page = 2;
 
-            var expected = DimmyClass
-                                .GetDimmyCollection()
+            var collection = DimmyClass.GetDimmyCollection();
+
+            var expected = collection
                                 .Where(filter.Compile())
                                 .OrderBy(orderBy.Compile())
                                 .Skip(pagesize * page)
@@ -134,7 +139,7 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
                                 .Select(x => x.Id)
                                 .ToList();
 
-            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(DimmyClass.GetDimmyCollection());
+            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(collection);
 
             var mockedContext = new Mock<IOnlineShopDbContext>();
             mockedContext.Setup(x => x.Set<DimmyClass>()).Returns(mockedSetObject);
@@ -151,18 +156,19 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         [Test]
         public void Return_FilteredOrderedAndSelected_WhenHave_FilterOrderAndSelect()
         {
-            Expression<Func<DimmyClass, bool>> filter = x => x.Id > 10;
-            Expression<Func<DimmyClass, int>> orderBy = x => x.Id;
-            Expression<Func<DimmyClass, int>> select = x => x.Id;
+            Expression<Func<DimmyClass, bool>> filter = x => x.Id.ToString().Contains("g");
+            Expression<Func<DimmyClass, Guid>> orderBy = x => x.Id;
+            Expression<Func<DimmyClass, Guid>> select = x => x.Id;
 
-            var expected = DimmyClass
-                                .GetDimmyCollection()
+            var collection = DimmyClass.GetDimmyCollection();
+
+            var expected = collection
                                 .Where(filter.Compile())
                                 .OrderBy(orderBy.Compile())
                                 .Select(select.Compile())
                                 .ToList();
 
-            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(DimmyClass.GetDimmyCollection());
+            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(collection);
 
             var mockedContext = new Mock<IOnlineShopDbContext>();
             mockedContext.Setup(x => x.Set<DimmyClass>()).Returns(mockedSetObject);
@@ -178,15 +184,16 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         [Test]
         public void Return_FilteredOrderedSelectedAndPaged_WhenHave_FilterOrderSelectAndPaging()
         {
-            Expression<Func<DimmyClass, bool>> filter = x => x.Id > 10;
-            Expression<Func<DimmyClass, int>> orderBy = x => x.Id;
-            Expression<Func<DimmyClass, int>> select = x => x.Id;
+            Expression<Func<DimmyClass, bool>> filter = x => x.Id.ToString().Contains("n");
+            Expression<Func<DimmyClass, Guid>> orderBy = x => x.Id;
+            Expression<Func<DimmyClass, Guid>> select = x => x.Id;
 
             var pagesize = 3;
             var page = 2;
 
-            var expected = DimmyClass
-                                .GetDimmyCollection()
+            var collection = DimmyClass.GetDimmyCollection();
+
+            var expected = collection
                                 .Where(filter.Compile())
                                 .OrderBy(orderBy.Compile())
                                 .Skip(pagesize * page)
@@ -194,7 +201,7 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
                                 .Select(select.Compile())
                                 .ToList();
 
-            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(DimmyClass.GetDimmyCollection());
+            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(collection);
 
             var mockedContext = new Mock<IOnlineShopDbContext>();
             mockedContext.Setup(x => x.Set<DimmyClass>()).Returns(mockedSetObject);

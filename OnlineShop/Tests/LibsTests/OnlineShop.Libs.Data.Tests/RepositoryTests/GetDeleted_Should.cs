@@ -14,13 +14,14 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         [Test]
         public void Return_DeletedMembers_FromSet_Only()
         {
-            var expected = DimmyClass
-                                .GetDimmyCollection()
+            var collection = DimmyClass.GetDimmyCollection();
+
+            var expected = collection
                                 .Where(x => x.IsDeleted)
                                 .Select(x => x.Id)
                                 .ToList();
 
-            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(DimmyClass.GetDimmyCollection());
+            var mockedSetObject = QueryableDbSetMock.GetQueryableMockDbSet(collection);
 
             var mockedContext = new Mock<IOnlineShopDbContext>();
             mockedContext.Setup(x => x.Set<DimmyClass>()).Returns(mockedSetObject);
