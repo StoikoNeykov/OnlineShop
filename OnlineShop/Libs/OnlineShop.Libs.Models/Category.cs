@@ -7,7 +7,7 @@ using System;
 namespace OnlineShop.Libs.Models
 {
     [Table(TablesNames.CategoryTableName)]
-    public class Category
+    public class Category : IDbModel, INameable
     {
         public Category()
         {

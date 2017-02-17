@@ -1,8 +1,10 @@
-﻿namespace OnlineShop.Libs.Models.Contracts
+﻿using System;
+
+namespace OnlineShop.Libs.Models.Contracts
 {
     public interface IDbModel
     {
-        int Id { get; set; }
+        Guid Id { get; set; }
 
         bool IsDeleted { get; set; }
     }
