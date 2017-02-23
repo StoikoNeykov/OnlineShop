@@ -12,13 +12,13 @@ namespace OnlineShop.Libs.Data
 
         // // needed for add-migration 
 
-        //private static string localConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=OnlineShop;Integrated Security=True;MultipleActiveResultSets=False";
+        private static string localConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=OnlineShop;Integrated Security=True;MultipleActiveResultSets=False";
 
-        //public OnlineShopDbContext()
-        //    : base(localConnectionString)
-        //{
+        public OnlineShopDbContext()
+            : base(localConnectionString)
+        {
 
-        //}
+        }
 
         public OnlineShopDbContext(string connectionString, IStatefulFactory statefulFactory)
             : base(connectionString)
