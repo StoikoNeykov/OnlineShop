@@ -33,6 +33,10 @@ namespace OnlineShop.Libs.Data
 
         public virtual IDbSet<Category> Categories { get; set; }
 
+        public virtual IDbSet<Product> Products { get; set; }
+
+        public virtual IDbSet<PhotoItem> PhotoItems { get; set; }
+
         IDbSet<TEntity> IOnlineShopDbContext.Set<TEntity>()
         {
             return base.Set<TEntity>();

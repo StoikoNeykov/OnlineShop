@@ -15,5 +15,9 @@ namespace OnlineShop.Libs.Data.Contracts
         int SaveChanges();
 
         IDbSet<Category> Categories { get; }
+
+        IDbSet<Product> Products { get; }
+
+        IDbSet<PhotoItem> PhotoItems { get; }
     }
 }

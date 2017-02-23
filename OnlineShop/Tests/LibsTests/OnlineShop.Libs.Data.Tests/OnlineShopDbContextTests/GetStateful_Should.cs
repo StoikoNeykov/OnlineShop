@@ -42,32 +42,6 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
             mockedFactory.Verify(x => x.GetStateful(It.IsAny<DbEntityEntry<Category>>()), Times.Once);
         }
 
-        [Test]
-        public void Call_BaseEntryMethod_And_ThrowInvalidOperationException_WhenCalledWith_ObjectOfNotRegisteredType()
-        {
-            var mockedFactory = new Mock<IStatefulFactory>();
-
-            var mockedModel = new DimmyClass();
-
-            var obj = new OnlineShopDbContext(this.validConnectionString, mockedFactory.Object);
-
-            Assert.That(() => obj.GetStateful(mockedModel),
-                        Throws.InvalidOperationException.With.Message.Contain("not part of the model for the current context"));
-        }
-
-        [Test]
-        public void Call_BaseEntryMethod_And_ThrowInvalidOperationException_WhenCalledWith_ObjectOfNotRegisteredType_2ndTry()
-        {
-            var mockedFactory = new Mock<IStatefulFactory>();
-
-            var mockedModel = new Mock<IDbModel>();
-
-            var obj = new OnlineShopDbContext(this.validConnectionString, mockedFactory.Object);
-
-            Assert.That(() => obj.GetStateful(mockedModel),
-                        Throws.InvalidOperationException.With.Message.Contain("not part of the model for the current context"));
-        }
-
         private class MockedDbContext : OnlineShopDbContext
         {
             public MockedDbContext(string connectionString, IStatefulFactory statefulFactory)

@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.cs" />
-    <Compile Include="Constants\PhotoItem.cs" />
+    <Compile Include="PhotoItem.cs" />
     <Compile Include="Constants\TablesNames.cs" />
     <Compile Include="Constants\Validation.cs" />
     <Compile Include="Contracts\IDbModel.cs" />

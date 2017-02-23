@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace OnlineShop.Libs.Models.Constants
+namespace OnlineShop.Libs.Models
 {
     [Table("PhotoItems")]
     public class PhotoItem : IDbModel

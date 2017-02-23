@@ -20,6 +20,6 @@ environment:
     secure: V3nyoA0koaeHhNBYaeZ4K2RdMT25zg51y95XuzvmmHtFva5mtX3q2xZmU9zNgrpI
 
 after_test: 
-        - OnlineShop\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"OnlineShop\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single OnlineShop\Tests\LibsTests\OnlineShop.Libs.Models.Tests\bin\Debug\OnlineShop.Libs.Models.Tests.dll OnlineShop\Tests\LibsTests\OnlineShop.Libs.Data.Tests\bin\Debug\OnlineShop.Libs.Data.Tests.dll" -output:cover.xml
+        - OnlineShop\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"OnlineShop\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single OnlineShop\Tests\LibsTests\OnlineShop.Libs.Data.Tests\bin\Debug\OnlineShop.Libs.Data.Tests.dll" -output:cover.xml
 
         - OnlineShop\packages\coveralls.io.1.3.4\tools\coveralls.net.exe --opencover cover.xml
