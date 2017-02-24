@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractionTests\BaseServiceTests\Constructor_Should.cs" />
+    <Compile Include="AbstractionTests\BaseServiceTests\GetById_Should.cs" />
     <Compile Include="AbstractionTests\BaseServiceTests\Mock\ServiceChild.cs" />
     <Compile Include="AbstractionTests\BaseServiceTests\UnitOfWorkFactory_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
