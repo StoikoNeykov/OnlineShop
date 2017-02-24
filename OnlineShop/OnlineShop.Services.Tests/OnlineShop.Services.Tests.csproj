@@ -51,12 +51,15 @@
   <ItemGroup>
     <Compile Include="AbstractionTests\BaseServiceTests\Constructor_Should.cs" />
     <Compile Include="AbstractionTests\BaseServiceTests\Mock\ServiceChild.cs" />
+    <Compile Include="AbstractionTests\BaseServiceTests\UnitOfWorkFactory_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Libs\OnlineShop.Libs.Data\OnlineShop.Libs.Data.csproj">
       <Project>{136BC4F8-1CC5-44D0-82FE-9DD8BEA8BC58}</Project>
