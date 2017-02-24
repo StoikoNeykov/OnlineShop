@@ -182,5 +182,42 @@ namespace OnlineShop.Services.Tests.AbstractionTests.BaseServiceTests
             // Assert
             mockedUnitOfWork.Verify();
         }
+
+        [Test]
+        public void Call_StatementsInSpecificOrder_WhenArguments_AreValid()
+        {
+            var order = string.Empty;
+
+            // Arange
+            var randomGuid = Guid.NewGuid();
+
+            var mockedItem = new Mock<IDbModel>();
+            mockedItem.Setup(x => x.Id).Returns(randomGuid);
+
+            var specificBehavior = new Mock<Func<IDbModel, bool>>();
+            specificBehavior.Setup(x => x(mockedItem.Object)).Returns(true)
+                                        .Callback(() => order += "0");
+
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            // setup to not throw
+            mockedUnitOfWork.Setup(x => x.SaveChanges()).Callback(() => order += "2");
+            mockedUnitOfWork.Setup(x => x.Dispose()).Callback(() => order += "3");
+
+            var mockedFactory = new Mock<IUnitOfWorkFactory>();
+            mockedFactory.Setup(x => x.GetUnitOfWork()).Returns(mockedUnitOfWork.Object)
+                                                            .Callback(() => order += "1");
+
+            var mockedRepo = new Mock<IRepository<IDbModel>>();
+            // setup to not throw
+            mockedRepo.Setup(x => x.Add(mockedItem.Object));
+
+            var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, specificBehavior.Object);
+
+            // Act
+            obj.Add(mockedRepo.Object, mockedItem.Object);
+
+            // Assert
+            Assert.AreEqual("0123", order);
+        }
     }
 }
