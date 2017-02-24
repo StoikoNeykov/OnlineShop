@@ -8,27 +8,15 @@ using System.Linq.Expressions;
 
 namespace Services.Abstraction
 {
-    public abstract class BaseService<T>
-        where T : IDbModel
+    public abstract class BaseService
     {
-        private readonly IRepository<T> repo;
         private readonly IUnitOfWorkFactory unitOfWorkFactory;
 
-        public BaseService(IRepository<T> repo, IUnitOfWorkFactory unitOfWorkFactory)
+        public BaseService(IUnitOfWorkFactory unitOfWorkFactory)
         {
-            Guard.WhenArgument(repo, "repo").IsNull().Throw();
             Guard.WhenArgument(unitOfWorkFactory, "unitOfWorkFactory").IsNull().Throw();
 
-            this.repo = repo;
             this.unitOfWorkFactory = unitOfWorkFactory;
-        }
-
-        protected IRepository<T> Repo
-        {
-            get
-            {
-                return this.repo;
-            }
         }
 
         protected IUnitOfWorkFactory UnitOfWorkFactory
@@ -39,12 +27,13 @@ namespace Services.Abstraction
             }
         }
 
-        protected virtual T GetById(Guid id)
+        protected virtual T GetById<T>(IRepository<T> repo, Guid id)
+                                            where T : IDbModel
         {
-            return this.repo.GetById(id);
+            return repo.GetById(id);
         }
 
-        protected virtual T Add(T item)
+        protected virtual T Add<T>(IRepository<T> repo, T item) where T : IDbModel
         {
             if (!this.IsValid(item))
             {
@@ -53,14 +42,14 @@ namespace Services.Abstraction
 
             using (var unitOfWork = this.unitOfWorkFactory.GetUnitOfWork())
             {
-                this.repo.Add(item);
+                repo.Add(item);
                 unitOfWork.SaveChanges();
             }
 
-            return this.GetById(item.Id);
+            return this.GetById(repo, item.Id);
         }
 
-        protected virtual T Update(T item)
+        protected virtual T Update<T>(IRepository<T> repo, T item) where T : IDbModel
         {
             if (!this.IsValid(item))
             {
@@ -69,14 +58,14 @@ namespace Services.Abstraction
 
             using (var unitOfWork = this.unitOfWorkFactory.GetUnitOfWork())
             {
-                this.repo.Update(item);
+                repo.Update(item);
                 unitOfWork.SaveChanges();
             }
 
-            return this.GetById(item.Id);
+            return this.GetById(repo, item.Id);
         }
 
-        protected virtual void Hide(T item)
+        protected virtual void Hide<T>(IRepository<T> repo, T item) where T : IDbModel
         {
             if (!this.IsValid(item))
             {
@@ -86,12 +75,12 @@ namespace Services.Abstraction
             using (var unitOfWork = this.unitOfWorkFactory.GetUnitOfWork())
             {
                 item.IsDeleted = true;
-                this.repo.Update(item);
+                repo.Update(item);
                 unitOfWork.SaveChanges();
             }
         }
 
-        protected virtual void Delete(T item)
+        protected virtual void Delete<T>(IRepository<T> repo, T item) where T : IDbModel
         {
             if (!this.IsValid(item))
             {
@@ -100,64 +89,78 @@ namespace Services.Abstraction
 
             using (var unitOfWork = this.unitOfWorkFactory.GetUnitOfWork())
             {
-                this.repo.Delete(item);
+                repo.Delete(item);
                 unitOfWork.SaveChanges();
             }
         }
 
-        protected virtual IEnumerable<T> GetAll()
+        protected virtual IEnumerable<T> GetAll<T>(IRepository<T> repo) where T : IDbModel
         {
-            return this.repo.GetAll();
+            return repo.GetAll();
         }
 
-        protected virtual IEnumerable<T> GetAll(Expression<Func<T, bool>> filter)
+        protected virtual IEnumerable<T> GetAll<T>(IRepository<T> repo,
+                                                    Expression<Func<T, bool>> filter)
+                                                        where T : IDbModel
         {
-            return this.repo.GetAll(filter);
+            return repo.GetAll(filter);
         }
 
-        protected virtual IEnumerable<T> GetAll<T1>(Expression<Func<T, bool>> filter,
+        protected virtual IEnumerable<T> GetAll<T, T1>(IRepository<T> repo,
+                                                    Expression<Func<T, bool>> filter,
                                                     Expression<Func<T, T1>> orderBy)
+                                                        where T : IDbModel
         {
-            return this.repo.GetAll(filter, orderBy);
+            return repo.GetAll(filter, orderBy);
         }
 
-        protected virtual IEnumerable<TResult> GetAll<T1, TResult>(Expression<Func<T, bool>> filter,
+        protected virtual IEnumerable<TResult> GetAll<T, T1, TResult>(IRepository<T> repo,
+                                            Expression<Func<T, bool>> filter,
                                             Expression<Func<T, T1>> orderBy,
                                             Expression<Func<T, TResult>> select)
+                                                where T : IDbModel
         {
-            return this.repo.GetAll(filter, orderBy, select);
+            return repo.GetAll(filter, orderBy, select);
         }
 
-        protected virtual IEnumerable<T> GetAll(Expression<Func<T, bool>> filter,
+        protected virtual IEnumerable<T> GetAll<T>(IRepository<T> repo,
+                                        Expression<Func<T, bool>> filter,
                                         int page,
                                         int pageSize)
+                                            where T : IDbModel
         {
-            return this.repo.GetAll(filter, page, pageSize);
+            return repo.GetAll(filter, page, pageSize);
         }
 
-        protected virtual IEnumerable<T> GetAll<T1>(Expression<Func<T, bool>> filter,
+        protected virtual IEnumerable<T> GetAll<T, T1>(IRepository<T> repo,
+                                        Expression<Func<T, bool>> filter,
                                         Expression<Func<T, T1>> orderBy,
                                         int page,
                                         int pageSize)
+                                            where T : IDbModel
         {
-            return this.repo.GetAll(filter, orderBy, page, pageSize);
+            return repo.GetAll(filter, orderBy, page, pageSize);
         }
 
-        protected virtual IEnumerable<TResult> GetAll<T1, TResult>(Expression<Func<T, bool>> filter,
+        protected virtual IEnumerable<TResult> GetAll<T, T1, TResult>(IRepository<T> repo,
+                                            Expression<Func<T, bool>> filter,
                                             Expression<Func<T, T1>> orderBy,
                                             Expression<Func<T, TResult>> select,
                                             int page,
                                             int pageSize)
+                                                where T : IDbModel
         {
-            return this.repo.GetAll(filter, orderBy, select, page, pageSize);
+            return repo.GetAll(filter, orderBy, select, page, pageSize);
         }
 
-        protected virtual IEnumerable<T> GetDeleted()
+        protected virtual IEnumerable<T> GetDeleted<T>(IRepository<T> repo)
+                                                            where T : IDbModel
         {
-            return this.GetAll((x) => x.IsDeleted);
+            return this.GetAll(repo, (x) => x.IsDeleted);
         }
 
-        protected virtual bool IsValid(T item)
+        protected virtual bool IsValid<T>(T item) 
+                                where T : IDbModel
         {
             return !(item == null);
         }
