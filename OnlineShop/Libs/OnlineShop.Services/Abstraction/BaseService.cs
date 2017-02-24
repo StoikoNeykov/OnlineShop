@@ -30,11 +30,15 @@ namespace OnlineShop.Services.Abstraction
         protected virtual T GetById<T>(IRepository<T> repo, Guid id)
                                             where T : IDbModel
         {
+            Guard.WhenArgument(repo, "repo").IsNull().Throw();
+
             return repo.GetById(id);
         }
 
         protected virtual T Add<T>(IRepository<T> repo, T item) where T : IDbModel
         {
+            Guard.WhenArgument(repo, "repo").IsNull().Throw();
+            
             if (!this.IsValid(item))
             {
                 throw new ArgumentException("Invalid item for add!");
@@ -51,6 +55,8 @@ namespace OnlineShop.Services.Abstraction
 
         protected virtual T Update<T>(IRepository<T> repo, T item) where T : IDbModel
         {
+            Guard.WhenArgument(repo, "repo").IsNull().Throw();
+            
             if (!this.IsValid(item))
             {
                 throw new ArgumentException("Invalid item for update!");
@@ -67,6 +73,8 @@ namespace OnlineShop.Services.Abstraction
 
         protected virtual void Hide<T>(IRepository<T> repo, T item) where T : IDbModel
         {
+            Guard.WhenArgument(repo, "repo").IsNull().Throw();
+            
             if (!this.IsValid(item))
             {
                 throw new ArgumentException("Invalid item for hide!");
@@ -82,6 +90,8 @@ namespace OnlineShop.Services.Abstraction
 
         protected virtual void Delete<T>(IRepository<T> repo, T item) where T : IDbModel
         {
+            Guard.WhenArgument(repo, "repo").IsNull().Throw();
+            
             if (!this.IsValid(item))
             {
                 throw new ArgumentException("Invalid item for delete!");
@@ -96,6 +106,8 @@ namespace OnlineShop.Services.Abstraction
 
         protected virtual IEnumerable<T> GetAll<T>(IRepository<T> repo) where T : IDbModel
         {
+            Guard.WhenArgument(repo, "repo").IsNull().Throw();
+            
             return repo.GetAll();
         }
 
@@ -103,6 +115,8 @@ namespace OnlineShop.Services.Abstraction
                                                     Expression<Func<T, bool>> filter)
                                                         where T : IDbModel
         {
+            Guard.WhenArgument(repo, "repo").IsNull().Throw();
+            
             return repo.GetAll(filter);
         }
 
@@ -111,6 +125,8 @@ namespace OnlineShop.Services.Abstraction
                                                     Expression<Func<T, T1>> orderBy)
                                                         where T : IDbModel
         {
+            Guard.WhenArgument(repo, "repo").IsNull().Throw();
+            
             return repo.GetAll(filter, orderBy);
         }
 
@@ -120,6 +136,8 @@ namespace OnlineShop.Services.Abstraction
                                             Expression<Func<T, TResult>> select)
                                                 where T : IDbModel
         {
+            Guard.WhenArgument(repo, "repo").IsNull().Throw();
+            
             return repo.GetAll(filter, orderBy, select);
         }
 
@@ -129,6 +147,8 @@ namespace OnlineShop.Services.Abstraction
                                         int pageSize)
                                             where T : IDbModel
         {
+            Guard.WhenArgument(repo, "repo").IsNull().Throw();
+            
             return repo.GetAll(filter, page, pageSize);
         }
 
@@ -139,6 +159,8 @@ namespace OnlineShop.Services.Abstraction
                                         int pageSize)
                                             where T : IDbModel
         {
+            Guard.WhenArgument(repo, "repo").IsNull().Throw();
+            
             return repo.GetAll(filter, orderBy, page, pageSize);
         }
 
@@ -150,12 +172,16 @@ namespace OnlineShop.Services.Abstraction
                                             int pageSize)
                                                 where T : IDbModel
         {
+            Guard.WhenArgument(repo, "repo").IsNull().Throw();
+            
             return repo.GetAll(filter, orderBy, select, page, pageSize);
         }
 
         protected virtual IEnumerable<T> GetDeleted<T>(IRepository<T> repo)
                                                             where T : IDbModel
         {
+            Guard.WhenArgument(repo, "repo").IsNull().Throw();
+            
             return this.GetAll(repo, (x) => x.IsDeleted);
         }
 
