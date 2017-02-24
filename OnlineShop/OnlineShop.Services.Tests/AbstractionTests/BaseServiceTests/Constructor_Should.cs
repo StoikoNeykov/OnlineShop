@@ -10,7 +10,7 @@ namespace OnlineShop.Services.Tests.AbstractionTests.BaseServiceTests
         public void Throw_ArgumentNullException_WithProperMesaage_WhenUnitOfWorkFactoryArgument_IsNull()
         {
             // Act & Assert
-            Assert.That(() => new ServiceChild(null),
+            Assert.That(() => new ServiceChildWithSpecificIsValidMethod(null, _ => true),
                 Throws.ArgumentNullException.With.Message.Contains("unitOfWorkFactory"));
         }
     }

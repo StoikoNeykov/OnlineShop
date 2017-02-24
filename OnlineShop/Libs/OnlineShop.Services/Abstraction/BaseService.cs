@@ -10,6 +10,11 @@ namespace OnlineShop.Services.Abstraction
 {
     public abstract class BaseService
     {
+        public const string InvalidItemForAddErrorMessage = "Invalid item for add!";
+        public const string InvalidItemForUpdateErrorMessage = "Invalid item for update!";
+        public const string InvalidItemForHideErrorMessage = "Invalid item for hide!";
+        public const string InvalidItemForDeleteErrorMessage = "Invalid item for delete!";
+
         private readonly IUnitOfWorkFactory unitOfWorkFactory;
 
         protected BaseService(IUnitOfWorkFactory unitOfWorkFactory)
@@ -27,22 +32,13 @@ namespace OnlineShop.Services.Abstraction
             }
         }
 
-        protected virtual T GetById<T>(IRepository<T> repo, Guid id)
-                                            where T : IDbModel
+        protected virtual void Add<T>(IRepository<T> repo, T item) where T : IDbModel
         {
             Guard.WhenArgument(repo, "repo").IsNull().Throw();
-            Guard.WhenArgument(id, "id").IsEmptyGuid().Throw();
 
-            return repo.GetById(id);
-        }
-
-        protected virtual T Add<T>(IRepository<T> repo, T item) where T : IDbModel
-        {
-            Guard.WhenArgument(repo, "repo").IsNull().Throw();
-            
             if (!this.IsValid(item))
             {
-                throw new ArgumentException("Invalid item for add!");
+                throw new ArgumentException(InvalidItemForAddErrorMessage);
             }
 
             using (var unitOfWork = this.unitOfWorkFactory.GetUnitOfWork())
@@ -50,17 +46,15 @@ namespace OnlineShop.Services.Abstraction
                 repo.Add(item);
                 unitOfWork.SaveChanges();
             }
-
-            return this.GetById(repo, item.Id);
         }
 
-        protected virtual T Update<T>(IRepository<T> repo, T item) where T : IDbModel
+        protected virtual void Update<T>(IRepository<T> repo, T item) where T : IDbModel
         {
             Guard.WhenArgument(repo, "repo").IsNull().Throw();
-            
+
             if (!this.IsValid(item))
             {
-                throw new ArgumentException("Invalid item for update!");
+                throw new ArgumentException(InvalidItemForUpdateErrorMessage);
             }
 
             using (var unitOfWork = this.unitOfWorkFactory.GetUnitOfWork())
@@ -68,17 +62,15 @@ namespace OnlineShop.Services.Abstraction
                 repo.Update(item);
                 unitOfWork.SaveChanges();
             }
-
-            return this.GetById(repo, item.Id);
         }
 
         protected virtual void Hide<T>(IRepository<T> repo, T item) where T : IDbModel
         {
             Guard.WhenArgument(repo, "repo").IsNull().Throw();
-            
+
             if (!this.IsValid(item))
             {
-                throw new ArgumentException("Invalid item for hide!");
+                throw new ArgumentException(InvalidItemForHideErrorMessage);
             }
 
             using (var unitOfWork = this.unitOfWorkFactory.GetUnitOfWork())
@@ -92,10 +84,10 @@ namespace OnlineShop.Services.Abstraction
         protected virtual void Delete<T>(IRepository<T> repo, T item) where T : IDbModel
         {
             Guard.WhenArgument(repo, "repo").IsNull().Throw();
-            
+
             if (!this.IsValid(item))
             {
-                throw new ArgumentException("Invalid item for delete!");
+                throw new ArgumentException(InvalidItemForDeleteErrorMessage);
             }
 
             using (var unitOfWork = this.unitOfWorkFactory.GetUnitOfWork())
@@ -105,88 +97,15 @@ namespace OnlineShop.Services.Abstraction
             }
         }
 
-        protected virtual IEnumerable<T> GetAll<T>(IRepository<T> repo) where T : IDbModel
-        {
-            Guard.WhenArgument(repo, "repo").IsNull().Throw();
-            
-            return repo.GetAll();
-        }
-
-        protected virtual IEnumerable<T> GetAll<T>(IRepository<T> repo,
-                                                    Expression<Func<T, bool>> filter)
-                                                        where T : IDbModel
-        {
-            Guard.WhenArgument(repo, "repo").IsNull().Throw();
-            
-            return repo.GetAll(filter);
-        }
-
-        protected virtual IEnumerable<T> GetAll<T, T1>(IRepository<T> repo,
-                                                    Expression<Func<T, bool>> filter,
-                                                    Expression<Func<T, T1>> orderBy)
-                                                        where T : IDbModel
-        {
-            Guard.WhenArgument(repo, "repo").IsNull().Throw();
-            
-            return repo.GetAll(filter, orderBy);
-        }
-
-        protected virtual IEnumerable<TResult> GetAll<T, T1, TResult>(IRepository<T> repo,
-                                            Expression<Func<T, bool>> filter,
-                                            Expression<Func<T, T1>> orderBy,
-                                            Expression<Func<T, TResult>> select)
-                                                where T : IDbModel
-        {
-            Guard.WhenArgument(repo, "repo").IsNull().Throw();
-            
-            return repo.GetAll(filter, orderBy, select);
-        }
-
-        protected virtual IEnumerable<T> GetAll<T>(IRepository<T> repo,
-                                        Expression<Func<T, bool>> filter,
-                                        int page,
-                                        int pageSize)
-                                            where T : IDbModel
-        {
-            Guard.WhenArgument(repo, "repo").IsNull().Throw();
-            
-            return repo.GetAll(filter, page, pageSize);
-        }
-
-        protected virtual IEnumerable<T> GetAll<T, T1>(IRepository<T> repo,
-                                        Expression<Func<T, bool>> filter,
-                                        Expression<Func<T, T1>> orderBy,
-                                        int page,
-                                        int pageSize)
-                                            where T : IDbModel
-        {
-            Guard.WhenArgument(repo, "repo").IsNull().Throw();
-            
-            return repo.GetAll(filter, orderBy, page, pageSize);
-        }
-
-        protected virtual IEnumerable<TResult> GetAll<T, T1, TResult>(IRepository<T> repo,
-                                            Expression<Func<T, bool>> filter,
-                                            Expression<Func<T, T1>> orderBy,
-                                            Expression<Func<T, TResult>> select,
-                                            int page,
-                                            int pageSize)
-                                                where T : IDbModel
-        {
-            Guard.WhenArgument(repo, "repo").IsNull().Throw();
-            
-            return repo.GetAll(filter, orderBy, select, page, pageSize);
-        }
-
         protected virtual IEnumerable<T> GetDeleted<T>(IRepository<T> repo)
                                                             where T : IDbModel
         {
             Guard.WhenArgument(repo, "repo").IsNull().Throw();
-            
-            return this.GetAll(repo, (x) => x.IsDeleted);
+
+            return repo.GetAll((x) => x.IsDeleted);
         }
 
-        protected virtual bool IsValid<T>(T item) 
+        protected virtual bool IsValid<T>(T item)
                                 where T : IDbModel
         {
             return !(item == null);

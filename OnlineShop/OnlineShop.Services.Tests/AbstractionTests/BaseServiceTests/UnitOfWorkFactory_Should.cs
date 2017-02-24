@@ -15,8 +15,8 @@ namespace OnlineShop.Services.Tests.AbstractionTests.BaseServiceTests
             var mockedFactory = new Mock<IUnitOfWorkFactory>();
 
             // Act 
-            var obj = new ServiceChild(mockedFactory.Object);
-            
+            var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, _ => true);
+
             // Assert
             Assert.AreSame(mockedFactory.Object, obj.UnitOfWorkFactory);
         }
