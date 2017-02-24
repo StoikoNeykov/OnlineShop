@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Services.Abstraction
+namespace OnlineShop.Services.Abstraction
 {
     public abstract class BaseService
     {
