@@ -12,7 +12,7 @@ namespace Services.Abstraction
     {
         private readonly IUnitOfWorkFactory unitOfWorkFactory;
 
-        public BaseService(IUnitOfWorkFactory unitOfWorkFactory)
+        protected BaseService(IUnitOfWorkFactory unitOfWorkFactory)
         {
             Guard.WhenArgument(unitOfWorkFactory, "unitOfWorkFactory").IsNull().Throw();
 
