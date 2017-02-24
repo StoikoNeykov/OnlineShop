@@ -14,6 +14,7 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
         [Test]
         public void Throw_ArgumentNullException_WithProperMessage_WhenStatefulFactory_IsNull()
         {
+            // Act & Assert
             Assert.That(() => new OnlineShopDbContext(this.validConnectionString, null),
                                     Throws.ArgumentNullException.With.Message.Contains("StatefulFactory"));
         }
@@ -25,10 +26,13 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
         [TestCase("<>@$>@#X@)(<_)X!")]
         public void Call_BaseClassConstructor_WithSame_ConnectionString(string randomString)
         {
+            // Arange 
             var mockedFactory = new Mock<IStatefulFactory>();
 
+            // Act
             var obj = new OnlineShopDbContext(randomString, mockedFactory.Object);
 
+            // Assert
             StringAssert.Contains(randomString, obj.Database.Connection.ConnectionString);
         }
 
@@ -37,8 +41,10 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
         [TestCase("    ")]
         public void Call_BaseClassConstructor_WithSame_ConnectionString_EvenWhenItsInvalid(string invalidString)
         {
+            // Arange
             var mockedFactory = new Mock<IStatefulFactory>();
 
+            // Act & Assert
             Assert.That(() => new OnlineShopDbContext(invalidString, mockedFactory.Object),
                                     Throws.ArgumentException.With.Message.Contain("white space"));
         }

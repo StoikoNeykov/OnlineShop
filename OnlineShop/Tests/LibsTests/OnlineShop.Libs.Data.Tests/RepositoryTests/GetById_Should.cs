@@ -14,6 +14,7 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         [Test]
         public void Should_Work()
         {
+            // Arange
             var randomId = Guid.NewGuid();
 
             var mockedSet = new Mock<IDbSet<DimmyClass>>();
@@ -24,14 +25,17 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             var obj = new Repository<DimmyClass>(mockedContext.Object);
 
+            // Act
             var actual = obj.GetById(randomId);
 
+            // Assert
             mockedSet.Verify();
         }
 
         [Test]
         public void Should_ThrowArgumentNullException_WithProperMessage_WhenId_IsEmptyGuid()
         {
+            // Arange
             var mockedSet = new Mock<IDbSet<DimmyClass>>();
 
             var mockedContext = new Mock<IOnlineShopDbContext>();
@@ -39,6 +43,7 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             var obj = new Repository<DimmyClass>(mockedContext.Object);
 
+            // Act & Assert
             Assert.That(() => obj.GetById(Guid.Empty),
                                 Throws.ArgumentException.With.Message.Contains("Guid.Empty"));
         }

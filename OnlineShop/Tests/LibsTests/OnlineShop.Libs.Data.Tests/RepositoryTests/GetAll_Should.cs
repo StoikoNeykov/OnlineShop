@@ -16,6 +16,7 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         [Test]
         public void Return_All()
         {
+            // Arange
             var collection = DimmyClass.GetDimmyCollection();
 
             var expected = collection
@@ -29,16 +30,19 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             var obj = new Repository<DimmyClass>(mockedContext.Object);
 
+            // Act
             var actual = obj
                             .GetAll()
                             .Select(x => x.Id);
 
+            // Assert
             CollectionAssert.AreEqual(expected, actual);
         }
 
         [Test]
         public void Return_Filtered_WhenHave_Filter()
         {
+            // Arange
             Expression<Func<DimmyClass, bool>> filter = x => x.Id.ToString().Contains("2");
 
             var collection = DimmyClass.GetDimmyCollection();
@@ -55,16 +59,19 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             var obj = new Repository<DimmyClass>(mockedContext.Object);
 
+            // Act
             var actual = obj
                             .GetAll(filter)
                             .Select(x => x.Id);
 
+            // Assert
             CollectionAssert.AreEqual(expected, actual);
         }
 
         [Test]
         public void Return_FilteredAndPaged_WhenHave_FilterAndPaging()
         {
+            // Arange
             Expression<Func<DimmyClass, bool>> filter = x => x.Id.ToString().Contains("a");
             var pagesize = 3;
             var page = 2;
@@ -85,16 +92,19 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             var obj = new Repository<DimmyClass>(mockedContext.Object);
 
+            // Act
             var actual = obj
                             .GetAll(filter, page, pagesize)
                             .Select(x => x.Id);
 
+            // Assert
             CollectionAssert.AreEqual(expected, actual);
         }
 
         [Test]
         public void Return_FilteredAndOrdered_WhenHave_FilterAndOrder()
         {
+            // Arange
             Expression<Func<DimmyClass, bool>> filter = x => x.Id.ToString().Contains("h");
             Expression<Func<DimmyClass, Guid>> orderBy = x => x.Id;
 
@@ -113,16 +123,19 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             var obj = new Repository<DimmyClass>(mockedContext.Object);
 
+            // Act
             var actual = obj
                             .GetAll(filter, orderBy)
                             .Select(x => x.Id);
 
+            // Assert
             CollectionAssert.AreEqual(expected, actual);
         }
 
         [Test]
         public void Return_FilteredOrderedAndPaged_WhenHave_FilterOrderAndPaging()
         {
+            // Arange 
             Expression<Func<DimmyClass, bool>> filter = x => x.Id.ToString().Contains("z");
             Expression<Func<DimmyClass, Guid>> orderBy = x => x.Id;
 
@@ -146,16 +159,19 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             var obj = new Repository<DimmyClass>(mockedContext.Object);
 
+            // Act
             var actual = obj
                             .GetAll(filter, orderBy, page, pagesize)
                             .Select(x => x.Id);
 
+            // Assert
             CollectionAssert.AreEqual(expected, actual);
         }
 
         [Test]
         public void Return_FilteredOrderedAndSelected_WhenHave_FilterOrderAndSelect()
         {
+            // Arange 
             Expression<Func<DimmyClass, bool>> filter = x => x.Id.ToString().Contains("g");
             Expression<Func<DimmyClass, Guid>> orderBy = x => x.Id;
             Expression<Func<DimmyClass, Guid>> select = x => x.Id;
@@ -175,15 +191,18 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             var obj = new Repository<DimmyClass>(mockedContext.Object);
 
+            // Act
             var actual = obj
                             .GetAll(filter, orderBy, select);
 
+            // Assert
             CollectionAssert.AreEqual(expected, actual);
         }
 
         [Test]
         public void Return_FilteredOrderedSelectedAndPaged_WhenHave_FilterOrderSelectAndPaging()
         {
+            // Arange 
             Expression<Func<DimmyClass, bool>> filter = x => x.Id.ToString().Contains("n");
             Expression<Func<DimmyClass, Guid>> orderBy = x => x.Id;
             Expression<Func<DimmyClass, Guid>> select = x => x.Id;
@@ -208,9 +227,11 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             var obj = new Repository<DimmyClass>(mockedContext.Object);
 
+            // Act
             var actual = obj
                             .GetAll(filter, orderBy, select, page, pagesize);
 
+            // Assert
             CollectionAssert.AreEqual(expected, actual);
         }
     }

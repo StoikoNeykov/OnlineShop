@@ -8,6 +8,7 @@ namespace OnlineShop.Libs.Data.Tests.UnitOfWorkTests
         [Test]
         public void Throw_NullReferenceException_WithProperMessage_WhenDbContext_IsNull()
         {
+            // Act & Assert
             Assert.That(() => new UnitOfWork(null),
                                 Throws.ArgumentNullException.With.Message.Contains("DbContext"));
         }

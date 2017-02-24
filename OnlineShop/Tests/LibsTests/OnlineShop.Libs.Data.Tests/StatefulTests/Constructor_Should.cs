@@ -9,6 +9,7 @@ namespace OnlineShop.Libs.Data.Tests.StatefulTests
         [Test]
         public void Throw_ArgumentNullException_WithProperMessage_WhenEntry_IsNull()
         {
+            // Act & Assert
             Assert.That(() => new Stateful<DimmyClass>(null),
                                 Throws.ArgumentNullException.With.Message.Contains("entry"));
         }

@@ -14,6 +14,7 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         [Test]
         public void Return_DeletedMembers_FromSet_Only()
         {
+            // Arange 
             var collection = DimmyClass.GetDimmyCollection();
 
             var expected = collection
@@ -28,10 +29,12 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             var obj = new Repository<DimmyClass>(mockedContext.Object);
 
+            // Act
             var actual = obj
                             .GetDeleted()
                             .Select(x => x.Id);
 
+            // Assert
             CollectionAssert.AreEqual(expected, actual);
         }
     }

@@ -12,6 +12,7 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         [Test]
         public void Throw_ArgumentNullException_WithProperMessage_WhenEntity_IsNull()
         {
+            // Arange
             var mockedSet = new Mock<IDbSet<DimmyClass>>();
             var mockedStateful = new Mock<IStateful<DimmyClass>>();
 
@@ -21,6 +22,7 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             var obj = new Repository<DimmyClass>(mockedContext.Object);
 
+            // Act & Assert
             Assert.That(() => obj.Update(null),
                                    Throws.ArgumentNullException.With.Message.Contains("entity"));
         }
@@ -28,6 +30,7 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         [Test]
         public void Change_StatefulState_ToModified()
         {
+            // Arange
             var mockedSet = new Mock<IDbSet<DimmyClass>>();
 
             var mockedStateful = new Mock<IStateful<DimmyClass>>();
@@ -39,8 +42,10 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             var obj = new Repository<DimmyClass>(mockedContext.Object);
 
+            // Act
             obj.Update(new DimmyClass());
 
+            // Assert
             mockedStateful.Verify();
         }
     }
