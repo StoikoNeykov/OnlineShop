@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using OnlineShop.Libs.Data.Contracts;
 using System.Data.Entity.Infrastructure;
+using Bytes2you.Validation;
 
 namespace OnlineShop.Libs.Data
 {
@@ -12,10 +13,7 @@ namespace OnlineShop.Libs.Data
 
         public Stateful(DbEntityEntry<T> entry)
         {
-            if (entry == null)
-            {
-                throw new ArgumentNullException("Entry");
-            }
+            Guard.WhenArgument(entry, "entry").IsNull().Throw();
 
             this.entry = entry;
         }

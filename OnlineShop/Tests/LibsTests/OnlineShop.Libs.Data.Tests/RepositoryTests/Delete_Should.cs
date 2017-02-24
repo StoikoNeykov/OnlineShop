@@ -22,7 +22,7 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
             var obj = new Repository<DimmyClass>(mockedContext.Object);
 
             Assert.That(() => obj.Delete(null),
-                                   Throws.ArgumentNullException.With.Message.Contains("Entity"));
+                                   Throws.ArgumentNullException.With.Message.Contains("entity"));
         }
 
         [Test]

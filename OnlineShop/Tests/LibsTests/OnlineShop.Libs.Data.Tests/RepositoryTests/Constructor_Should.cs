@@ -14,7 +14,7 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         public void Throw_NullReferenceException_WithProeperMessage_WhenDbContext_IsNull()
         {
             Assert.That(() => new Repository<DimmyClass>(null),
-                                    Throws.ArgumentNullException.With.Message.Contains("DbContext"));
+                                    Throws.ArgumentNullException.With.Message.Contains("dbContext"));
         }
 
         [Test]
@@ -24,7 +24,7 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
             mockedContext.Setup(x => x.Set<DimmyClass>()).Returns<DimmyClass>(null);
 
             Assert.That(() => new Repository<DimmyClass>(mockedContext.Object),
-                                    Throws.ArgumentNullException.With.Message.Contains("DbSet"));
+                                    Throws.ArgumentNullException.With.Message.Contains("dbSet"));
         }
 
         [Test]

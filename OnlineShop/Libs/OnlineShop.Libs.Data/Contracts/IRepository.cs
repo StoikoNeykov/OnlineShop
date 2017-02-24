@@ -6,7 +6,7 @@ namespace OnlineShop.Libs.Data.Contracts
 {
     public interface IRepository<TEntity>
     {
-        TEntity GetById(object id);
+        TEntity GetById(Guid id);
 
         void Add(TEntity entity);
 

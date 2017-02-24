@@ -5,6 +5,7 @@ using OnlineShop.Libs.Data.Contracts;
 using System.Data.Entity;
 using System.Linq;
 using OnlineShop.Libs.Models.Contracts;
+using Bytes2you.Validation;
 
 namespace OnlineShop.Libs.Data
 {
@@ -16,28 +17,19 @@ namespace OnlineShop.Libs.Data
 
         public Repository(IOnlineShopDbContext dbContext)
         {
-            if (dbContext == null)
-            {
-                throw new ArgumentNullException("DbContext");
-            }
+            Guard.WhenArgument(dbContext, "dbContext").IsNull().Throw();
 
             this.dbContext = dbContext;
             var set = dbContext.Set<T>();
 
-            if (set == null)
-            {
-                throw new ArgumentNullException("DbSet");
-            }
+            Guard.WhenArgument(set, "dbSet").IsNull().Throw();
 
             this.dbSet = set;
         }
 
         public void Add(T entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("Entity");
-            }
+            Guard.WhenArgument(entity, "entity").IsNull().Throw();
 
             var entry = this.dbContext.GetStateful(entity);
             entry.State = EntityState.Added;
@@ -45,10 +37,7 @@ namespace OnlineShop.Libs.Data
 
         public void Delete(T entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("Entity");
-            }
+            Guard.WhenArgument(entity, "entity").IsNull().Throw();
 
             var entry = this.dbContext.GetStateful(entity);
             entry.State = EntityState.Deleted;
@@ -124,12 +113,9 @@ namespace OnlineShop.Libs.Data
             return result.OfType<TResult>().ToList();
         }
 
-        public T GetById(object id)
+        public T GetById(Guid id)
         {
-            if (id == null)
-            {
-                throw new ArgumentNullException("Id");
-            }
+            Guard.WhenArgument(id, "id").IsEmptyGuid().Throw();
 
             return this.dbSet.Find(id);
         }
@@ -143,10 +129,7 @@ namespace OnlineShop.Libs.Data
 
         public void Update(T entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("Entity");
-            }
+            Guard.WhenArgument(entity, "entity").IsNull().Throw();
 
             var entry = this.dbContext.GetStateful(entity);
             entry.State = EntityState.Modified;

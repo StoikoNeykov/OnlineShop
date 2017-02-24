@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using OnlineShop.Libs.Data.Contracts;
 using OnlineShop.Libs.Data.Tests.Mocks;
+using System;
 using System.Data.Entity;
 using System.Linq;
 
@@ -10,12 +11,11 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
     [TestFixture]
     public class GetById_Should
     {
-        [TestCase(5)]
-        [TestCase(3)]
-        [TestCase(21)]
-        [TestCase(6)]
-        public void Should_Work(int randomId)
+        [Test]
+        public void Should_Work()
         {
+            var randomId = Guid.NewGuid();
+
             var mockedSet = new Mock<IDbSet<DimmyClass>>();
             mockedSet.Setup(x => x.Find(randomId)).Verifiable();
 
@@ -30,7 +30,7 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
         }
 
         [Test]
-        public void Should_ThrowArgumentNullException_WithProperMessage_WhenId_IsNull()
+        public void Should_ThrowArgumentNullException_WithProperMessage_WhenId_IsEmptyGuid()
         {
             var mockedSet = new Mock<IDbSet<DimmyClass>>();
 
@@ -39,8 +39,8 @@ namespace OnlineShop.Libs.Data.Tests.RepositoryTests
 
             var obj = new Repository<DimmyClass>(mockedContext.Object);
 
-            Assert.That(() => obj.GetById(null),
-                                Throws.ArgumentNullException.With.Message.Contains("Id"));
+            Assert.That(() => obj.GetById(Guid.Empty),
+                                Throws.ArgumentException.With.Message.Contains("Guid.Empty"));
         }
     }
 }
