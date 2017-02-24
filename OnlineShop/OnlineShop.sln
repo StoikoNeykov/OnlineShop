@@ -27,8 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.ConfigurationPro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Libs\Services\Services.csproj", "{6712E170-5DAC-45EE-8963-91C5F4C7003B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{9EC20991-F1EA-4F6A-BE8D-C26587A1D0F8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.MVC", "OnlineShop.MVC\OnlineShop.MVC.csproj", "{DF6578EA-EE2A-4783-903C-F85FDF9DA451}"
 EndProject
 Global
