@@ -31,6 +31,7 @@ namespace OnlineShop.Services.Abstraction
                                             where T : IDbModel
         {
             Guard.WhenArgument(repo, "repo").IsNull().Throw();
+            Guard.WhenArgument(id, "id").IsEmptyGuid().Throw();
 
             return repo.GetById(id);
         }
