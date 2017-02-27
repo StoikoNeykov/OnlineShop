@@ -1,9 +1,9 @@
 ﻿using Moq;
 using NUnit.Framework;
 using OnlineShop.Libs.Data.Factories;
-using OnlineShop.Services.Tests.AbstractionTests.BaseServiceTests.Mock;
+using OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests.Mock;
 
-namespace OnlineShop.Services.Tests.AbstractionTests.BaseServiceTests
+namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
 {
     [TestFixture]
     public class UnitOfWorkFactory_Should

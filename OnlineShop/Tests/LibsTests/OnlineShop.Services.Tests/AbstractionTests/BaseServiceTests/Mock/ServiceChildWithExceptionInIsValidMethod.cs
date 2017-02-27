@@ -4,7 +4,7 @@ using OnlineShop.Libs.Models.Contracts;
 using OnlineShop.Services.Abstraction;
 using System;
 
-namespace OnlineShop.Services.Tests.AbstractionTests.BaseServiceTests.Mock
+namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests.Mock
 {
     public class ServiceChildWithSpecificIsValidMethod : BaseService
     {

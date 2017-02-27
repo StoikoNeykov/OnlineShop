@@ -29,7 +29,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.MVC", "OnlineSho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Services", "Libs\OnlineShop.Services\OnlineShop.Services.csproj", "{6712E170-5DAC-45EE-8963-91C5F4C7003B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Services.Tests", "Tests\LibsTests\OnlineShop.Services.Tests\OnlineShop.Services.Tests.csproj", "{141B8AD5-221F-4C4F-9D49-F168FD4DBDE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Libs.Services.Tests", "Tests\LibsTests\OnlineShop.Services.Tests\OnlineShop.Libs.Services.Tests.csproj", "{141B8AD5-221F-4C4F-9D49-F168FD4DBDE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,10 +4,10 @@ using OnlineShop.Libs.Data.Contracts;
 using OnlineShop.Libs.Data.Factories;
 using OnlineShop.Libs.Models.Contracts;
 using OnlineShop.Services.Abstraction;
-using OnlineShop.Services.Tests.AbstractionTests.BaseServiceTests.Mock;
+using OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests.Mock;
 using System;
 
-namespace OnlineShop.Services.Tests.AbstractionTests.BaseServiceTests
+namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
 {
     [TestFixture]
     public class Add_Should
