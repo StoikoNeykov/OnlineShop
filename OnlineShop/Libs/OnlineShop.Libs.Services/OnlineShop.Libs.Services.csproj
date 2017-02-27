@@ -7,8 +7,8 @@
     <ProjectGuid>{6712E170-5DAC-45EE-8963-91C5F4C7003B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OnlineShop.Services</RootNamespace>
-    <AssemblyName>OnlineShop.Services</AssemblyName>
+    <RootNamespace>OnlineShop.Libs.Services</RootNamespace>
+    <AssemblyName>OnlineShop.Libs.Services</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

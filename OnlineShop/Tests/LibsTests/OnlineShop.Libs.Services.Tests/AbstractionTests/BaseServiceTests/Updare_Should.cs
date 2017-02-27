@@ -4,13 +4,13 @@ using OnlineShop.Libs.Data.Contracts;
 using OnlineShop.Libs.Data.Factories;
 using OnlineShop.Libs.Models.Contracts;
 using OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests.Mock;
-using OnlineShop.Services.Abstraction;
+using OnlineShop.Libs.Services.Abstraction;
 using System;
 
 namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
 {
     [TestFixture]
-    public class Hide_Should
+    public class Updare_Should
     {
         [Test]
         public void Throw_ArgumentNullException_WithProperMessage_WhenRepoArgument_IsNull()
@@ -24,7 +24,7 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
             var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, func);
 
             // Act & Assert
-            Assert.That(() => obj.Hide(null, mockedItem.Object),
+            Assert.That(() => obj.Update(null, mockedItem.Object),
                     Throws.ArgumentNullException.With.Message.Contains("repo"));
         }
 
@@ -55,7 +55,7 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
             var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, specificBehavior.Object);
 
             // Act
-            obj.Hide(mockedRepo.Object, mockedItem.Object);
+            obj.Add(mockedRepo.Object, mockedItem.Object);
 
             // Assert
             specificBehavior.Verify();
@@ -80,12 +80,12 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
             var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, specificBehavior.Object);
 
             // Act & Assert
-            Assert.That(() => obj.Hide(mockedRepo.Object, mockedItem.Object),
-                                        Throws.ArgumentException.With.Message.SameAs(BaseService.InvalidItemForHideErrorMessage));
+            Assert.That(() => obj.Update(mockedRepo.Object, mockedItem.Object),
+                                        Throws.ArgumentException.With.Message.SameAs(BaseService.InvalidItemForUpdateErrorMessage));
         }
 
         [Test]
-        public void Call_RepoUpdateMethod_WhenArguments_AreValid()
+        public void Call_RepoAddMethod_WhenArguments_AreValid()
         {
             // Arange
             var randomGuid = Guid.NewGuid();
@@ -111,7 +111,7 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
             var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, specificBehavior.Object);
 
             // Act
-            obj.Hide(mockedRepo.Object, mockedItem.Object);
+            obj.Update(mockedRepo.Object, mockedItem.Object);
 
             // Assert
             mockedRepo.Verify();
@@ -144,7 +144,7 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
             var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, specificBehavior.Object);
 
             // Act
-            obj.Hide(mockedRepo.Object, mockedItem.Object);
+            obj.Add(mockedRepo.Object, mockedItem.Object);
 
             // Assert
             mockedUnitOfWork.Verify();
@@ -177,7 +177,7 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
             var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, specificBehavior.Object);
 
             // Act
-            obj.Hide(mockedRepo.Object, mockedItem.Object);
+            obj.Add(mockedRepo.Object, mockedItem.Object);
 
             // Assert
             mockedUnitOfWork.Verify();
@@ -214,10 +214,11 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
             var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, specificBehavior.Object);
 
             // Act
-            obj.Hide(mockedRepo.Object, mockedItem.Object);
+            obj.Add(mockedRepo.Object, mockedItem.Object);
 
             // Assert
             Assert.AreEqual("0123", order);
         }
+
     }
 }

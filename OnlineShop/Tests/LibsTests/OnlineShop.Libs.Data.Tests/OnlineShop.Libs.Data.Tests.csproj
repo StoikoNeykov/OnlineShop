@@ -95,6 +95,10 @@
       <Project>{E1AC735E-D1E5-4A24-97B5-C8D0493076AF}</Project>
       <Name>OnlineShop.Libs.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Libs\OnlineShop.Libs.Services\OnlineShop.Libs.Services.csproj">
+      <Project>{6712e170-5dac-45ee-8963-91c5f4c7003b}</Project>
+      <Name>OnlineShop.Libs.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

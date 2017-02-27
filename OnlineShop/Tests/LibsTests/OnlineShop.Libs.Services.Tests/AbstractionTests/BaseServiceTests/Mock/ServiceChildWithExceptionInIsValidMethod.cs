@@ -1,7 +1,7 @@
 ﻿using OnlineShop.Libs.Data.Contracts;
 using OnlineShop.Libs.Data.Factories;
 using OnlineShop.Libs.Models.Contracts;
-using OnlineShop.Services.Abstraction;
+using OnlineShop.Libs.Services.Abstraction;
 using System;
 
 namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests.Mock

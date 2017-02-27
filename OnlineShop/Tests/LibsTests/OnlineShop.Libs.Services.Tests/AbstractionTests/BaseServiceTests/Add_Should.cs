@@ -3,14 +3,14 @@ using NUnit.Framework;
 using OnlineShop.Libs.Data.Contracts;
 using OnlineShop.Libs.Data.Factories;
 using OnlineShop.Libs.Models.Contracts;
+using OnlineShop.Libs.Services.Abstraction;
 using OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests.Mock;
-using OnlineShop.Services.Abstraction;
 using System;
 
 namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
 {
     [TestFixture]
-    public class Updare_Should
+    public class Add_Should
     {
         [Test]
         public void Throw_ArgumentNullException_WithProperMessage_WhenRepoArgument_IsNull()
@@ -24,7 +24,7 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
             var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, func);
 
             // Act & Assert
-            Assert.That(() => obj.Update(null, mockedItem.Object),
+            Assert.That(() => obj.Add(null, mockedItem.Object),
                     Throws.ArgumentNullException.With.Message.Contains("repo"));
         }
 
@@ -50,7 +50,7 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
 
             var mockedRepo = new Mock<IRepository<IDbModel>>();
             // setup to not throw
-            mockedRepo.Setup(x => x.Update(mockedItem.Object));
+            mockedRepo.Setup(x => x.Add(mockedItem.Object));
 
             var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, specificBehavior.Object);
 
@@ -80,8 +80,8 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
             var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, specificBehavior.Object);
 
             // Act & Assert
-            Assert.That(() => obj.Update(mockedRepo.Object, mockedItem.Object),
-                                        Throws.ArgumentException.With.Message.SameAs(BaseService.InvalidItemForUpdateErrorMessage));
+            Assert.That(() => obj.Add(mockedRepo.Object, mockedItem.Object),
+                                        Throws.ArgumentException.With.Message.SameAs(BaseService.InvalidItemForAddErrorMessage));
         }
 
         [Test]
@@ -106,12 +106,12 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
 
             var mockedRepo = new Mock<IRepository<IDbModel>>();
             // setup to not throw
-            mockedRepo.Setup(x => x.Update(mockedItem.Object)).Verifiable();
+            mockedRepo.Setup(x => x.Add(mockedItem.Object)).Verifiable();
 
             var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, specificBehavior.Object);
 
             // Act
-            obj.Update(mockedRepo.Object, mockedItem.Object);
+            obj.Add(mockedRepo.Object, mockedItem.Object);
 
             // Assert
             mockedRepo.Verify();
@@ -139,7 +139,7 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
 
             var mockedRepo = new Mock<IRepository<IDbModel>>();
             // setup to not throw
-            mockedRepo.Setup(x => x.Update(mockedItem.Object));
+            mockedRepo.Setup(x => x.Add(mockedItem.Object));
 
             var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, specificBehavior.Object);
 
@@ -172,7 +172,7 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
 
             var mockedRepo = new Mock<IRepository<IDbModel>>();
             // setup to not throw
-            mockedRepo.Setup(x => x.Update(mockedItem.Object));
+            mockedRepo.Setup(x => x.Add(mockedItem.Object));
 
             var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, specificBehavior.Object);
 
@@ -209,7 +209,7 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
 
             var mockedRepo = new Mock<IRepository<IDbModel>>();
             // setup to not throw
-            mockedRepo.Setup(x => x.Update(mockedItem.Object));
+            mockedRepo.Setup(x => x.Add(mockedItem.Object));
 
             var obj = new ServiceChildWithSpecificIsValidMethod(mockedFactory.Object, specificBehavior.Object);
 
@@ -219,6 +219,5 @@ namespace OnlineShop.Libs.Services.Tests.AbstractionTests.BaseServiceTests
             // Assert
             Assert.AreEqual("0123", order);
         }
-
     }
 }

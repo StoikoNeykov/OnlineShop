@@ -73,9 +73,9 @@
       <Project>{E1AC735E-D1E5-4A24-97B5-C8D0493076AF}</Project>
       <Name>OnlineShop.Libs.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Libs\OnlineShop.Services\OnlineShop.Services.csproj">
-      <Project>{6712E170-5DAC-45EE-8963-91C5F4C7003B}</Project>
-      <Name>OnlineShop.Services</Name>
+    <ProjectReference Include="..\..\..\Libs\OnlineShop.Libs.Services\OnlineShop.Libs.Services.csproj">
+      <Project>{6712e170-5dac-45ee-8963-91c5f4c7003b}</Project>
+      <Name>OnlineShop.Libs.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
