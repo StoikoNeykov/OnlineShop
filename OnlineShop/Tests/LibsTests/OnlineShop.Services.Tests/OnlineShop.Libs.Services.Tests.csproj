@@ -53,6 +53,7 @@
     <Compile Include="AbstractionTests\BaseServiceTests\Constructor_Should.cs" />
     <Compile Include="AbstractionTests\BaseServiceTests\Mock\ServiceChildWithExceptionInIsValidMethod.cs" />
     <Compile Include="AbstractionTests\BaseServiceTests\UnitOfWorkFactory_Should.cs" />
+    <Compile Include="AbstractionTests\BaseServiceTests\Updare_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
