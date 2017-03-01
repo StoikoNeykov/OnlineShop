@@ -1,33 +1,55 @@
-node {
-    stage('Clone'){
-		checkout scm
-	}
+pipeline {
+    agent any
 
-	//stage('Clean'){
-	//	sh('git clean -xdff')
-	//}
-
-    stage('Build'){
-		msbuild()
-	}
-
-	//stage('Publish'){
-	//	mono("Packager/bin/Release/Packager.exe", "Packager/bin/Release/Packager.exe")
-	//	mono("Packager/bin/Release/Packager.exe", "ClickMac/bin/Release/ClickMac.exe")
-	//	sh('cp -v ClickMac/bin/Release/ClickMac.exe ClickMac/bin/Release/_publish/')
-	//}
-    
-	//stage('Test'){
-	//	mono('Tests/bin/Release/Tests.exe','')
-	//	//junit "TestResult.xml"
-	//}
-
-    //stage('Archive'){
-	//	archive '**/bin/Release/'
-	//}
-
-	//stage('Post-Build'){
-	//	step([$class: 'WarningsPublisher', canComputeNew: false, canResolveRelativePaths: false, consoleParsers: [[parserName: 'MSBuild']], defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', messagesPattern: '', unHealthy: ''])
-	//}
-
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
 }
+
+// node {
+//     stage('Clone'){
+// 		checkout scm
+// 	}
+
+// 	//stage('Clean'){
+// 	//	sh('git clean -xdff')
+// 	//}
+
+//     stage('Build'){
+// 		msbuild()
+// 	}
+
+// 	//stage('Publish'){
+// 	//	mono("Packager/bin/Release/Packager.exe", "Packager/bin/Release/Packager.exe")
+// 	//	mono("Packager/bin/Release/Packager.exe", "ClickMac/bin/Release/ClickMac.exe")
+// 	//	sh('cp -v ClickMac/bin/Release/ClickMac.exe ClickMac/bin/Release/_publish/')
+// 	//}
+    
+// 	//stage('Test'){
+// 	//	mono('Tests/bin/Release/Tests.exe','')
+// 	//	//junit "TestResult.xml"
+// 	//}
+
+//     //stage('Archive'){
+// 	//	archive '**/bin/Release/'
+// 	//}
+
+// 	//stage('Post-Build'){
+// 	//	step([$class: 'WarningsPublisher', canComputeNew: false, canResolveRelativePaths: false, consoleParsers: [[parserName: 'MSBuild']], defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', messagesPattern: '', unHealthy: ''])
+// 	//}
+
+// }
