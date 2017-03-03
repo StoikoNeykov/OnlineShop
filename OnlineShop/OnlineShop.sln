@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Libs.Services.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Libs.Services", "Libs\OnlineShop.Libs.Services\OnlineShop.Libs.Services.csproj", "{6712E170-5DAC-45EE-8963-91C5F4C7003B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Configuration.Common", "Configuration\OnlineShop.Configuration.Common\OnlineShop.Configuration.Common.csproj", "{2FAE6574-3040-42ED-BD5C-E5EAB0E87668}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{6712E170-5DAC-45EE-8963-91C5F4C7003B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6712E170-5DAC-45EE-8963-91C5F4C7003B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6712E170-5DAC-45EE-8963-91C5F4C7003B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FAE6574-3040-42ED-BD5C-E5EAB0E87668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FAE6574-3040-42ED-BD5C-E5EAB0E87668}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FAE6574-3040-42ED-BD5C-E5EAB0E87668}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FAE6574-3040-42ED-BD5C-E5EAB0E87668}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,5 +89,6 @@ Global
 		{DF6578EA-EE2A-4783-903C-F85FDF9DA451} = {1885AE97-D251-4EB6-B517-09961164C154}
 		{141B8AD5-221F-4C4F-9D49-F168FD4DBDE2} = {09A90ECA-CBBD-488C-B96B-170FA67DBD7F}
 		{6712E170-5DAC-45EE-8963-91C5F4C7003B} = {05DEB5C8-F660-4EF4-A86B-6C8D53425870}
+		{2FAE6574-3040-42ED-BD5C-E5EAB0E87668} = {4AF99F02-3F6B-4BA3-A2FA-2562705ADBE6}
 	EndGlobalSection
 EndGlobal

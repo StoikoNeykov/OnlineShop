@@ -1,5 +1,7 @@
-﻿using System;
+﻿using OnlineShop.Configuration.Common.Constants;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,6 +12,13 @@ namespace OnlineShop.MVC.Controllers
     {
         public ActionResult Index()
         {
+            var path = Server.MapPath(LocationConstants.CarouselItemsFolder);
+
+            var files = Directory.GetFiles(path)
+                    .Select(x => LocationConstants.CarouselItemsFolder + x.Substring(x.LastIndexOf("\\")));
+
+            ViewBag.Files = files;
+
             return View();
         }
 

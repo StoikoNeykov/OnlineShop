@@ -1,0 +1,8 @@
+﻿<div class="carousel carousel-slider">
+    @{ 
+        foreach (var item in this.ViewBag.Files)
+        {
+            <a class="carousel-item" href="#"><img src="@item" /></a>
+        }
+    }
+</div>

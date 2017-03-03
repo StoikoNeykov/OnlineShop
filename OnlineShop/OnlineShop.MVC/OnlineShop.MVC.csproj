@@ -225,6 +225,20 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\Carousel\cover %282%29.jpg" />
+    <Content Include="Content\Images\Carousel\cover %282%29.png" />
+    <Content Include="Content\Images\Carousel\cover %283%29.jpg" />
+    <Content Include="Content\Images\Carousel\cover %283%29.png" />
+    <Content Include="Content\Images\Carousel\cover %284%29.jpg" />
+    <Content Include="Content\Images\Carousel\cover %284%29.png" />
+    <Content Include="Content\Images\Carousel\cover %285%29.jpg" />
+    <Content Include="Content\Images\Carousel\cover %285%29.png" />
+    <Content Include="Content\Images\Carousel\cover %286%29.jpg" />
+    <Content Include="Content\Images\Carousel\cover %286%29.png" />
+    <Content Include="Content\Images\Carousel\cover %287%29.jpg" />
+    <Content Include="Content\Images\Carousel\cover %287%29.png" />
+    <Content Include="Content\Images\Carousel\cover.jpg" />
+    <Content Include="Content\Images\Carousel\cover.png" />
     <Content Include="Content\materialize\css\materialize.css" />
     <Content Include="Content\materialize\css\materialize.min.css" />
     <Content Include="Content\materialize\font\material-design-icons\LICENSE.txt" />
@@ -328,13 +342,19 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_NavPartial.cshtml" />
+    <Content Include="Views\Shared\_CarouselPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Configuration\OnlineShop.Configuration.Common\OnlineShop.Configuration.Common.csproj">
+      <Project>{2fae6574-3040-42ed-bd5c-e5eab0e87668}</Project>
+      <Name>OnlineShop.Configuration.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
