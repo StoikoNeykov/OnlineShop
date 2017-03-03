@@ -10,11 +10,10 @@
 
 </head>
 <body>
+    <header>
+        @Html.Partial("_NavPartial")
+    </header>
     <div class="container">
-        <header>
-            @Html.Partial("_NavPartial")
-        </header>
-        
         @RenderBody()
         <hr />
         <footer>
