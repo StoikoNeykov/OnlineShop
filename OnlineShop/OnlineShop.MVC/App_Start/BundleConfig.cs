@@ -22,6 +22,9 @@ namespace OnlineShop.MVC
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/custom").Include(
+                        "~/Scripts/main.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/materialize/css/materialize.min.css",
                       "~/Content/site.css"));
