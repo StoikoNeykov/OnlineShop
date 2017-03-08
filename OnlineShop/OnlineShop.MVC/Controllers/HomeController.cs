@@ -10,6 +10,11 @@ namespace OnlineShop.MVC.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Basic()
+        {
+            return this.RedirectToAction("Index");
+        }
+
         public ActionResult Index()
         {
             var path = Server.MapPath(LocationConstants.CarouselItemsFolder);

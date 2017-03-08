@@ -2,6 +2,6 @@
 {
     public static class LocationConstants
     {
-        public const string CarouselItemsFolder = @"../Content/Images/Carousel/";
+        public const string CarouselItemsFolder = @"./../Content/Images/Carousel/";
     }
 }
