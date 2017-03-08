@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <jenkins.triggers.ReverseBuildTrigger>
+      <spec></spec>
+      <upstreamProjects>OnlineShop-build</upstreamProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </jenkins.triggers.ReverseBuildTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>&quot;.\..\OnlineShop-build\OnlineShop\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe&quot; /config:Release &quot;.\..\OnlineShop-build\OnlineShop\Tests\LibsTests\OnlineShop.Libs.Data.Tests\bin\Release\OnlineShop.Libs.Data.Tests.dll&quot; &quot;.\..\OnlineShop-build\OnlineShop\Tests\LibsTests\OnlineShop.Libs.Services.Tests\bin\Release\OnlineShop.Libs.Services.Tests.dll&quot; --result=junit-results.xml;format=nunit2</command>
+    </hudson.tasks.BatchFile>
+    <hudson.tasks.BatchFile>
+      <command>&quot;.\..\OnlineShop-build\OnlineShop\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe&quot; -register:path64 -filter:&quot;+[*]*&quot; -target:&quot;.\..\OnlineShop-build\OnlineShop\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe&quot; -targetargs:&quot;/domain:single \&quot;.\..\OnlineShop-build\OnlineShop\Tests\LibsTests\OnlineShop.Libs.Data.Tests\bin\Release\OnlineShop.Libs.Data.Tests.dll\&quot; \&quot;.\..\OnlineShop-build\OnlineShop\Tests\LibsTests\OnlineShop.Libs.Services.Tests\bin\Release\OnlineShop.Libs.Services.Tests.dll\&quot;&quot; -output:open-cover.xml</command>
+    </hudson.tasks.BatchFile>
+    <hudson.tasks.BatchFile>
+      <command>&quot;.\..\OnlineShop-build\OnlineShop\packages\OpenCoverToCoberturaConverter.0.2.6.0\tools\OpenCoverToCoberturaConverter.exe&quot; -input:open-cover.xml -output:cobertura-result.xml -sources:&quot;.\&quot;</command>
+    </hudson.tasks.BatchFile>
+    <hudson.tasks.BatchFile>
+      <command>mkdir CodeCoverageHTML&#xd;
+&quot;./../OnlineShop-build/OnlineShop/packages/ReportGenerator.2.5.5/tools/ReportGenerator.exe&quot; -reports:open-cover.xml -targetDir:CodeCoverageHTML</command>
+    </hudson.tasks.BatchFile>
+  </builders>
+  <publishers>
+    <hudson.plugins.nunit.NUnitPublisher plugin="nunit@0.18">
+      <testResultsPattern>junit-results.xml</testResultsPattern>
+      <debug>false</debug>
+      <keepJUnitReports>false</keepJUnitReports>
+      <skipJUnitArchiver>false</skipJUnitArchiver>
+      <failIfNoResults>true</failIfNoResults>
+    </hudson.plugins.nunit.NUnitPublisher>
+    <hudson.plugins.cobertura.CoberturaPublisher plugin="cobertura@1.9.8">
+      <coberturaReportFile>cobertura-result.xml</coberturaReportFile>
+      <onlyStable>true</onlyStable>
+      <failUnhealthy>false</failUnhealthy>
+      <failUnstable>false</failUnstable>
+      <autoUpdateHealth>true</autoUpdateHealth>
+      <autoUpdateStability>true</autoUpdateStability>
+      <zoomCoverageChart>false</zoomCoverageChart>
+      <maxNumberOfBuilds>0</maxNumberOfBuilds>
+      <failNoReports>true</failNoReports>
+      <healthyTarget>
+        <targets class="enum-map" enum-type="hudson.plugins.cobertura.targets.CoverageMetric">
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>METHOD</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>6500000</int>
+          </entry>
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>LINE</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>6500000</int>
+          </entry>
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>CONDITIONAL</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>6500000</int>
+          </entry>
+        </targets>
+      </healthyTarget>
+      <unhealthyTarget>
+        <targets class="enum-map" enum-type="hudson.plugins.cobertura.targets.CoverageMetric">
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>METHOD</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>8182000</int>
+          </entry>
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>LINE</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>9338000</int>
+          </entry>
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>CONDITIONAL</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>8000000</int>
+          </entry>
+        </targets>
+      </unhealthyTarget>
+      <failingTarget>
+        <targets class="enum-map" enum-type="hudson.plugins.cobertura.targets.CoverageMetric">
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>METHOD</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>8182000</int>
+          </entry>
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>LINE</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>9338000</int>
+          </entry>
+          <entry>
+            <hudson.plugins.cobertura.targets.CoverageMetric>CONDITIONAL</hudson.plugins.cobertura.targets.CoverageMetric>
+            <int>8000000</int>
+          </entry>
+        </targets>
+      </failingTarget>
+      <sourceEncoding>ASCII</sourceEncoding>
+    </hudson.plugins.cobertura.CoberturaPublisher>
+    <htmlpublisher.HtmlPublisher plugin="htmlpublisher@1.12">
+      <reportTargets>
+        <htmlpublisher.HtmlPublisherTarget>
+          <reportName>HTML Report</reportName>
+          <reportDir>CodeCoverageHTML</reportDir>
+          <reportFiles>index.htm</reportFiles>
+          <alwaysLinkToLastBuild>false</alwaysLinkToLastBuild>
+          <keepAll>true</keepAll>
+          <allowMissing>false</allowMissing>
+        </htmlpublisher.HtmlPublisherTarget>
+      </reportTargets>
+    </htmlpublisher.HtmlPublisher>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.32">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>

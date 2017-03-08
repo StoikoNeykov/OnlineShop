@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.1.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/StoikoNeykov/OnlineShop</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>&quot;C:\Program Files (x86)\NuGet\Visual Studio 2015\nuget.exe&quot; restore &quot;OnlineShop\OnlineShop.sln&quot;</command>
+    </hudson.tasks.BatchFile>
+    <hudson.plugins.msbuild.MsBuildBuilder plugin="msbuild@1.27">
+      <msBuildName>MSBuild</msBuildName>
+      <msBuildFile>OnlineShop/OnlineShop.sln</msBuildFile>
+      <cmdLineArgs>/p:Configuration=Release</cmdLineArgs>
+      <buildVariablesAsProperties>false</buildVariablesAsProperties>
+      <continueOnBuildFailure>false</continueOnBuildFailure>
+      <unstableIfWarnings>false</unstableIfWarnings>
+    </hudson.plugins.msbuild.MsBuildBuilder>
+    <org.jenkinsci.plugins.vs__code__metrics.VsCodeMetricsBuilder plugin="vs-code-metrics@1.7">
+      <toolName>CodeMetrixcs</toolName>
+      <files>.\..\OnlineShop-build\OnlineShop\Libs\OnlineShop.Libs.Services\bin\Release\OnlineShop.Libs.Data.dll,
+.\..\OnlineShop-build\OnlineShop\Libs\OnlineShop.Libs.Models\bin\Release\OnlineShop.Libs.Models.dll</files>
+      <outputXML>code-metrics-result.xml</outputXML>
+      <directory></directory>
+      <searchGac>false</searchGac>
+      <platform></platform>
+      <reference></reference>
+      <ignoreInvalidTargets>false</ignoreInvalidTargets>
+      <ignoreGeneratedCode>true</ignoreGeneratedCode>
+      <cmdLineArgs></cmdLineArgs>
+      <failBuild>true</failBuild>
+    </org.jenkinsci.plugins.vs__code__metrics.VsCodeMetricsBuilder>
+  </builders>
+  <publishers>
+    <org.jenkinsci.plugins.vs__code__metrics.VsCodeMetricsPublisher plugin="vs-code-metrics@1.7">
+      <reportFiles>./code-metrics-result.xml</reportFiles>
+      <thresholds>
+        <minMaintainabilityIndex>10</minMaintainabilityIndex>
+        <maxMaintainabilityIndex>20</maxMaintainabilityIndex>
+      </thresholds>
+      <failBuild>true</failBuild>
+    </org.jenkinsci.plugins.vs__code__metrics.VsCodeMetricsPublisher>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.32">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>
