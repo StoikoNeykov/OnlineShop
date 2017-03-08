@@ -38,31 +38,8 @@
       <continueOnBuildFailure>false</continueOnBuildFailure>
       <unstableIfWarnings>false</unstableIfWarnings>
     </hudson.plugins.msbuild.MsBuildBuilder>
-    <org.jenkinsci.plugins.vs__code__metrics.VsCodeMetricsBuilder plugin="vs-code-metrics@1.7">
-      <toolName>CodeMetrixcs</toolName>
-      <files>.\..\OnlineShop-build\OnlineShop\Libs\OnlineShop.Libs.Services\bin\Release\OnlineShop.Libs.Data.dll,
-.\..\OnlineShop-build\OnlineShop\Libs\OnlineShop.Libs.Models\bin\Release\OnlineShop.Libs.Models.dll</files>
-      <outputXML>code-metrics-result.xml</outputXML>
-      <directory></directory>
-      <searchGac>false</searchGac>
-      <platform></platform>
-      <reference></reference>
-      <ignoreInvalidTargets>false</ignoreInvalidTargets>
-      <ignoreGeneratedCode>true</ignoreGeneratedCode>
-      <cmdLineArgs></cmdLineArgs>
-      <failBuild>true</failBuild>
-    </org.jenkinsci.plugins.vs__code__metrics.VsCodeMetricsBuilder>
   </builders>
-  <publishers>
-    <org.jenkinsci.plugins.vs__code__metrics.VsCodeMetricsPublisher plugin="vs-code-metrics@1.7">
-      <reportFiles>./code-metrics-result.xml</reportFiles>
-      <thresholds>
-        <minMaintainabilityIndex>10</minMaintainabilityIndex>
-        <maxMaintainabilityIndex>20</maxMaintainabilityIndex>
-      </thresholds>
-      <failBuild>true</failBuild>
-    </org.jenkinsci.plugins.vs__code__metrics.VsCodeMetricsPublisher>
-  </publishers>
+  <publishers/>
   <buildWrappers>
     <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.32">
       <deleteDirs>false</deleteDirs>
