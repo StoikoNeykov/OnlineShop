@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContractsTests\IOnlineShopDbContext_Should.cs" />
-    <Compile Include="Helpers\QueryableDbSetMock.cs" />
     <Compile Include="Mocks\DimmyClass.cs" />
     <Compile Include="OnlineShopDbContextTests\Constructor_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
