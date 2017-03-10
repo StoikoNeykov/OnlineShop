@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using OnlineShop.Libs.Models.Contracts;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace OnlineShop.Libs.Data.Contracts
 {
-    public interface IEfQuerable<TEntity> : IQueryable<TEntity>, IEnumerable<TEntity>, IQueryable, IEnumerable where TEntity : class
+    public interface IEfQuerable<TEntity> : IQueryable<TEntity>, IEnumerable<TEntity>, IQueryable, IEnumerable where TEntity : class, IDbModel
     {
         /// <summary>
         /// Expose only element with IsDeleted == false

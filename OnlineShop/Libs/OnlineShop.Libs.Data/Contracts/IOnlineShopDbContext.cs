@@ -1,16 +1,15 @@
 ﻿using OnlineShop.Libs.Models;
+using OnlineShop.Libs.Models.Contracts;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading.Tasks;
 
 namespace OnlineShop.Libs.Data.Contracts
 {
-    public interface IOnlineShopDbContext
+    public interface IOnlineShopDbContext : IEfEntryProvider
     {
-        IDbSet<TEntity> Set<TEntity>() where TEntity : class;
-
-        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
-
+        IDbSet<TEntity> GetSet<TEntity>() where TEntity : class, IDbModel;
+        
         Task<int> SaveChangesAsync();
 
         int SaveChanges();

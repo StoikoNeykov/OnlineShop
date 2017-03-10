@@ -1,5 +1,4 @@
 ﻿using OnlineShop.Libs.Models;
-using System.Threading.Tasks;
 
 namespace OnlineShop.Libs.Data.Contracts
 {

@@ -1,7 +1,7 @@
 ﻿using OnlineShop.Libs.Data.Contracts;
-using System.Data.Entity;
-using System;
 using OnlineShop.Libs.Models;
+using OnlineShop.Libs.Models.Contracts;
+using System.Data.Entity;
 
 namespace OnlineShop.Libs.Data
 {
@@ -28,7 +28,7 @@ namespace OnlineShop.Libs.Data
 
         public virtual IDbSet<PhotoItem> PhotoItems { get; set; }
 
-        IDbSet<TEntity> IOnlineShopDbContext.Set<TEntity>()
+        public IDbSet<TEntity> GetSet<TEntity>() where TEntity : class, IDbModel
         {
             return base.Set<TEntity>();
         }
