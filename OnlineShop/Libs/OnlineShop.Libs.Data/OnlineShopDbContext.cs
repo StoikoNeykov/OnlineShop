@@ -8,9 +8,7 @@ namespace OnlineShop.Libs.Data
 {
     public class OnlineShopDbContext : DbContext, IOnlineShopDbContext
     {
-        private readonly IStatefulFactory statefulFactory;
-
-        // // needed for add-migration 
+        // needed for add-migration 
 
         private static string localConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=OnlineShop;Integrated Security=True;MultipleActiveResultSets=False";
 
@@ -20,15 +18,9 @@ namespace OnlineShop.Libs.Data
 
         }
 
-        public OnlineShopDbContext(string connectionString, IStatefulFactory statefulFactory)
+        public OnlineShopDbContext(string connectionString)
             : base(connectionString)
         {
-            if (statefulFactory == null)
-            {
-                throw new ArgumentNullException("StatefulFactory");
-            }
-
-            this.statefulFactory = statefulFactory;
         }
 
         public virtual IDbSet<Category> Categories { get; set; }
@@ -40,11 +32,6 @@ namespace OnlineShop.Libs.Data
         IDbSet<TEntity> IOnlineShopDbContext.Set<TEntity>()
         {
             return base.Set<TEntity>();
-        }
-
-        public IStateful<TEntity> GetStateful<TEntity>(TEntity entity) where TEntity : class
-        {
-            return this.statefulFactory.GetStateful(this.Entry(entity));
         }
     }
 }
