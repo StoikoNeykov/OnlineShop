@@ -20,7 +20,7 @@ namespace OnlineShop.Libs.Data.Tests.ContractsTests
                                     .Where(x => x.IsClass && !x.IsAbstract && x.GetInterfaces().Contains(typeof(IDbModel)));
             ;
 
-            var result = typeof(IOnlineShopDbContext)
+            var result = typeof(IOnlineShopEfDbContext)
                                 .GetProperties()
                                 .Select(x => x.PropertyType)
                                 .Where(x => x.Name.Contains("Set"))

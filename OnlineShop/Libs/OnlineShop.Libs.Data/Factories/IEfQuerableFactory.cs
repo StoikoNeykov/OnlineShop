@@ -5,6 +5,6 @@ namespace OnlineShop.Libs.Data.Factories
 {
     public interface IEfQuerableFactory
     {
-        IEfQuerable<TEntity> GetQuerable<TEntity>(IOnlineShopDbContext dbContext) where TEntity : class, IDbModel;
+        IEfQuerable<TEntity> GetQuerable<TEntity>(IOnlineShopEfDbContext dbContext) where TEntity : class, IDbModel;
     }
 }

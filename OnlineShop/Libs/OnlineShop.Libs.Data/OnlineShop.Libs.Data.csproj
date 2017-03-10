@@ -55,7 +55,7 @@
     <Compile Include="Contracts\IEfDataProvider.cs" />
     <Compile Include="Contracts\IEfEntryProvider.cs" />
     <Compile Include="Contracts\IEfQuerable.cs" />
-    <Compile Include="Contracts\IOnlineShopDbContext.cs" />
+    <Compile Include="Contracts\IOnlineShopEfDbContext.cs" />
     <Compile Include="Contracts\IEfUnitOfWork.cs" />
     <Compile Include="EfDataProvider.cs" />
     <Compile Include="EfQuerable.cs" />
@@ -73,7 +73,7 @@
       <DependentUpon>201702231050464_x.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="OnlineShopDbContext.cs" />
+    <Compile Include="OnlineShopEfDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

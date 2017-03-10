@@ -23,7 +23,7 @@ namespace OnlineShop.Libs.Data.Tests.EfDataProviderTests
         public void Throw_ArgumentNullException_WithProperMessage_WhenQuerableFactory_IsNull()
         {
             // Arange 
-            var mockedDbContext = new Mock<IOnlineShopDbContext>();
+            var mockedDbContext = new Mock<IOnlineShopEfDbContext>();
 
             // Act & Assert
             Assert.That(() => new EfDataProvider(mockedDbContext.Object, null),
@@ -35,7 +35,7 @@ namespace OnlineShop.Libs.Data.Tests.EfDataProviderTests
         {
             // Arange 
             var mockedQuerableFactory = new Mock<IEfQuerableFactory>();
-            var mockedDbContext = new Mock<IOnlineShopDbContext>();
+            var mockedDbContext = new Mock<IOnlineShopEfDbContext>();
 
             // Act & Assert
             Assert.DoesNotThrow(() => new EfDataProvider(mockedDbContext.Object, mockedQuerableFactory.Object));

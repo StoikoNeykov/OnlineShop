@@ -8,10 +8,10 @@ namespace OnlineShop.Libs.Data
 {
     public class EfDataProvider : IEfDataProvider
     {
-        private readonly IOnlineShopDbContext dbContext;
+        private readonly IOnlineShopEfDbContext dbContext;
         private readonly IEfQuerableFactory querableFactory;
 
-        public EfDataProvider(IOnlineShopDbContext dbContext, IEfQuerableFactory querableFactory)
+        public EfDataProvider(IOnlineShopEfDbContext dbContext, IEfQuerableFactory querableFactory)
         {
             Guard.WhenArgument(dbContext, nameof(dbContext)).IsNull().Throw();
             Guard.WhenArgument(querableFactory, nameof(querableFactory)).IsNull().Throw();
