@@ -55,11 +55,7 @@
     <Compile Include="Contracts\IEfDataProvider.cs" />
     <Compile Include="Contracts\IEfQuerable.cs" />
     <Compile Include="Contracts\IOnlineShopDbContext.cs" />
-    <Compile Include="Contracts\IRepository.cs" />
-    <Compile Include="Contracts\IStateful.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
-    <Compile Include="Factories\IStatefulFactory.cs" />
-    <Compile Include="Factories\IUnitOfWorkFactory.cs" />
     <Compile Include="Migrations\201702100553300_changeBaseModels.cs" />
     <Compile Include="Migrations\201702100553300_changeBaseModels.Designer.cs">
       <DependentUpon>201702100553300_changeBaseModels.cs</DependentUpon>
@@ -75,9 +71,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
-    <Compile Include="Stateful.cs" />
-    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

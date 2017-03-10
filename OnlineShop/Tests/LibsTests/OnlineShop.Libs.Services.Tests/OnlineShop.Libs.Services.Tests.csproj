@@ -49,13 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractionTests\BaseServiceTests\Add_Should.cs" />
-    <Compile Include="AbstractionTests\BaseServiceTests\Constructor_Should.cs" />
-    <Compile Include="AbstractionTests\BaseServiceTests\Delete_Should.cs" />
-    <Compile Include="AbstractionTests\BaseServiceTests\Hide_Should.cs" />
-    <Compile Include="AbstractionTests\BaseServiceTests\Mock\ServiceChildWithExceptionInIsValidMethod.cs" />
-    <Compile Include="AbstractionTests\BaseServiceTests\UnitOfWorkFactory_Should.cs" />
-    <Compile Include="AbstractionTests\BaseServiceTests\Updare_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +70,9 @@
       <Project>{6712e170-5dac-45ee-8963-91c5f4c7003b}</Project>
       <Name>OnlineShop.Libs.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AbstractionTests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

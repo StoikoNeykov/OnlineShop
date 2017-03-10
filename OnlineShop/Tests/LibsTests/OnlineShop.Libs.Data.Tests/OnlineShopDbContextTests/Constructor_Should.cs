@@ -1,7 +1,6 @@
 ﻿using Moq;
 using NUnit.Framework;
 using OnlineShop.ConfigurationProviders;
-using OnlineShop.Libs.Data.Factories;
 using System;
 
 namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
@@ -11,14 +10,6 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
     {
         private string validConnectionString = new ConnectionStringProvider(new EnvoirmentProvider()).ConnectionString;
 
-        [Test]
-        public void Throw_ArgumentNullException_WithProperMessage_WhenStatefulFactory_IsNull()
-        {
-            // Act & Assert
-            Assert.That(() => new OnlineShopDbContext(this.validConnectionString, null),
-                                    Throws.ArgumentNullException.With.Message.Contains("StatefulFactory"));
-        }
-
         [TestCase("ecwqce")]
         [TestCase("anything else")]
         [TestCase("not a string")]
@@ -26,11 +17,8 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
         [TestCase("<>@$>@#X@)(<_)X!")]
         public void Call_BaseClassConstructor_WithSame_ConnectionString(string randomString)
         {
-            // Arange 
-            var mockedFactory = new Mock<IStatefulFactory>();
-
             // Act
-            var obj = new OnlineShopDbContext(randomString, mockedFactory.Object);
+            var obj = new OnlineShopDbContext(randomString);
 
             // Assert
             StringAssert.Contains(randomString, obj.Database.Connection.ConnectionString);
@@ -41,11 +29,8 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
         [TestCase("    ")]
         public void Call_BaseClassConstructor_WithSame_ConnectionString_EvenWhenItsInvalid(string invalidString)
         {
-            // Arange
-            var mockedFactory = new Mock<IStatefulFactory>();
-
             // Act & Assert
-            Assert.That(() => new OnlineShopDbContext(invalidString, mockedFactory.Object),
+            Assert.That(() => new OnlineShopDbContext(invalidString),
                                     Throws.ArgumentException.With.Message.Contain("white space"));
         }
     }

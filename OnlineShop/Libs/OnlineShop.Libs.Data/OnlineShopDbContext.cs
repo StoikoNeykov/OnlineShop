@@ -1,7 +1,6 @@
 ﻿using OnlineShop.Libs.Data.Contracts;
 using System.Data.Entity;
 using System;
-using OnlineShop.Libs.Data.Factories;
 using OnlineShop.Libs.Models;
 
 namespace OnlineShop.Libs.Data
