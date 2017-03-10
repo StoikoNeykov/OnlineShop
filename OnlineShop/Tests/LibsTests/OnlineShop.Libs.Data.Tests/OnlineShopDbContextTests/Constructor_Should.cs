@@ -18,7 +18,7 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
         public void Call_BaseClassConstructor_WithSame_ConnectionString(string randomString)
         {
             // Act
-            var obj = new OnlineShopEfDbContext(randomString);
+            var obj = new EfOnlineShopDbContext(randomString);
 
             // Assert
             StringAssert.Contains(randomString, obj.Database.Connection.ConnectionString);
@@ -30,7 +30,7 @@ namespace OnlineShop.Libs.Data.Tests.OnlineShopDbContextTests
         public void Call_BaseClassConstructor_WithSame_ConnectionString_EvenWhenItsInvalid(string invalidString)
         {
             // Act & Assert
-            Assert.That(() => new OnlineShopEfDbContext(invalidString),
+            Assert.That(() => new EfOnlineShopDbContext(invalidString),
                                     Throws.ArgumentException.With.Message.Contain("white space"));
         }
     }

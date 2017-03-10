@@ -13,7 +13,7 @@ namespace OnlineShop.Libs.Data.Tests.EfDataProviderTests
         public void CallOnce_QuerableFactory_WithDbContext_PassedInConstructor()
         {
             // Arange 
-            var mockedDbContext = new Mock<IOnlineShopEfDbContext>();
+            var mockedDbContext = new Mock<IEfOnlineShopDbContext>();
 
             var mockedEfQuerable = new Mock<IEfQuerable<Category>>();
 
@@ -36,7 +36,7 @@ namespace OnlineShop.Libs.Data.Tests.EfDataProviderTests
         public void Return_QuerableFactory_Result()
         {
             // Arange 
-            var mockedDbContext = new Mock<IOnlineShopEfDbContext>();
+            var mockedDbContext = new Mock<IEfOnlineShopDbContext>();
 
             var mockedEfQuerable = new Mock<IEfQuerable<Category>>();
 
