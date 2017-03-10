@@ -37,9 +37,13 @@ namespace OnlineShop.Libs.Data
             return this.dbSet.Add(entity);
         }
 
+        /// <summary>
+        /// Set entity IsDeleted=true. 
+        /// Do not change. Not tastable coz couple with Entity Framework ... for now
+        /// </summary>
+        /// <param name="entity">Entity to hide</param>
         public virtual void Hide(TEntity entity)
         {
-            
             var entry = this.AttachIfDetached(entity);
 
             entity.IsDeleted = true;

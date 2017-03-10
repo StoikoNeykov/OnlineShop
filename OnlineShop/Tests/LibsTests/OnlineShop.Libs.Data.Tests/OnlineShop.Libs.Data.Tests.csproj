@@ -70,8 +70,10 @@
     <Compile Include="EfDataProviderTests\SaveChanges_Should.cs" />
     <Compile Include="EfQuerableTasts\Add_Should.cs" />
     <Compile Include="EfQuerableTasts\Constructor_Should.cs" />
+    <Compile Include="EfQuerableTasts\Expression_Should.cs" />
     <Compile Include="EfQuerableTasts\FindByKey_Should.cs" />
     <Compile Include="EfQuerableTasts\GetAvailable_Should.cs" />
+    <Compile Include="EfQuerableTasts\Remove_Should.cs" />
     <Compile Include="Helpers\QueryableDbSetMock.cs" />
     <Compile Include="Mocks\DimmyClass.cs" />
     <Compile Include="OnlineShopDbContextTests\Constructor_Should.cs" />
