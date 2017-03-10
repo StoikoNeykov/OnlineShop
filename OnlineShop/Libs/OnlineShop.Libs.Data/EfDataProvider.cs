@@ -8,8 +8,8 @@ namespace OnlineShop.Libs.Data
 {
     public class EfDataProvider : IEfDataProvider
     {
-        protected readonly IOnlineShopDbContext dbContext;
-        protected readonly IEfQuerableFactory querableFactory;
+        private readonly IOnlineShopDbContext dbContext;
+        private readonly IEfQuerableFactory querableFactory;
 
         public EfDataProvider(IOnlineShopDbContext dbContext, IEfQuerableFactory querableFactory)
         {
