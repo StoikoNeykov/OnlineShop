@@ -9,6 +9,17 @@ namespace OnlineShop.Libs.Data.Tests.Mocks
 
     public class DimmyClass : IDbModel
     {
+        public DimmyClass()
+        {
+
+        }
+
+        public DimmyClass(bool randomBool)
+        {
+            this.Id = Guid.NewGuid();
+            this.IsDeleted = randomBool;
+        }
+
         public Guid Id { get; set; }
 
         public bool IsDeleted { get; set; }
@@ -17,29 +28,29 @@ namespace OnlineShop.Libs.Data.Tests.Mocks
         {
             return new List<DimmyClass>()
             {
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = true },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = false },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = true },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = true },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = false },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = false },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = false },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = true },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = true },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = false },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = false },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = false },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = true },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = false },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = false },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = false },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = false },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = true },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = false },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = true },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = false },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = true },
-                new DimmyClass {Id = Guid.NewGuid(), IsDeleted = false }
+                new DimmyClass(true) ,
+                new DimmyClass(false),
+                new DimmyClass(true),
+                new DimmyClass(true),
+                new DimmyClass(true),
+                new DimmyClass(false),
+                new DimmyClass(false),
+                new DimmyClass(true),
+                new DimmyClass(true),
+                new DimmyClass(false),
+                new DimmyClass(false),
+                new DimmyClass(false),
+                new DimmyClass(true),
+                new DimmyClass(false),
+                new DimmyClass(false),
+                new DimmyClass(false),
+                new DimmyClass(false),
+                new DimmyClass(true),
+                new DimmyClass(false),
+                new DimmyClass(true),
+                new DimmyClass(false),
+                new DimmyClass(true),
+                new DimmyClass(false)
             };
         }
     }
