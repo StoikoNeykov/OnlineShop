@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Configuration.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Configuration.NinjectConfigs", "Configuration\OnlineShop.Configuration.NinjectConfigs\OnlineShop.Configuration.NinjectConfigs.csproj", "{017B564B-739D-4465-A410-DE3835FB7439}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Clients.MVC", "OnlineShop.Clients.MVC\OnlineShop.Clients.MVC.csproj", "{DF6578EA-EE2A-4783-903C-F85FDF9DA451}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Clients.MVC", "Clients\OnlineShop.Clients.MVC\OnlineShop.Clients.MVC.csproj", "{DF6578EA-EE2A-4783-903C-F85FDF9DA451}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
