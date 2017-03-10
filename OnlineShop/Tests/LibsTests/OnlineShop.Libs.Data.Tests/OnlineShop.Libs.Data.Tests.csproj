@@ -70,6 +70,7 @@
     <Compile Include="EfDataProviderTests\SaveChanges_Should.cs" />
     <Compile Include="EfQuerableTasts\Add_Should.cs" />
     <Compile Include="EfQuerableTasts\Constructor_Should.cs" />
+    <Compile Include="EfQuerableTasts\ElementType_Should.cs" />
     <Compile Include="EfQuerableTasts\Expression_Should.cs" />
     <Compile Include="EfQuerableTasts\FindByKey_Should.cs" />
     <Compile Include="EfQuerableTasts\GetAvailable_Should.cs" />
