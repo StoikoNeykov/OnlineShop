@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IEfQuerable.cs" />
     <Compile Include="Contracts\IOnlineShopDbContext.cs" />
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\IStateful.cs" />
