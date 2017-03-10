@@ -10,9 +10,5 @@ namespace OnlineShop.Libs.Data.Contracts
         IEfQuerable<Product> Products { get; }
 
         IEfQuerable<PhotoItem> PhotoItems { get; }
-
-        int SaveChanges();
-
-        Task<int> SaveChangesAsync();
     }
 }
