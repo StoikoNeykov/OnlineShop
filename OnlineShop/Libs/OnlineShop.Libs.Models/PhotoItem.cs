@@ -2,10 +2,11 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System;
 using System.ComponentModel.DataAnnotations;
+using OnlineShop.Configuration.Common.Constants;
 
 namespace OnlineShop.Libs.Models
 {
-    [Table("PhotoItems")]
+    [Table(TablesNames.PhotoItemTableName)]
     public class PhotoItem : IDbModel
     {
         public PhotoItem()
@@ -20,11 +21,11 @@ namespace OnlineShop.Libs.Models
         public bool IsDeleted { get; set; }
 
         [Required]
-        [MaxLength(200)]
+        [MaxLength(Validation.PhotoItemValidations.SmallSizeUrlMaxLenght)]
         public string SmallSizeUrl { get; set; }
 
         [Required]
-        [MaxLength(200)]
+        [MaxLength(Validation.PhotoItemValidations.FullSizeUrlMaxLenght)]
         public string FullSizeUrl { get; set; }
     }
 }

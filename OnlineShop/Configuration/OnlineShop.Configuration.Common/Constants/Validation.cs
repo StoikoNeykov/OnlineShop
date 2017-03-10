@@ -25,5 +25,11 @@
             public const int FullNameMinLenght = 2;
             public const int FullNameMaxLenght = 150;
         }
+
+        public static class PhotoItemValidations
+        {
+            public const int SmallSizeUrlMaxLenght = 200;
+            public const int FullSizeUrlMaxLenght = 200;
+        }
     }
 }
