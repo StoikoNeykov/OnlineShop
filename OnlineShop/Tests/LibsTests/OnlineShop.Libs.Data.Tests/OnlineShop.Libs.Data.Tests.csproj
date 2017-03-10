@@ -74,6 +74,7 @@
     <Compile Include="EfQuerableTasts\Expression_Should.cs" />
     <Compile Include="EfQuerableTasts\FindByKey_Should.cs" />
     <Compile Include="EfQuerableTasts\GetAvailable_Should.cs" />
+    <Compile Include="EfQuerableTasts\GetEnumerator_Should.cs" />
     <Compile Include="EfQuerableTasts\Provider_Should.cs" />
     <Compile Include="EfQuerableTasts\Remove_Should.cs" />
     <Compile Include="Helpers\QueryableDbSetMock.cs" />
