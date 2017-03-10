@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Libs.Data.Contracts
 {
-    public interface IUnitOfWork
+    public interface IEfUnitOfWork
     {
         Task<int> SaveChangesAsync();
 

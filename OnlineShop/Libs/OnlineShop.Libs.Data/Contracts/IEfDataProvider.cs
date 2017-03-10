@@ -2,7 +2,7 @@
 
 namespace OnlineShop.Libs.Data.Contracts
 {
-    public interface IEfDataProvider : IUnitOfWork
+    public interface IEfDataProvider : IEfUnitOfWork
     {
         IEfQuerable<Category> Categories { get; }
 
