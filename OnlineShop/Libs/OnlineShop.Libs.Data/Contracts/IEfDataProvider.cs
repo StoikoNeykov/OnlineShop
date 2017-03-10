@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Libs.Data.Contracts
 {
-    public interface IEfDataProvider
+    public interface IEfDataProvider : IUnitOfWork
     {
         IEfQuerable<Category> Categories { get; }
 
