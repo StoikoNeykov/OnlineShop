@@ -1,5 +1,6 @@
 ﻿using OnlineShop.Libs.Models;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Threading.Tasks;
 
 namespace OnlineShop.Libs.Data.Contracts
@@ -8,7 +9,7 @@ namespace OnlineShop.Libs.Data.Contracts
     {
         IDbSet<TEntity> Set<TEntity>() where TEntity : class;
 
-        IStateful<TEntity> GetStateful<TEntity>(TEntity entity) where TEntity : class;
+        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
 
         Task<int> SaveChangesAsync();
 
