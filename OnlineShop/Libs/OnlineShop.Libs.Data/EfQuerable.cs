@@ -13,8 +13,8 @@ namespace OnlineShop.Libs.Data
 {
     public class EfQuerable<TEntity> : IEfQuerable<TEntity>, IQueryable<TEntity>, IEnumerable<TEntity> where TEntity : class, IDbModel
     {
-        protected readonly IDbSet<TEntity> dbSet;
-        protected readonly IEfEntryProvider entryProvider;
+        private readonly IDbSet<TEntity> dbSet;
+        private readonly IEfEntryProvider entryProvider;
 
         public EfQuerable(IDbSet<TEntity> dbSet, IEfEntryProvider entryProvider)
         {
