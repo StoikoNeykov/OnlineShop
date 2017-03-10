@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Configuration.Ni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Clients.MVC", "Clients\OnlineShop.Clients.MVC\OnlineShop.Clients.MVC.csproj", "{DF6578EA-EE2A-4783-903C-F85FDF9DA451}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Clients.Common", "Clients\OnlineShop.Clients.Common\OnlineShop.Clients.Common.csproj", "{0EAA3079-DB05-4E0E-BA36-7D8FED788A78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{DF6578EA-EE2A-4783-903C-F85FDF9DA451}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF6578EA-EE2A-4783-903C-F85FDF9DA451}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF6578EA-EE2A-4783-903C-F85FDF9DA451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EAA3079-DB05-4E0E-BA36-7D8FED788A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EAA3079-DB05-4E0E-BA36-7D8FED788A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EAA3079-DB05-4E0E-BA36-7D8FED788A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EAA3079-DB05-4E0E-BA36-7D8FED788A78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,5 +103,6 @@ Global
 		{2FAE6574-3040-42ED-BD5C-E5EAB0E87668} = {4AF99F02-3F6B-4BA3-A2FA-2562705ADBE6}
 		{017B564B-739D-4465-A410-DE3835FB7439} = {4AF99F02-3F6B-4BA3-A2FA-2562705ADBE6}
 		{DF6578EA-EE2A-4783-903C-F85FDF9DA451} = {1885AE97-D251-4EB6-B517-09961164C154}
+		{0EAA3079-DB05-4E0E-BA36-7D8FED788A78} = {1885AE97-D251-4EB6-B517-09961164C154}
 	EndGlobalSection
 EndGlobal
