@@ -66,6 +66,7 @@
     <Compile Include="EfDataProviderTests\Constructor_Should.cs" />
     <Compile Include="EfDataProviderTests\PhotoItems_Should.cs" />
     <Compile Include="EfDataProviderTests\Products_Should.cs" />
+    <Compile Include="EfDataProviderTests\SaveChangesAsync_Should.cs" />
     <Compile Include="EfDataProviderTests\SaveChanges_Should.cs" />
     <Compile Include="Mocks\DimmyClass.cs" />
     <Compile Include="OnlineShopDbContextTests\Constructor_Should.cs" />
