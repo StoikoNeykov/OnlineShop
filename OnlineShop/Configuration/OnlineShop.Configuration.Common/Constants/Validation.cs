@@ -1,4 +1,4 @@
-﻿namespace OnlineShop.Libs.Models.Constants
+﻿namespace OnlineShop.Configuration.Common.Constants
 {
     public static class Validation
     {

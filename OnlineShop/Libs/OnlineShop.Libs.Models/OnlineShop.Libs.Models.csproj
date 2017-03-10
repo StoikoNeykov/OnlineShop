@@ -49,8 +49,6 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="PhotoItem.cs" />
-    <Compile Include="Constants\TablesNames.cs" />
-    <Compile Include="Constants\Validation.cs" />
     <Compile Include="Contracts\IDbModel.cs" />
     <Compile Include="Contracts\INameable.cs" />
     <Compile Include="Product.cs" />
@@ -59,6 +57,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Configuration\OnlineShop.Configuration.Common\OnlineShop.Configuration.Common.csproj">
+      <Project>{2FAE6574-3040-42ED-BD5C-E5EAB0E87668}</Project>
+      <Name>OnlineShop.Configuration.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

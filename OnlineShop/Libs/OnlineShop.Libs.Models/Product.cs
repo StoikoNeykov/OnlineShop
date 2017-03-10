@@ -1,9 +1,9 @@
-﻿using System;
+﻿using OnlineShop.Configuration.Common.Constants;
 using OnlineShop.Libs.Models.Contracts;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using OnlineShop.Libs.Models.Constants;
-using System.Collections.Generic;
 
 namespace OnlineShop.Libs.Models
 {
