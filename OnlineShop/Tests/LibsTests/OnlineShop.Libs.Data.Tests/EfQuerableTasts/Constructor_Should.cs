@@ -10,36 +10,22 @@ namespace OnlineShop.Libs.Data.Tests.EfQuerableTasts
     public class Constructor_Should
     {
         [Test]
-        public void THrow_ArgumentNullExceptionWith_ProperMessage_WhenDbSet_IsNull()
+        public void THrow_ArgumentNullExceptionWith_ProperMessage_WhenDbContext_IsNull()
         {
-            // Arange
-            var mockedEntryProvider = new Mock<IEfEntryProvider>();
-
-            // Act & Assert
-            Assert.That(() => new EfQuerable<DimmyClass>(null, mockedEntryProvider.Object),
-                            Throws.ArgumentNullException.With.Message.Contains("dbSet"));
-        }
-
-        [Test]
-        public void THrow_ArgumentNullExceptionWith_ProperMessage_WhenEntryProvider_IsNull()
-        {
-            // Arange
-            var mockedDbSet = new Mock<IDbSet<DimmyClass>>();
-
-            // Act & Assert
-            Assert.That(() => new EfQuerable<DimmyClass>(mockedDbSet.Object, null),
-                            Throws.ArgumentNullException.With.Message.Contains("entryProvider"));
+            // Arange, Act & Assert
+            Assert.That(() => new EfQuerable<DimmyClass>(null),
+                            Throws.ArgumentNullException.With.Message.Contains("dbContext"));
         }
 
         [Test]
         public void NotTHrow_WhenArguments_AreValid()
         {
-            // Arange
             var mockedDbSet = new Mock<IDbSet<DimmyClass>>();
-            var mockedEntryProvider = new Mock<IEfEntryProvider>();
+            
+            var mockedDbContext = new Mock<IEfOnlineShopDbContext>();
+            mockedDbContext.Setup(x => x.GetSet<DimmyClass>()).Returns(mockedDbSet.Object);
 
-            // Act & Assert
-            Assert.DoesNotThrow(() => new EfQuerable<DimmyClass>(mockedDbSet.Object, mockedEntryProvider.Object));
+            var obj = new EfQuerable<DimmyClass>(mockedDbContext.Object);
         }
     }
 }

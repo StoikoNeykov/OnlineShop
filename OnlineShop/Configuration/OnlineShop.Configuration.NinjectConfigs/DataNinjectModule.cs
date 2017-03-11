@@ -31,20 +31,8 @@ namespace OnlineShop.Configuration.NinjectConfigs
                                     return db;
                                 }).InRequestScope();
 
-
-
-            this.Kernel.Bind(typeof(IEfQuerable<>)).ToMethod(ctx =>
-            {
-                var type = ctx.GenericArguments[0];
-
-                var dbSet = ctx.Kernel.Get<EfOnlineShopDbContext>().Set(type);
-
-                var ctorArgs = new ConstructorArgument("dbSet", dbSet);
-
-                var efQuerable = ctx.Kernel.Get(typeof(EfQuerable<>), ctorArgs);
-
-                return efQuerable;
-            }).InRequestScope().NamedLikeFactoryMethod((IEfQuerableFactory fac)=>fac.GetQuerable<IDbModel>(null));
+            this.Kernel.Bind(typeof(IEfQuerable<>)).To(typeof(EfQuerable<>))
+                    .InRequestScope().NamedLikeFactoryMethod((IEfQuerableFactory fac) => fac.GetQuerable<IDbModel>(null));
         }
     }
 }

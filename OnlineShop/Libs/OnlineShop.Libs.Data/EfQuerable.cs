@@ -16,13 +16,12 @@ namespace OnlineShop.Libs.Data
         private readonly IDbSet<TEntity> dbSet;
         private readonly IEfEntryProvider entryProvider;
 
-        public EfQuerable(IDbSet<TEntity> dbSet, IEfEntryProvider entryProvider)
+        public EfQuerable(IEfOnlineShopDbContext dbContext)
         {
-            Guard.WhenArgument(dbSet, nameof(dbSet)).IsNull().Throw();
-            Guard.WhenArgument(entryProvider, nameof(entryProvider)).IsNull().Throw();
+            Guard.WhenArgument(dbContext, nameof(dbContext)).IsNull().Throw();
 
-            this.dbSet = dbSet;
-            this.entryProvider = entryProvider;
+            this.dbSet = dbContext.GetSet<TEntity>();
+            this.entryProvider = dbContext;
         }
 
         public IQueryable<TEntity> GetAvailabe => this.dbSet.Where(x => x.IsDeleted == false);

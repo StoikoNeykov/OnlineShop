@@ -17,9 +17,10 @@ namespace OnlineShop.Libs.Data.Tests.EfQuerableTasts
             var mockedDbSet = new Mock<IDbSet<DimmyClass>>();
             mockedDbSet.Setup(x => x.Remove(mockedDbModel)).Verifiable();
 
-            var mockedEntryProvider = new Mock<IEfEntryProvider>();
+            var mockedDbContext = new Mock<IEfOnlineShopDbContext>();
+            mockedDbContext.Setup(x => x.GetSet<DimmyClass>()).Returns(mockedDbSet.Object);
 
-            var obj = new EfQuerable<DimmyClass>(mockedDbSet.Object, mockedEntryProvider.Object);
+            var obj = new EfQuerable<DimmyClass>(mockedDbContext.Object);
 
             // Act
             obj.Remove(mockedDbModel);

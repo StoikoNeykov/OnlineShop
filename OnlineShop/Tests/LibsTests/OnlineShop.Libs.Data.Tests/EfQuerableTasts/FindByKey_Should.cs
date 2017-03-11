@@ -19,12 +19,14 @@ namespace OnlineShop.Libs.Data.Tests.EfQuerableTasts
             object[] actualParams = null;
 
             // Arange
-            var mockedEntryProvider = new Mock<IEfEntryProvider>();
 
             var mockedDbSet = new Mock<IDbSet<DimmyClass>>();
             mockedDbSet.Setup(x => x.Find(It.IsAny<object[]>())).Callback((object[] x) => actualParams = x);
 
-            var obj = new EfQuerable<DimmyClass>(mockedDbSet.Object, mockedEntryProvider.Object);
+            var mockedDbContext = new Mock<IEfOnlineShopDbContext>();
+            mockedDbContext.Setup(x => x.GetSet<DimmyClass>()).Returns(mockedDbSet.Object);
+
+            var obj = new EfQuerable<DimmyClass>(mockedDbContext.Object);
 
             // Act 
             obj.FindByKey(randomParams);
