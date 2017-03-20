@@ -22,6 +22,7 @@ namespace OnlineShop.Libs.Services
         {
             return this.products
                 .GetAvailabe
+                .Where(x => x.Count > 0)
                 .Skip(page * pageSize)
                 .Take(pageSize)
                 .ToList();
