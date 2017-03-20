@@ -9,13 +9,13 @@ namespace OnlineShop.Libs.Data
     {
         // needed for add-migration 
 
-        //private static string localConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=OnlineShop;Integrated Security=True;MultipleActiveResultSets=False";
+        private static string localConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=OnlineShop;Integrated Security=True;MultipleActiveResultSets=False";
 
-        //public OnlineShopDbContext()
-        //    : base(localConnectionString)
-        //{
+        public EfOnlineShopDbContext()
+            : base(localConnectionString)
+        {
 
-        //}
+        }
 
         public EfOnlineShopDbContext(string connectionString)
             : base(connectionString)
@@ -31,6 +31,21 @@ namespace OnlineShop.Libs.Data
         public IDbSet<TEntity> GetSet<TEntity>() where TEntity : class, IDbModel
         {
             return base.Set<TEntity>();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>()
+                .HasMany(x => x.Categories)
+                .WithMany(x => x.Products)
+                .Map(cp =>
+                {
+                    cp.MapLeftKey("ProductId");
+                    cp.MapRightKey("CategoryId");
+                    cp.ToTable("ProductsCategories");
+                });
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

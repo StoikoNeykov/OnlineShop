@@ -14,6 +14,7 @@ namespace OnlineShop.Libs.Models
         {
             this.Id = Guid.NewGuid();
             this.Photos = new HashSet<PhotoItem>();
+            this.Categories = new HashSet<Category>();
         }
 
         [Key]
@@ -40,12 +41,14 @@ namespace OnlineShop.Libs.Models
         [MaxLength(Validation.ProductValidations.NameMaxLenght)]
         [RegularExpression(Validation.Regexs.EnBgNumSpaceMinus)]
         public string FullName { get; set; }
-
-        public virtual ICollection<PhotoItem> Photos { get; set; }
-
+        
         [Range(0.0, 1000000000)]
         public decimal Price { get; set; }
 
         public int Count { get; set; }
+
+        public virtual ICollection<PhotoItem> Photos { get; set; }
+
+        public virtual ICollection<Category> Categories { get; set; }
     }
 }
