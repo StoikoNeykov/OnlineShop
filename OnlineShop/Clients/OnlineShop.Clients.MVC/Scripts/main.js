@@ -29,8 +29,18 @@
         }
     };
 
-    let defaultCreateItemCallback = function () {
-        // TODO make item template
+    let defaultCreateItemCallback = function (item) {
+        let $wrapper = $('<div />').addClass('card');
+        let $cardImageDiv = $('<div />').addClass('card-image');
+        let $img = $('<img>').attr('src', item.url);
+        let $titleSpan = $('< span />').addClass('card-title').val(item.title);
+        let $link = $('<a />').attr('href', item.link);
+
+        $cardImageDiv.append($img);
+        $cardImageDiv.append($titleSpan);
+        $cardImageDiv.append($link);
+
+        $wrapper.append($cardImageDiv);
     };
 
     let addItems = function (selector, url, page, createItemCallback) {
