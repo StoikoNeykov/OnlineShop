@@ -1,28 +1,12 @@
 ﻿using OnlineShop.Configuration.Common.Constants;
-using OnlineShop.Libs.Models.Contracts;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OnlineShop.Libs.Models
+namespace OnlineShop.Clients.MVC.Areas.Admin.Models
 {
-    [Table(TablesNames.ProductTableName)]
-    public class Product : IDbModel, INameable
+    public class AddProduct
     {
-        public Product()
-        {
-            this.Id = Guid.NewGuid();
-            this.Photos = new HashSet<PhotoItem>();
-            this.Categories = new HashSet<Category>();
-        }
-
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-
         [Required]
-        [Index(IsUnique = true)]
         [MinLength(Validation.ProductValidations.ProductIdMinLenght)]
         [MaxLength(Validation.ProductValidations.ProductIdMaxLenght)]
         [RegularExpression(Validation.Regexs.EnBgNumSpaceMinus)]
@@ -35,14 +19,10 @@ namespace OnlineShop.Libs.Models
         [MaxLength(Validation.ProductValidations.NameMaxLenght)]
         [RegularExpression(Validation.Regexs.EnBgNumSpaceMinus)]
         public string Name { get; set; }
-        
+
         [Range(0.0, 1000000000)]
         public decimal Price { get; set; }
 
         public int Count { get; set; }
-
-        public virtual ICollection<PhotoItem> Photos { get; set; }
-
-        public virtual ICollection<Category> Categories { get; set; }
     }
 }

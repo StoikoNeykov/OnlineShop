@@ -7,22 +7,14 @@
 
     <p class="text-success">@ViewBag.StatusMessage</p>
     <div>
-        <h4>Change your account settings</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>Password:</dt>
-            <dd>
-                [
-                @if (Model.HasPassword)
-            {
-                    @Html.ActionLink("Change your password", "ChangePassword")
-                }
-                else
-                {
-                    @Html.ActionLink("Create", "SetPassword")
-                }
-                ]
-            </dd>
-        </dl>
+        @if (Model.HasPassword)
+        {
+            @Html.ActionLink("Change your password", "ChangePassword", routeValues: new { area = "" }, htmlAttributes: new { @class = "btn" })
+        }
+        else
+        {
+            @Html.ActionLink("Create", "SetPassword")
+        }
+
     </div>
 </div>

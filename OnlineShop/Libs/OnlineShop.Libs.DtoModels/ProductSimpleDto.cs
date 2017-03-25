@@ -4,7 +4,7 @@ namespace OnlineShop.Libs.DtoModels
 {
     public class ProductSimpleDto
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public string Name { get; set; }
 

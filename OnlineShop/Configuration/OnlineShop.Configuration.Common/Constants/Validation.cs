@@ -22,8 +22,6 @@
             public const int ProductIdMaxLenght = 50;
             public const int NameMinLenght = 2;
             public const int NameMaxLenght = 50;
-            public const int FullNameMinLenght = 2;
-            public const int FullNameMaxLenght = 150;
         }
 
         public static class PhotoItemValidations

@@ -29,7 +29,7 @@ namespace OnlineShop.Libs.Services
                 .Take(pageSize)
                 .Select(x => new ProductSimpleDto
                 {
-                    Id = x.Id,
+                    Id = x.ProductId,
                     Name = x.Name,
                     Price = x.Price,
                     ImageUrl = x.Photos.FirstOrDefault().SmallSizeUrl,

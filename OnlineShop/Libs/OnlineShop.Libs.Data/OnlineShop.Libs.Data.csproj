@@ -73,6 +73,10 @@
     <Compile Include="Migrations\201703200906127_manyToMany.Designer.cs">
       <DependentUpon>201703200906127_manyToMany.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703250743343_remove-fullName.cs" />
+    <Compile Include="Migrations\201703250743343_remove-fullName.Designer.cs">
+      <DependentUpon>201703250743343_remove-fullName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EfOnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703200906127_manyToMany.resx">
       <DependentUpon>201703200906127_manyToMany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703250743343_remove-fullName.resx">
+      <DependentUpon>201703250743343_remove-fullName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

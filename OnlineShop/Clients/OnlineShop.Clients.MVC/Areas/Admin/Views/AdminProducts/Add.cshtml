@@ -1,0 +1,43 @@
+﻿@model OnlineShop.Clients.MVC.Areas.Admin.Models.AddProduct
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<div class="container">
+    <h2>Add Product</h2>
+    @using (Html.BeginForm("Add", "AdminProducts", new { area = "Admin" }, FormMethod.Post, null))
+    {
+        @Html.AntiForgeryToken();
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="row">
+            <div class="input-field">
+                @Html.LabelFor(x => x.ProductId)
+                @Html.TextBoxFor(x => x.ProductId)
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                @Html.LabelFor(x => x.Name)
+                @Html.TextBoxFor(x => x.Name)
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                @Html.LabelFor(x => x.Count)
+                @Html.TextBoxFor(x => x.Count)
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                @Html.LabelFor(x => x.Price)
+                @Html.TextBoxFor(x => x.Price)
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Add" class="btn"/>
+        </div>
+    }
+</div>
