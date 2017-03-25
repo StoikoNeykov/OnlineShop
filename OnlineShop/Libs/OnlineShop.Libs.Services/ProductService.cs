@@ -24,6 +24,7 @@ namespace OnlineShop.Libs.Services
             return this.products
                 .Include(x => x.Photos)
                 .Where(x => x.IsDeleted == false && x.Count > 0)
+                .OrderBy(x=>x.ProductId)
                 .Skip(page * pageSize)
                 .Take(pageSize)
                 .Select(x => new ProductSimpleDto
@@ -31,7 +32,7 @@ namespace OnlineShop.Libs.Services
                     Id = x.Id,
                     Name = x.Name,
                     Price = x.Price,
-                    ImageUrl = x.Photos.First().SmallSizeUrl,
+                    ImageUrl = x.Photos.FirstOrDefault().SmallSizeUrl,
                     Link = @"/products/" + x.Name
                 })
                 .ToList();

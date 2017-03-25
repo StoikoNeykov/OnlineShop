@@ -21,7 +21,7 @@ namespace OnlineShop.Clients.MVC.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("local", throwIfV1Schema: false)
         {
         }
 
