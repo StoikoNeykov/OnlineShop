@@ -17,7 +17,5 @@ namespace OnlineShop.Libs.Data.Contracts
         IDbSet<Category> Categories { get; }
 
         IDbSet<Product> Products { get; }
-
-        IDbSet<PhotoItem> PhotoItems { get; }
     }
 }

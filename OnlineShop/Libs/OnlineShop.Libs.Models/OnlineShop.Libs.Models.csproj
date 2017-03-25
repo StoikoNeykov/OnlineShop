@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.cs" />
-    <Compile Include="PhotoItem.cs" />
     <Compile Include="Contracts\IDbModel.cs" />
     <Compile Include="Contracts\INameable.cs" />
     <Compile Include="Product.cs" />

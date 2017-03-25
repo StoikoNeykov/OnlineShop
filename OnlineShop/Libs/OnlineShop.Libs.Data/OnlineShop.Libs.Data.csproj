@@ -77,6 +77,10 @@
     <Compile Include="Migrations\201703250743343_remove-fullName.Designer.cs">
       <DependentUpon>201703250743343_remove-fullName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703251528091_PhotosInsideProduct.cs" />
+    <Compile Include="Migrations\201703251528091_PhotosInsideProduct.Designer.cs">
+      <DependentUpon>201703251528091_PhotosInsideProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EfOnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703250743343_remove-fullName.resx">
       <DependentUpon>201703250743343_remove-fullName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703251528091_PhotosInsideProduct.resx">
+      <DependentUpon>201703251528091_PhotosInsideProduct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -13,7 +13,6 @@ namespace OnlineShop.Libs.Models
         public Product()
         {
             this.Id = Guid.NewGuid();
-            this.Photos = new HashSet<PhotoItem>();
             this.Categories = new HashSet<Category>();
         }
 
@@ -41,7 +40,14 @@ namespace OnlineShop.Libs.Models
 
         public int Count { get; set; }
 
-        public virtual ICollection<PhotoItem> Photos { get; set; }
+        [Required]
+        public string Photo1 { get; set; }
+
+        public string Photo2 { get; set; }
+
+        public string Photo3 { get; set; }
+
+        public string Photo4 { get; set; }
 
         public virtual ICollection<Category> Categories { get; set; }
     }

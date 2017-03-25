@@ -1,6 +1,7 @@
 ﻿var custom = (function () {
     // magical number: pixels from end where fire infinite scroll event
     let pixels = 5;
+    let currentPage = 0;
 
     $(".button-collapse").sideNav();
 
@@ -8,11 +9,11 @@
     $('.carousel-slider').slider({ full_width: true });
 
     let requester = {
-        get(url, body, headers) {
+        post(url, body, headers) {
             let promise = new Promise((resolve, reject) => {
                 $.ajax({
                     url,
-                    method: "GET",
+                    method: "POST",
                     headers,
                     contentType: 'application/json',
                     data: JSON.stringify(body),
@@ -54,7 +55,7 @@
         page = page || 0;
         createItemCallback = createItemCallback || defaultCreateItemCallback;
 
-        requester.get(url, { page: page })
+        requester.post(url, { page: page })
             .then(data => {
                 data.data.forEach(x => {
                     let element = createItemCallback(x);
@@ -66,9 +67,8 @@
     };
 
     let infiniteScroll = function (selector, url, createItemCallback) {
-        let currentPage = 1;
 
-        addItems(selector, url, createItemCallback)
+        addItems(selector, url, currentPage, createItemCallback)
 
         $(window).scroll(function () {
             if ($(window).scrollTop() + $(window).height() > $(document).height() - pixels) {

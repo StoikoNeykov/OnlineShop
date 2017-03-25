@@ -12,8 +12,6 @@ namespace OnlineShop.Clients.MVC.Areas.Admin.Models
         [RegularExpression(Validation.Regexs.EnBgNumSpaceMinus)]
         public string ProductId { get; set; }
 
-        public bool IsDeleted { get; set; }
-
         [Required]
         [MinLength(Validation.ProductValidations.NameMinLenght)]
         [MaxLength(Validation.ProductValidations.NameMaxLenght)]
@@ -24,5 +22,14 @@ namespace OnlineShop.Clients.MVC.Areas.Admin.Models
         public decimal Price { get; set; }
 
         public int Count { get; set; }
+
+        [Required]
+        public string Photo1 { get; set; }
+
+        public string Photo2 { get; set; }
+
+        public string Photo3 { get; set; }
+
+        public string Photo4 { get; set; }
     }
 }

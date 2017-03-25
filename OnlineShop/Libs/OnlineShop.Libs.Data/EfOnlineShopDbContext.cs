@@ -26,8 +26,6 @@ namespace OnlineShop.Libs.Data
 
         public virtual IDbSet<Product> Products { get; set; }
 
-        public virtual IDbSet<PhotoItem> PhotoItems { get; set; }
-
         public IDbSet<TEntity> GetSet<TEntity>() where TEntity : class, IDbModel
         {
             return base.Set<TEntity>();

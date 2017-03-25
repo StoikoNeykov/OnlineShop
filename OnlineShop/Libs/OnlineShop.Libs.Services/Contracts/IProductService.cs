@@ -6,5 +6,7 @@ namespace OnlineShop.Libs.Services.Contracts
     public interface IProductService : IService
     {
         IEnumerable<ProductSimpleDto> GetProducts(int page, int pageSize = 10);
+
+        void Add(AddProductDto product);
     }
 }
