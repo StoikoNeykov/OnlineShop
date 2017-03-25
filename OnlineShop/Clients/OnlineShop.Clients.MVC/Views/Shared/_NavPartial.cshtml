@@ -17,6 +17,10 @@
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        @if (User.IsInRole("admin"))
+                        {
+                            <li>@Html.ActionLink("Admin", "Index", "AdminHome" )</li>
+                        }
 
                         <li>@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
                         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
@@ -26,6 +30,10 @@
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        @if (User.IsInRole("admin"))
+                        {
+                            <li>@Html.ActionLink("Admin", "Index", "AdminHome")</li>
+                        }
 
                         <li>@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
                         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
