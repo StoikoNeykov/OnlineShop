@@ -9,33 +9,33 @@
 
             @if (Request.IsAuthenticated)
             {
-                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
                 {
                     @Html.AntiForgeryToken()
 
                     <ul class="right hide-on-med-and-down">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Home", "Index", "Home", routeValues: new { area = "" }, htmlAttributes: null)</li>
+                        <li>@Html.ActionLink("About", "About", "Home", routeValues: new { area = "" }, htmlAttributes: null)</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home", routeValues: new { area = "" }, htmlAttributes: null)</li>
                         @if (User.IsInRole("admin"))
                         {
                             <li>@Html.ActionLink("Admin", "Index", "AdminHome", routeValues: new { area = "Admin" }, htmlAttributes: new { })</li>
                         }
 
-                        <li>@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+                        <li>@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = "" }, htmlAttributes: new { title = "Manage" })</li>
                         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
                     </ul>
 
                     <ul class="side-nav" id="mobile-demo">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Home", "Index", "Home", routeValues: new { area = "" }, htmlAttributes: null)</li>
+                        <li>@Html.ActionLink("About", "About", "Home", routeValues: new { area = "" }, htmlAttributes: null)</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home", routeValues: new { area = "" }, htmlAttributes: null)</li>
                         @if (User.IsInRole("admin"))
                         {
                             <li>@Html.ActionLink("Admin", "Index", "AdminHome", routeValues: new { area = "Admin" }, htmlAttributes: new { })</li>
                         }
 
-                        <li>@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+                        <li>@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: new { area = "" }, htmlAttributes: new { title = "Manage" })</li>
                         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
                     </ul>
                 }
@@ -43,21 +43,21 @@
             else
             {
                 <ul class="right hide-on-med-and-down">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", routeValues: new { area = "" }, htmlAttributes: null)</li>
+                    <li>@Html.ActionLink("About", "About", "Home", routeValues: new { area = "" }, htmlAttributes: null)</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", routeValues: new { area = "" }, htmlAttributes: null)</li>
 
-                    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
+                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "loginLink" })</li>
                 </ul>
 
                 <ul class="side-nav" id="mobile-demo">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", routeValues: new { area = "" }, htmlAttributes: null)</li>
+                    <li>@Html.ActionLink("About", "About", "Home", routeValues: new { area = "" }, htmlAttributes: null)</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", routeValues: new { area = "" }, htmlAttributes: null)</li>
 
-                    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    <li>@Html.ActionLink("Register", "Register", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
+                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "loginLink" })</li>
                 </ul>
             }
         </div>

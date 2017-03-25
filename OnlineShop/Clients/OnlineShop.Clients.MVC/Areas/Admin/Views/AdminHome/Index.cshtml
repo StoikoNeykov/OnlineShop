@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="container">
+    <h2>AdminHome</h2>
 
-<h2>AdminHome</h2>
-
-@Html.ActionLink("AddProduct", "Add", "AdminProducts");
-
+    @Html.ActionLink("AddProduct", "Add", "AdminProducts", routeValues: new { area = "Admin" }, htmlAttributes: new { @class = "btn" })
+</div>
