@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿var custom = (function () {
     // magical number: pixels from end where fire infinite scroll event
     let pixels = 5;
 
@@ -30,17 +30,23 @@
     };
 
     let defaultCreateItemCallback = function (item) {
+        console.log(item);
+        let $sizedDiv = $('<div />').addClass('card-sizer');
         let $wrapper = $('<div />').addClass('card');
+        let $actionDiv = $('<div />').addClass('card-action');
         let $cardImageDiv = $('<div />').addClass('card-image');
-        let $img = $('<img>').attr('src', item.url);
-        let $titleSpan = $('< span />').addClass('card-title').val(item.title);
-        let $link = $('<a />').attr('href', item.link);
+        let $img = $('<img>').attr('src', item.ImageUrl);
+        let $titleSpan = $('<span />').addClass('card-title').val(item.Name);
+        let $link = $('<a />').prop('href', item.Link).text(item.Name);
 
         $cardImageDiv.append($img);
         $cardImageDiv.append($titleSpan);
-        $cardImageDiv.append($link);
+        $actionDiv.append($link);
 
         $wrapper.append($cardImageDiv);
+        $wrapper.append($actionDiv);
+        $sizedDiv.append($wrapper);
+        return $sizedDiv;
     };
 
     let addItems = function (selector, url, page, createItemCallback) {
@@ -50,9 +56,9 @@
 
         requester.get(url, { page: page })
             .then(data => {
-                data.data.ForEach(x => {
+                data.data.forEach(x => {
                     let element = createItemCallback(x);
-
+                    
                     $items.append(element);
                 });
             })
@@ -60,7 +66,9 @@
     };
 
     let infiniteScroll = function (selector, url, createItemCallback) {
-        let currentPage = 0;
+        let currentPage = 1;
+
+        addItems(selector, url, createItemCallback)
 
         $(window).scroll(function () {
             if ($(window).scrollTop() + $(window).height() > $(document).height() - pixels) {
@@ -69,4 +77,8 @@
             }
         });
     };
-});
+
+    return {
+        infiniteScroll
+    };
+})();

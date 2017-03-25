@@ -1,5 +1,6 @@
 ﻿using Bytes2you.Validation;
 using OnlineShop.Libs.Data.Contracts;
+using OnlineShop.Libs.DtoModels;
 using OnlineShop.Libs.Models;
 using OnlineShop.Libs.Services.Contracts;
 using System.Collections.Generic;
@@ -7,24 +8,32 @@ using System.Linq;
 
 namespace OnlineShop.Libs.Services
 {
-    public class ProductService : IProductService
+    public class ProductService : IProductService, IService
     {
         private readonly IEfQuerable<Product> products;
 
-        public ProductService(IEfDataProvider dataProvider)
+        public ProductService(IEfQuerable<Product> products)
         {
-            Guard.WhenArgument(dataProvider, nameof(dataProvider)).IsNull().Throw();
+            Guard.WhenArgument(products, nameof(products)).IsNull().Throw();
 
-            this.products = dataProvider.Products;
+            this.products = products;
         }
 
-        public IEnumerable<Product> GetProducts(int page, int pageSize = 10)
+        public IEnumerable<ProductSimpleDto> GetProducts(int page, int pageSize = 10)
         {
             return this.products
-                .GetAvailabe
-                .Where(x => x.Count > 0)
+                .Include(x => x.Photos)
+                .Where(x => x.IsDeleted == false && x.Count > 0)
                 .Skip(page * pageSize)
                 .Take(pageSize)
+                .Select(x => new ProductSimpleDto
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Price = x.Price,
+                    ImageUrl = x.Photos.First().SmallSizeUrl,
+                    Link = @"/products/" + x.Name
+                })
                 .ToList();
         }
     }

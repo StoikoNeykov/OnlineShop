@@ -24,7 +24,10 @@ namespace OnlineShop.Libs.Data
             this.entryProvider = dbContext;
         }
 
-        public IQueryable<TEntity> GetAvailabe => this.dbSet.Where(x => x.IsDeleted == false);
+        public virtual IQueryable<TEntity> Include<TProperty>(Expression<Func<TEntity, TProperty>> include)
+        {
+            return this.dbSet.Include(include);
+        }
 
         public virtual TEntity FindByKey(params object[] keyValues)
         {

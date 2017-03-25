@@ -62,18 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContractsTests\IOnlineShopDbContext_Should.cs" />
-    <Compile Include="EfDataProviderTests\Categories_Should.cs" />
-    <Compile Include="EfDataProviderTests\Constructor_Should.cs" />
-    <Compile Include="EfDataProviderTests\PhotoItems_Should.cs" />
-    <Compile Include="EfDataProviderTests\Products_Should.cs" />
-    <Compile Include="EfDataProviderTests\SaveChangesAsync_Should.cs" />
-    <Compile Include="EfDataProviderTests\SaveChanges_Should.cs" />
     <Compile Include="EfQuerableTasts\Add_Should.cs" />
     <Compile Include="EfQuerableTasts\Constructor_Should.cs" />
     <Compile Include="EfQuerableTasts\ElementType_Should.cs" />
     <Compile Include="EfQuerableTasts\Expression_Should.cs" />
     <Compile Include="EfQuerableTasts\FindByKey_Should.cs" />
-    <Compile Include="EfQuerableTasts\GetAvailable_Should.cs" />
     <Compile Include="EfQuerableTasts\GetEnumerator_Should.cs" />
     <Compile Include="EfQuerableTasts\Provider_Should.cs" />
     <Compile Include="EfQuerableTasts\Remove_Should.cs" />

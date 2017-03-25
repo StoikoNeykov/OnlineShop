@@ -25,3 +25,13 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.card-sizer {
+    float: left;
+    margin: 10px;
+    width: 250px;
+}
+
+footer {
+    clear: both;
+}

@@ -11,6 +11,8 @@ namespace OnlineShop.Clients.MVC.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using OnlineShop.Configuration.Common.Constants;
+    using System.Reflection;
+    using OnlineShop.Configuration.NinjectConfigs;
 
     public static class NinjectWebCommon 
     {
@@ -62,7 +64,9 @@ namespace OnlineShop.Clients.MVC.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Load(AssemblyNames.NinjectConfigAssemblyName);
+            kernel.Load(new ConfigurationProvidersNinJectModule());
+            kernel.Load(new DataNinjectModule());
+            kernel.Load(new ServicesNinjectModule());
         }        
     }
 }

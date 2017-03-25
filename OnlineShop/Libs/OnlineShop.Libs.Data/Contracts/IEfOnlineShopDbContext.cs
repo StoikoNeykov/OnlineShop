@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineShop.Libs.Data.Contracts
 {
-    public interface IEfOnlineShopDbContext : IEfEntryProvider
+    public interface IEfOnlineShopDbContext : IEfEntryProvider, IEfUnitOfWork
     {
         IDbSet<TEntity> GetSet<TEntity>() where TEntity : class, IDbModel;
         

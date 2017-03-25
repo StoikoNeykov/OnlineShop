@@ -5,7 +5,7 @@ using System.Data.Entity;
 
 namespace OnlineShop.Libs.Data
 {
-    public class EfOnlineShopDbContext : DbContext, IEfOnlineShopDbContext
+    public class EfOnlineShopDbContext : DbContext, IEfOnlineShopDbContext, IEfUnitOfWork
     {
         // needed for add-migration 
 

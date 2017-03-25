@@ -6,7 +6,6 @@ using Ninject;
 using OnlineShop.ConfigurationProviders.Contracts;
 using Ninject.Parameters;
 using Ninject.Extensions.Factory;
-using OnlineShop.Libs.Data.Factories;
 using OnlineShop.Libs.Models.Contracts;
 
 namespace OnlineShop.Configuration.NinjectConfigs
@@ -31,8 +30,7 @@ namespace OnlineShop.Configuration.NinjectConfigs
                                     return db;
                                 }).InRequestScope();
 
-            this.Kernel.Bind(typeof(IEfQuerable<>)).To(typeof(EfQuerable<>))
-                    .InRequestScope().NamedLikeFactoryMethod((IEfQuerableFactory fac) => fac.GetQuerable<IDbModel>(null));
+            this.Kernel.Bind(typeof(IEfQuerable<>)).To(typeof(EfQuerable<>)).InRequestScope();
         }
     }
 }

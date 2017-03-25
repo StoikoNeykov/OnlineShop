@@ -1,10 +1,10 @@
-﻿using OnlineShop.Libs.Models;
+﻿using OnlineShop.Libs.DtoModels;
 using System.Collections.Generic;
 
 namespace OnlineShop.Libs.Services.Contracts
 {
     public interface IProductService : IService
     {
-        IEnumerable<Product> GetProducts(int page, int pageSize = 10);
+        IEnumerable<ProductSimpleDto> GetProducts(int page, int pageSize = 10);
     }
 }

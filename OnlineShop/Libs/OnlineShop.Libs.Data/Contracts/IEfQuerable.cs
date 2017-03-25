@@ -1,17 +1,15 @@
 ﻿using OnlineShop.Libs.Models.Contracts;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace OnlineShop.Libs.Data.Contracts
 {
     public interface IEfQuerable<TEntity> : IQueryable<TEntity>, IEnumerable<TEntity>, IQueryable, IEnumerable where TEntity : class, IDbModel
     {
-        /// <summary>
-        /// Expose only element with IsDeleted == false
-        /// </summary>
-        /// <returns></returns>
-        IQueryable<TEntity> GetAvailabe { get; }
+        IQueryable<TEntity> Include<TProperty>(Expression<Func<TEntity, TProperty>> include);
 
         //
         // Summary:
