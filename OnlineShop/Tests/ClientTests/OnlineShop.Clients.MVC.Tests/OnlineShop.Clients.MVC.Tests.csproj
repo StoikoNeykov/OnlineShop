@@ -74,6 +74,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControllersTests\ApControllerTests\Constructor_Should.cs" />
+    <Compile Include="ControllersTests\ApControllerTests\Products_Should.cs" />
     <Compile Include="ControllersTests\ErrorControllerTests\BadRequest_Should.cs" />
     <Compile Include="ControllersTests\ErrorControllerTests\Index_Should.cs" />
     <Compile Include="ControllersTests\ErrorControllerTests\NotFound_Should.cs" />
@@ -93,6 +95,14 @@
     <ProjectReference Include="..\..\..\Configuration\OnlineShop.Configuration.Common\OnlineShop.Configuration.Common.csproj">
       <Project>{2FAE6574-3040-42ED-BD5C-E5EAB0E87668}</Project>
       <Name>OnlineShop.Configuration.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libs\OnlineShop.Libs.DtoModels\OnlineShop.Libs.DtoModels.csproj">
+      <Project>{B5B5FC00-D166-4132-BF1E-1BDFCCB950CB}</Project>
+      <Name>OnlineShop.Libs.DtoModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libs\OnlineShop.Libs.Services\OnlineShop.Libs.Services.csproj">
+      <Project>{6712E170-5DAC-45EE-8963-91C5F4C7003B}</Project>
+      <Name>OnlineShop.Libs.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
