@@ -24,7 +24,6 @@ namespace OnlineShop.Clients.MVC.Controllers
 
             var product = this.productService.GetByName(name);
 
-
             return View(product);
         }
     }

@@ -84,6 +84,7 @@
     <Compile Include="ControllersTests\HomeControllerTests\About_Should.cs" />
     <Compile Include="ControllersTests\HomeControllerTests\Basic_Should.cs" />
     <Compile Include="ControllersTests\HomeControllerTests\Contact_Should.cs" />
+    <Compile Include="ControllersTests\ProductControllerTests\Constructor_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
