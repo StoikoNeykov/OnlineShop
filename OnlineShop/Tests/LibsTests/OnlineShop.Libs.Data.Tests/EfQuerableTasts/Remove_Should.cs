@@ -28,5 +28,22 @@ namespace OnlineShop.Libs.Data.Tests.EfQuerableTasts
             // Assert
             mockedDbSet.Verify(x => x.Remove(mockedDbModel), Times.Once);
         }
+
+        [Test]
+        public void Throw_ArgumentNullException_WIthProperMessage_WhenEntity_IsNull()
+        {
+            // Arange
+            var mockedDbSet = new Mock<IDbSet<DimmyClass>>();
+
+            var mockedDbContext = new Mock<IEfOnlineShopDbContext>();
+            mockedDbContext.Setup(x => x.GetSet<DimmyClass>()).Returns(mockedDbSet.Object);
+
+            var obj = new EfQuerable<DimmyClass>(mockedDbContext.Object);
+
+            // Act & Assert
+            Assert.That(() => obj.Remove(null),
+                            Throws.ArgumentNullException.With.Message.Contains("entity"));
+
+        }
     }
 }

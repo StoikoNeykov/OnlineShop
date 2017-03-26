@@ -26,6 +26,8 @@ namespace OnlineShop.Libs.Data
 
         public virtual IQueryable<TEntity> Include<TProperty>(Expression<Func<TEntity, TProperty>> include)
         {
+            Guard.WhenArgument(include, nameof(include)).IsNull().Throw();
+
             return this.dbSet.Include(include);
         }
 
@@ -36,6 +38,8 @@ namespace OnlineShop.Libs.Data
 
         public virtual TEntity Add(TEntity entity)
         {
+            Guard.WhenArgument(entity, nameof(entity)).IsNull().Throw();
+
             return this.dbSet.Add(entity);
         }
 
@@ -46,6 +50,8 @@ namespace OnlineShop.Libs.Data
         /// <param name="entity">Entity to hide</param>
         public virtual void Hide(TEntity entity)
         {
+            Guard.WhenArgument(entity, nameof(entity)).IsNull().Throw();
+            
             var entry = this.AttachIfDetached(entity);
 
             entity.IsDeleted = true;
@@ -55,6 +61,8 @@ namespace OnlineShop.Libs.Data
 
         public virtual TEntity Remove(TEntity entity)
         {
+            Guard.WhenArgument(entity, nameof(entity)).IsNull().Throw();
+            
             return this.dbSet.Remove(entity);
         }
 
