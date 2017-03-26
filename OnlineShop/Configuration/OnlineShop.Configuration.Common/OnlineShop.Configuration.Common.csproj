@@ -43,6 +43,7 @@
     <Compile Include="Constants\AssemblyNames.cs" />
     <Compile Include="Constants\LocationConstants.cs" />
     <Compile Include="Constants\TablesNames.cs" />
+    <Compile Include="Constants\TextConstants.cs" />
     <Compile Include="Constants\Validation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
