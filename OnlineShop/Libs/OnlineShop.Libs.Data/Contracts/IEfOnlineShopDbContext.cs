@@ -9,10 +9,6 @@ namespace OnlineShop.Libs.Data.Contracts
     public interface IEfOnlineShopDbContext : IEfEntryProvider, IEfUnitOfWork
     {
         IDbSet<TEntity> GetSet<TEntity>() where TEntity : class, IDbModel;
-        
-        Task<int> SaveChangesAsync();
-
-        int SaveChanges();
 
         IDbSet<Category> Categories { get; }
 

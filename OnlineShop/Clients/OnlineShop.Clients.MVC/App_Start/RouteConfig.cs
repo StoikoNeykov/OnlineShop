@@ -12,9 +12,15 @@ namespace OnlineShop.Clients.MVC
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "shorUrl",
+                url: "{ProductId}",
+                defaults: new { controller = "Product", action = "Single" }
+                );
+
+            routes.MapRoute(
                 name: "Ap-get",
                 url: "ap/products/{page}",
-                defaults: new { controller = "Ap", action = "Products", id = UrlParameter.Optional }
+                defaults: new { controller = "Ap", action = "Products", page = UrlParameter.Optional }
             );
 
             routes.MapRoute(
