@@ -57,6 +57,7 @@
     <Compile Include="ProductServiceTests\Add_Should.cs" />
     <Compile Include="ProductServiceTests\Constructor_Should.cs" />
     <Compile Include="ProductServiceTests\GetByName_Should.cs" />
+    <Compile Include="ProductServiceTests\GetProducts_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

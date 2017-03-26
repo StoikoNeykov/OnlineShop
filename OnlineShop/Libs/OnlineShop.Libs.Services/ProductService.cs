@@ -28,7 +28,7 @@ namespace OnlineShop.Libs.Services
         public IEnumerable<ProductSimpleDto> GetProducts(int page, int pageSize = 10)
         {
             Guard.WhenArgument(page, nameof(page)).IsLessThan(0).Throw();
-            Guard.WhenArgument(pageSize, nameof(pageSize)).IsGreaterThanOrEqual(0).Throw();
+            Guard.WhenArgument(pageSize, nameof(pageSize)).IsLessThanOrEqual(0).Throw();
 
             return this.products
                 .Where(x => x.IsDeleted == false && x.Count > 0)
