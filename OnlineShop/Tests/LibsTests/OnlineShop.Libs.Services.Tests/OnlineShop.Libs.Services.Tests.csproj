@@ -54,7 +54,9 @@
     <Compile Include="Helpers\StringGenerator.cs" />
     <Compile Include="MapperServiceTests\MapToSimple_Should.cs" />
     <Compile Include="MapperServiceTests\Map_Should.cs" />
+    <Compile Include="ProductServiceTests\Add_Should.cs" />
     <Compile Include="ProductServiceTests\Constructor_Should.cs" />
+    <Compile Include="ProductServiceTests\GetByName_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

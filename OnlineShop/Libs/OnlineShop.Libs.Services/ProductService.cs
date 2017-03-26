@@ -27,6 +27,9 @@ namespace OnlineShop.Libs.Services
 
         public IEnumerable<ProductSimpleDto> GetProducts(int page, int pageSize = 10)
         {
+            Guard.WhenArgument(page, nameof(page)).IsLessThan(0).Throw();
+            Guard.WhenArgument(pageSize, nameof(pageSize)).IsGreaterThanOrEqual(0).Throw();
+
             return this.products
                 .Where(x => x.IsDeleted == false && x.Count > 0)
                 .OrderBy(x => x.ProductId)
@@ -38,6 +41,8 @@ namespace OnlineShop.Libs.Services
 
         public void Add(ProductDto product)
         {
+            Guard.WhenArgument(product, nameof(product)).IsNull().Throw();
+
             this.products.Add(this.mapperService.Map(product));
 
             this.unitOfWork.SaveChanges();
@@ -45,6 +50,11 @@ namespace OnlineShop.Libs.Services
 
         public ProductDto GetByName(string name)
         {
+            if (string.IsNullOrEmpty(name))
+            {
+                return null;
+            }
+
             return this.mapperService.Map(this.products
                         .FirstOrDefault(x => x.Name == name));
         }
