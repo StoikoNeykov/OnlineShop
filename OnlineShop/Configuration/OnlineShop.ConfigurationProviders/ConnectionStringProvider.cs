@@ -1,6 +1,7 @@
 ﻿using System;
 using OnlineShop.ConfigurationProviders.Contracts;
 using System.Configuration;
+using Bytes2you.Validation;
 
 namespace OnlineShop.ConfigurationProviders
 {
@@ -10,10 +11,7 @@ namespace OnlineShop.ConfigurationProviders
 
         public ConnectionStringProvider(IEnvoirmentProvider envoirmentProvider)
         {
-            if (envoirmentProvider == null)
-            {
-                throw new ArgumentNullException("EnvoirmentProvider");
-            }
+            Guard.WhenArgument(envoirmentProvider, nameof(envoirmentProvider)).IsNull().Throw();
 
             this.envoirmentProvider = envoirmentProvider;
         }
