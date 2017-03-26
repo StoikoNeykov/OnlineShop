@@ -13,7 +13,7 @@ namespace OnlineShop.Clients.MVC
 
             routes.MapRoute(
                 name: "shorUrl",
-                url: "{ProductId}",
+                url: "{name}",
                 defaults: new { controller = "Product", action = "Single" }
                 );
 

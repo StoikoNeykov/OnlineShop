@@ -12,14 +12,17 @@ namespace OnlineShop.Libs.Services
     {
         private readonly IEfQuerable<Product> products;
         private readonly IEfUnitOfWork unitOfWork;
+        private readonly IMapperService mapperService;
 
-        public ProductService(IEfQuerable<Product> products, IEfUnitOfWork unitOfWork)
+        public ProductService(IEfQuerable<Product> products, IEfUnitOfWork unitOfWork, IMapperService mapperService)
         {
             Guard.WhenArgument(products, nameof(products)).IsNull().Throw();
             Guard.WhenArgument(unitOfWork, nameof(unitOfWork)).IsNull().Throw();
+            Guard.WhenArgument(mapperService, nameof(mapperService)).IsNull().Throw();
 
             this.products = products;
             this.unitOfWork = unitOfWork;
+            this.mapperService = mapperService;
         }
 
         public IEnumerable<ProductSimpleDto> GetProducts(int page, int pageSize = 10)
@@ -29,32 +32,21 @@ namespace OnlineShop.Libs.Services
                 .OrderBy(x => x.ProductId)
                 .Skip(page * pageSize)
                 .Take(pageSize)
-                .Select(x => new ProductSimpleDto
-                {
-                    Id = x.ProductId,
-                    Name = x.Name,
-                    Price = x.Price,
-                    ImageUrl = x.Photo1,
-                    Link = @"/products/" + x.Name
-                })
-                .ToList();
+                .ToList()
+                .Select(x => this.mapperService.MapToSimple(x));
         }
 
-        public void Add(AddProductDto product)
+        public void Add(ProductDto product)
         {
-            this.products.Add(new Product()
-            {
-                ProductId = product.ProductId,
-                Name = product.Name,
-                Count = product.Count,
-                Price = product.Price,
-                Photo1 = product.Photo1,
-                Photo2 = product.Photo2,
-                Photo3 = product.Photo3,
-                Photo4 = product.Photo4
-            });
+            this.products.Add(this.mapperService.Map(product));
 
             this.unitOfWork.SaveChanges();
+        }
+
+        public ProductDto GetByName(string name)
+        {
+            return this.mapperService.Map(this.products
+                        .FirstOrDefault(x => x.Name == name));
         }
     }
 }

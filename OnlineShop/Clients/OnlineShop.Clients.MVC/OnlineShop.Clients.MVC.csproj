@@ -311,13 +311,13 @@
     <Content Include="Views\Shared\_NavPartial.cshtml" />
     <Content Include="Views\Shared\_CarouselPartial.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Product\Single.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Admin\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Views\Api\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

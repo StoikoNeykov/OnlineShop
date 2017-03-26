@@ -7,6 +7,8 @@ namespace OnlineShop.Libs.Services.Contracts
     {
         IEnumerable<ProductSimpleDto> GetProducts(int page, int pageSize = 10);
 
-        void Add(AddProductDto product);
+        void Add(ProductDto product);
+
+        ProductDto GetByName(string name);
     }
 }

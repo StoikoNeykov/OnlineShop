@@ -30,7 +30,7 @@ namespace OnlineShop.Clients.MVC.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var productToAdd = new AddProductDto()
+                var productToAdd = new ProductDto()
                 {
                     ProductId = product.ProductId,
                     Name = product.Name,

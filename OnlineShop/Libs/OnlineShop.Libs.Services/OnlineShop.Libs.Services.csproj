@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IMapperService.cs" />
     <Compile Include="Contracts\IProductService.cs" />
     <Compile Include="Contracts\IService.cs" />
+    <Compile Include="MapperService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

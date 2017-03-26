@@ -1,6 +1,6 @@
 ﻿namespace OnlineShop.Libs.DtoModels
 {
-    public class AddProductDto
+    public class ProductDto
     {
         public string ProductId { get; set; }
 

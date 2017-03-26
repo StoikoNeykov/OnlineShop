@@ -11,6 +11,7 @@ namespace OnlineShop.Configuration.NinjectConfigs
         public override void Load()
         {
             this.Kernel.Bind<IProductService>().To<ProductService>().InRequestScope();
+            this.Kernel.Bind<IMapperService>().To<MapperService>().InRequestScope();
 
             //this.Kernel.Bind(x =>
             //        x.FromAssemblyContaining<IService>()

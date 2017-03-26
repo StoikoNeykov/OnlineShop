@@ -35,8 +35,8 @@
         let $sizedDiv = $('<div />').addClass('card-sizer');
         let $wrapper = $('<div />').addClass('card');
         let $actionDiv = $('<div />').addClass('card-action');
-        let $cardImageDiv = $('<div />').addClass('card-image');
-        let $img = $('<img>').attr('src', item.ImageUrl);
+        let $cardImageDiv = $('<div />').addClass('card-image align-center');
+        let $img = $('<img>').attr('src', item.ImageUrl).addClass('card-image-sizer');
         let $titleSpan = $('<span />').addClass('card-title').val(item.Name);
         let $link = $('<a />').prop('href', item.Link).text(item.Name);
 

@@ -32,6 +32,28 @@ textarea {
     width: 250px;
 }
 
+.card-image-sizer {
+    height:200px;
+    max-width:200px;
+}
+
 footer {
     clear: both;
 }
+
+.main-image-container {
+    width:300px;
+}
+
+    .main-image-container .single-item-main-image {
+        width: 100%;
+    }
+
+.images-container{
+    height:100%;
+    width:300px;
+} 
+    .images-container .single-item-image {
+        width: 33%;
+        float:left;
+    }

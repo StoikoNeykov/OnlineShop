@@ -1,0 +1,28 @@
+﻿@model OnlineShop.Libs.DtoModels.ProductDto
+
+@{
+    ViewBag.Title = "Single";
+}
+<div class="container">
+    <h2>@Model.Name</h2>
+    <div class="main-image-container">
+        <img class="single-item-main-image materialboxed" src="@Model.Photo1" />
+    </div>
+    <br />
+    <div class="images-container">
+        @if (!string.IsNullOrEmpty(Model.Photo2))
+        {
+            <img class="single-item-image materialboxed" src="@Model.Photo2" />
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Photo3))
+        {
+            <img class="single-item-image materialboxed" src="@Model.Photo3" />
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Photo4))
+        {
+            <img class="single-item-image materialboxed" src="@Model.Photo4" />
+        }
+    </div>
+</div>
