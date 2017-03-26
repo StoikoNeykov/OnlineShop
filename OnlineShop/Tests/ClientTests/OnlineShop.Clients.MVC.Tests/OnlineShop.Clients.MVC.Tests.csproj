@@ -81,6 +81,9 @@
     <Compile Include="ControllersTests\ErrorControllerTests\NotFound_Should.cs" />
     <Compile Include="ControllersTests\ErrorControllerTests\ServerError_Should.cs" />
     <Compile Include="ControllersTests\ErrorControllerTests\Unauthorized_Should.cs" />
+    <Compile Include="ControllersTests\HomeControllerTests\About_Should.cs" />
+    <Compile Include="ControllersTests\HomeControllerTests\Basic_Should.cs" />
+    <Compile Include="ControllersTests\HomeControllerTests\Contact_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
