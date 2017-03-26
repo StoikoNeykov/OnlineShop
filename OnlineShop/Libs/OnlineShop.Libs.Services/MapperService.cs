@@ -1,4 +1,5 @@
-﻿using OnlineShop.Libs.DtoModels;
+﻿using Bytes2you.Validation;
+using OnlineShop.Libs.DtoModels;
 using OnlineShop.Libs.Models;
 using OnlineShop.Libs.Services.Contracts;
 
@@ -8,6 +9,8 @@ namespace OnlineShop.Libs.Services
     {
         public ProductDto Map(Product product)
         {
+            Guard.WhenArgument(product, nameof(product)).IsNull().Throw();
+
             return new ProductDto()
             {
                 ProductId = product.ProductId,
@@ -23,6 +26,8 @@ namespace OnlineShop.Libs.Services
 
         public Product Map(ProductDto product)
         {
+            Guard.WhenArgument(product, nameof(product)).IsNull().Throw();
+
             return new Product()
             {
                 ProductId = product.ProductId,
@@ -38,6 +43,8 @@ namespace OnlineShop.Libs.Services
 
         public ProductSimpleDto MapToSimple(Product product)
         {
+            Guard.WhenArgument(product, nameof(product)).IsNull().Throw();
+
             return new ProductSimpleDto
             {
                 Id = product.ProductId,

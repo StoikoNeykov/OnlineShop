@@ -49,10 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\ProductGenerator.cs" />
     <Compile Include="Helpers\QuerableMock.cs" />
+    <Compile Include="Helpers\StringGenerator.cs" />
+    <Compile Include="MapperServiceTests\MapToSimple_Should.cs" />
+    <Compile Include="MapperServiceTests\Map_Should.cs" />
     <Compile Include="ProductServiceTests\Constructor_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TemporaryClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -64,6 +67,10 @@
     <ProjectReference Include="..\..\..\Libs\OnlineShop.Libs.Data\OnlineShop.Libs.Data.csproj">
       <Project>{136BC4F8-1CC5-44D0-82FE-9DD8BEA8BC58}</Project>
       <Name>OnlineShop.Libs.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libs\OnlineShop.Libs.DtoModels\OnlineShop.Libs.DtoModels.csproj">
+      <Project>{B5B5FC00-D166-4132-BF1E-1BDFCCB950CB}</Project>
+      <Name>OnlineShop.Libs.DtoModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Libs\OnlineShop.Libs.Models\OnlineShop.Libs.Models.csproj">
       <Project>{E1AC735E-D1E5-4A24-97B5-C8D0493076AF}</Project>
