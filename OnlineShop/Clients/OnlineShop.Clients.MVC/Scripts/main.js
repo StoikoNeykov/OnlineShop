@@ -33,7 +33,7 @@
     let defaultCreateItemCallback = function (item) {
         console.log(item);
         let $sizedDiv = $('<div />').addClass('card-sizer');
-        let $wrapper = $('<div />').addClass('card');
+        let $wrapper = $('<div />').addClass('card hoverable');
         let $actionDiv = $('<div />').addClass('card-action');
         let $cardImageDiv = $('<div />').addClass('card-image align-center');
         let $img = $('<img>').attr('src', item.ImageUrl).addClass('card-image-sizer');

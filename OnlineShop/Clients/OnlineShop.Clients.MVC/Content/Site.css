@@ -1,5 +1,6 @@
 ﻿body {
     padding-bottom: 20px;
+    background-image: url("Images/background.jpg");
 }
 
     body .my-carousel-container {
@@ -10,6 +11,9 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.container {
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -33,27 +37,43 @@ textarea {
 }
 
 .card-image-sizer {
-    height:200px;
-    max-width:200px;
+    height: 200px;
+    max-width: 200px;
 }
 
 footer {
+    margin-top: 15px;
     clear: both;
 }
 
 .main-image-container {
-    width:300px;
+    width: 300px;
 }
 
     .main-image-container .single-item-main-image {
         width: 100%;
     }
 
-.images-container{
-    height:100%;
-    width:300px;
-} 
+.images-container {
+    height: 100%;
+    width: 300px;
+}
+
     .images-container .single-item-image {
-        width: 33%;
-        float:left;
+        margin-right: 3%;
+        padding-right: 1%;
+        width: 30%;
+        float: left;
     }
+
+.inline-block {
+    display: inline-block;
+}
+
+.vertical-align-top {
+    vertical-align: top;
+}
+
+.margin-15 {
+    margin: 15px;
+}
